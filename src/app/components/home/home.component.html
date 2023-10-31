@@ -1,0 +1,17 @@
+<main>
+    <div class="recomendations">
+        <h2>Recomendaciones del día</h2>
+        <div class="contenedor">
+            <div class="libro" *ngFor="let item of listadoLibros">
+                <a href="">
+                   <img [src]="item.image_url" alt="{{ item.title }}"> 
+                </a>
+                <div class="product">
+                    <h3>{{item.title}}</h3>
+                    <p>$15000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

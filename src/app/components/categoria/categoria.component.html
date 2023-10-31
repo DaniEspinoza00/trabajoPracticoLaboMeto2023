@@ -1,0 +1,22 @@
+<main>
+    <section class="contenedor-principal">
+        <div class="filter-container">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="contenedor-lista-libros">
+            <h2>Todos nuestros libros</h2>
+            <div class="lista-libros">
+                <div class="libro" *ngFor="let item of listadoLibrosFiltrados">
+                    <a href="">
+                        <img class="imagen-libro" [src]="item.image_url" alt="{{ item.title }}">
+                    </a>
+                    <div class="product">
+                        <h3>{{item.title}}</h3>
+                        <p>$15000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
