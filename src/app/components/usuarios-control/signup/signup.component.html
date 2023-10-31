@@ -1,0 +1,23 @@
+<form action="" id="registrarse">
+    <label>
+        <p>Ingrese su nombre
+        <input type="text" id="nombre"  required>
+      </p>
+      <p>Ingrese su apellido
+        <input type="text" id="apellido" required>
+      </p>
+      <p>Ingrese su correo electrónico
+        <input type="text" id="mail"  required>
+      </p>
+      <p>Ingrese su contraseña
+        <input type="text" id="contra" required>
+      </p>
+      <p>Ingrese su DNI
+        <input type="number" id="dni" required>
+      </p>
+      
+      <p>
+        <button type="submit" class="registroB" (click)="registrar($event)">Registrarse</button>
+        <button type="button" (click)="cambio()">Iniciar Sesión</button>
+      </p>
+    </label>

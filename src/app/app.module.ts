@@ -14,7 +14,14 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { CategoriaPageComponent } from './pages/categoria-page/categoria-page.component';
-
+import { LoginComponent } from './components/usuarios-control/login/login.component';
+import { AccessManagerComponent } from './components/usuarios-control/access-manager/access-manager.component';
+import { DataManagerComponent } from './components/usuarios-control/data-manager/data-manager.component';
+import { EliminarComponent } from './components/usuarios-control/eliminar/eliminar.component';
+import { ModificacionComponent } from './components/usuarios-control/modificacion/modificacion.component';
+import { SignupComponent } from './components/usuarios-control/signup/signup.component';
+import { UsuarioMenuComponent } from './components/usuarios-control/usuario-menu/usuario-menu.component';
+import { UsuarioPageComponent } from './pages/usuario-page/usuario-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +37,14 @@ import { CategoriaPageComponent } from './pages/categoria-page/categoria-page.co
     SidebarComponent,
     CategoriaComponent,
     CategoriaPageComponent,
+    LoginComponent,
+    SignupComponent,
+    AccessManagerComponent,
+    ModificacionComponent,
+    DataManagerComponent,
+    EliminarComponent,
+    UsuarioMenuComponent,
+    UsuarioPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,39 @@
+{
+    "usuarios": [
+      {
+        "id": 1,
+        "nombre": "Nacho",
+        "apellido": "Katz",
+        "mail": "katznacho@gmail.com",
+        "contra": "123"
+      },
+      {
+        "id": 2,
+        "nombre": "Yako",
+        "apellido": "Alegre",
+        "mail": "cola123",
+        "contra": "pollo"
+      },
+      {
+        "nombre": "Martin",
+        "apellido": "Bile",
+        "mail": "flecha@gmail.com",
+        "contra": "pelo",
+        "id": 4
+      },
+      {
+        "id": 5,
+        "nombre": "Patricia",
+        "apellido": "Alegre",
+        "mail": "bhvyv",
+        "contra": ".bvjcvu"
+      },
+      {
+        "id": 3,
+        "nombre": "Moni",
+        "apellido": "Chan",
+        "mail": "Phe",
+        "contra": "Ros"
+      }
+    ]
+  }

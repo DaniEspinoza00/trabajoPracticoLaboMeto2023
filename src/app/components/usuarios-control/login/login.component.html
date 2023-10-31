@@ -1,0 +1,12 @@
+<form action="" id="inicioSesion">
+   
+    <p>Ingrese su correo electrónico
+      <input type="text" id="mail"  required>
+    </p>
+    <p>Ingrese su contraseña
+      <input type="text" id="contra" required>
+    </p>
+    <p>
+      <button type="submit" class="inicioB" (click)="inicioSesion($event)">Iniciar Sesión</button> 
+      <button type="button" (click)="cambio()">Registrarse</button>
+    </p>
