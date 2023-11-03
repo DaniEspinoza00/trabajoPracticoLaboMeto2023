@@ -11,8 +11,8 @@ export class LoginService {
   url:string="http://localhost:2000/usuarios"
   listaUsuarios:Usuario[] |undefined=[];
   usuarioLogueado:Usuario | undefined;
-  usuarioActual:Usuario = {id:0,nombre:'',apellido:'',mail:'',contra:'',documento:0,tarjetaCredito:false,favoritos:[]}
-  
+  usuarioVacio:Usuario = {id:0,nombre:'',apellido:'',mail:'',contra:'',documento:0,tarjetaCredito:false,favoritos:[]}
+  usuarioActual:Usuario=this.usuarioVacio
 
   constructor(private router:Router) {}
 
@@ -84,6 +84,7 @@ export class LoginService {
           headers: {'Content-type': 'application/json'}
         })
         this.usuarioActual=cambio;
+        console.log(this.usuarioActual)
         this.router.navigate(['home'])
     }catch(error){
       console.log(error)
@@ -129,6 +130,7 @@ export class LoginService {
           method:'DELETE',
           headers: {'Content-type': 'application/json'}
         })
+        this.usuarioActual=this.usuarioVacio
         this.router.navigate(['home'])
     }catch(error){
       console.log(error)

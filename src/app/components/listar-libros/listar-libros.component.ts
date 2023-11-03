@@ -21,6 +21,9 @@ export class ListarLibrosComponent implements OnInit {
   async mostrarLibros(){
     this.listadoLibros=await this.LibrosService.getLibros();
     console.log(this.listadoLibros);
+    if(this.listadoLibros){
+      this.LibrosService.listadoLibros=this.listadoLibros
+    }
   }
 
 

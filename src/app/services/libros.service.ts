@@ -7,7 +7,7 @@ import { Libro } from '../interfaces/libros';
 export class LibrosService {
 
   urlLibros:string='https://example-data.draftbit.com/books?_limit=100'
-
+  listadoLibros:Libro[]=[]
 
   constructor() { }
 

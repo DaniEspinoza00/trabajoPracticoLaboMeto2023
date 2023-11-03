@@ -18,7 +18,7 @@ export class EliminarComponent {
   }
 
   borrar(){
-    //Aca se deberia hacer que el usuario vuelva al inicio
+   
     this.loginService.borrarUsuarioActual();
     }
 }
