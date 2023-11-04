@@ -3,7 +3,7 @@
         <h2>Recomendaciones del día</h2>
         <div class="contenedor">
             <div class="libro" *ngFor="let item of listadoLibros">
-                <a href="">
+                <a href="" [routerLink]="['/producto',item.id]">
                    <img [src]="item.image_url" alt="{{ item.title }}"> 
                 </a>
                 <div class="product">
@@ -13,5 +13,4 @@
             </div>
         </div>
     </div>
-
 </main>

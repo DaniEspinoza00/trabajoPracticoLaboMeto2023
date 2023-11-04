@@ -19,11 +19,13 @@
     border-bottom-right-radius: 5px;
 }
 
-.imagen{
-    background-image: url(./fondo.png);
-    width: 15rem;
+.logo{
+    /* background-image: url(./fondo.png);
+    width: 10rem;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    width: 17rem;
+    height: 9rem;
 }
 
 header{
@@ -42,7 +44,7 @@ header{
 .search-container a{
     margin-left: .5rem;
     margin-right: .5rem;
-    text-decoration: none;
+
 }
 
 .links{
@@ -58,8 +60,3 @@ header{
     width: 70%;
 }
 
-.links a{
-    margin-right: 1rem;
-    color: rgba(233, 227, 227, 0.861);
-    text-decoration: none;
-}

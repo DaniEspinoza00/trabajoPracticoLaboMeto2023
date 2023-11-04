@@ -31,8 +31,4 @@ export class HomeComponent implements OnInit{
     }
   }
 
-  /* async mostrarLibros2(){
-    this.listadoLibros2=await this.LibrosService.getLibros2();
-    console.log(this.listadoLibros2);
-  } */
 }

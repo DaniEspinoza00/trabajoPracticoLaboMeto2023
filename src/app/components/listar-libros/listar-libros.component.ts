@@ -26,5 +26,8 @@ export class ListarLibrosComponent implements OnInit {
     }
   }
 
-
+  /* async mostrarLibros2(){
+    this.listadoLibros=await this.LibrosService.getLibros();
+  }
+ */
 }

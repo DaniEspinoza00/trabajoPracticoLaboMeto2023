@@ -1,0 +1,59 @@
+div{
+    width: 20rem;
+
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor{
+    padding-top: 4rem;
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    display: flex;
+    gap: 5rem;
+}
+
+.descripcion{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.boton-compra {
+    display: inline-block;
+    background-color: #76c879;
+    color: #fff;
+    padding: 20px 40px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+    border-radius: 10px;
+    font-size: x-large;
+}
+
+.boton-compra:hover {
+    background-color: #45a049; 
+    transition: background-color 0.3s; 
+}
+
+.metodos a{
+    margin-right: 2rem;
+}
+
+section{
+    border-top: 0.1em solid grey;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.sinopsis{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

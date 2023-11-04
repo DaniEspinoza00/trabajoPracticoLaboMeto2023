@@ -5,3 +5,10 @@ body{
     background-color: beige;
     font-family: 'Rubik', sans-serif;
 }
+a{
+    text-decoration: none;
+}
+.links a{
+    margin-right: 1rem;
+    color: rgba(233, 227, 227, 0.861);
+}

@@ -22,6 +22,8 @@ import { ModificacionComponent } from './components/usuarios-control/modificacio
 import { SignupComponent } from './components/usuarios-control/signup/signup.component';
 import { UsuarioMenuComponent } from './components/usuarios-control/usuario-menu/usuario-menu.component';
 import { UsuarioPageComponent } from './pages/usuario-page/usuario-page.component';
+import { ProductoComponent } from './components/producto/producto.component';
+import { ProductoPageComponent } from './pages/producto-page/producto-page.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { UsuarioPageComponent } from './pages/usuario-page/usuario-page.componen
     DataManagerComponent,
     EliminarComponent,
     UsuarioMenuComponent,
-    UsuarioPageComponent
+    UsuarioPageComponent,
+    ProductoComponent,
+    ProductoPageComponent
   ],
   imports: [
     BrowserModule,

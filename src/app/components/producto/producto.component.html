@@ -1,0 +1,35 @@
+<main>
+    <div class="contenedor">
+        <div>
+            <img [src]="libro2?.image_url" alt="{{ libro2?.title }}">
+        </div>
+        <div class="descripcion">
+            <div>
+                <h1>{{libro2?.title}}</h1>
+                <h4>{{libro2?.authors}}</h4>
+                <h2>{{'$ 8000'}}</h2>
+            </div>
+            <div class="metodos">
+                <a href="">Costo de Envio</a>
+                <a href="">Medios de Pago</a>
+            </div>
+            <div>
+                <a href="" class="boton-compra">COMPRAR</a>
+            </div>
+        </div>
+    </div>
+
+    <section >
+        <div class="descripcion2">
+            <span>DESCRIPCION</span>
+        </div>
+        <div class="sinopsis">
+            <h4>Sinopsis del Libro</h4>
+            <p>{{libro2?.description}}</p>
+        </div>
+    </section>
+    <section>
+        
+    </section>
+
+</main>

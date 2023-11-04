@@ -19,13 +19,6 @@ export class CategoriaComponent implements OnInit {
     this.mostrarLibrosPorCategoria();
   }
 
-  mostrarLibrosPorCategoria2(){
-    this.route.params.subscribe(async param =>{
-      const genre:string = param ['genre'];
-      this.listadoLibros = await this.LibrosService.getLibrosGenero(genre)
-    })
-  }
-
 
   mostrarLibrosPorCategoria(){
     this.route.params.subscribe(async param=>{
