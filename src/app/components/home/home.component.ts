@@ -1,6 +1,7 @@
 import { Libro } from 'src/app/interfaces/libros';
 import { LibrosService } from './../../services/libros.service';
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit{
 
-  constructor(private LibrosService:LibrosService){}
+  constructor(private LibrosService:LibrosService, private loginService: LoginService){}
 
   listadoLibros:Libro[] | undefined =[];
 
   ngOnInit(): void {
     this.mostrarLibros();
+    console.log(this.loginService.usuarioActual)
   }
 
   async mostrarLibros(){

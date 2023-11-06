@@ -150,6 +150,7 @@ export class LoginService {
           console.log(this.usuarioActual.nombre+" "+this.usuarioActual.apellido)
           flag=true;
           this.router.navigate(['home'])
+          
         }else{
           console.log(("Hubo error"))
         }
@@ -163,8 +164,8 @@ export class LoginService {
 verificarMail(user: Usuario){
   var flag:boolean=false;
   if(this.listaUsuarios){ 
-  for(var i:number=0;i<this.listaUsuarios.length && !flag;i++){
-    if (user.mail=this.listaUsuarios[i].mail){
+  for(var i:number=0;i<this.listaUsuarios.length && !flag; i++){
+    if (user.mail==this.listaUsuarios[i].mail){
       flag=true
     }
   }

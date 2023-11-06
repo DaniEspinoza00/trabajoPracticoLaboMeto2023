@@ -11,9 +11,16 @@
             <button class="search-icon"><i class="fa fa-search" routerLink=""></i></button>
         </div>
         <div class="search-container">
-            <a href="usuario-menu">Ingresar/Registrarme</a>
+            <a href="#" routerLink="/usuario-menu">
+                <div *ngIf="flag; 
+                then thenBlock 
+                else elseBlock"></div>
+
+                <ng-template #thenBlock> Mi cuenta</ng-template>
+                <ng-template #elseBlock> Iniciar sesion/Registrarse</ng-template>
+            </a>
             <a href="">Lista de deseados</a>
-            <a href="carrito">Carrito</a>
+            <a href="#" routerLink="/carrito">Carrito</a>
         </div>
     </nav>
 
@@ -25,7 +32,7 @@
         <a href="">Catalogo</a>
         <a href="">Musica</a>
         <a href="">Contacto</a>
-        <a href="">Mi Cuenta</a>
+        
     </div>
 
 </nav>

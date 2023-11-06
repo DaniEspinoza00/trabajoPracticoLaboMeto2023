@@ -37,7 +37,9 @@ export class CompraComponent implements OnInit{
   verificarTrajeta(){
     if(this.user?.tarjetaCredito){
       // parte de agregar al historial
+      console.log(this.LoginService.usuarioActual)
       localStorage.clear()
+      console.log(this.LoginService.usuarioActual)
       this.listaItemsCarrito = []
       // agregar redireccion de ruta a page c/mensaje de agradecimiento
     }

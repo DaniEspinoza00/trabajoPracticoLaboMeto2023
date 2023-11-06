@@ -32,5 +32,6 @@ export class SignupComponent {
     }else{
       this.loginService.agregarUsuarioLista(nuevo);
     }
+    this.loginService.usuarioActual=nuevo
   }
 }

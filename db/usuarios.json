@@ -34,6 +34,16 @@
       "apellido": "Chan",
       "mail": "Phe",
       "contra": "Ros"
+    },
+    {
+      "id": 6,
+      "nombre": "Gerardo",
+      "apellido": "Ignacio",
+      "mail": "katznacho@gmail.com",
+      "contra": "Ros",
+      "documento": 0,
+      "tarjetaCredito": false,
+      "favoritos": []
     }
   ]
 }
