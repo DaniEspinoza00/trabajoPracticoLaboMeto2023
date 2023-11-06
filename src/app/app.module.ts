@@ -24,6 +24,13 @@ import { UsuarioMenuComponent } from './components/usuarios-control/usuario-menu
 import { UsuarioPageComponent } from './pages/usuario-page/usuario-page.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { ProductoPageComponent } from './pages/producto-page/producto-page.component';
+import { CarritoPageComponent } from './pages/carrito-page/carrito-page.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
+import { CompraComponent } from './components/compra/compra.component';
+import { CompraPageComponent } from './pages/compra-page/compra-page.component';
+import { HttpClientModule } from '@angular/common/http'
+import { BehaviorSubject } from 'rxjs';
+import { AlertaLoginPageComponent } from './pages/alerta-login-page/alerta-login-page.component';
 
 @NgModule({
   declarations: [
@@ -48,11 +55,17 @@ import { ProductoPageComponent } from './pages/producto-page/producto-page.compo
     UsuarioMenuComponent,
     UsuarioPageComponent,
     ProductoComponent,
-    ProductoPageComponent
+    ProductoPageComponent,
+    CarritoPageComponent,
+    CarritoComponent,
+    CompraComponent,
+    CompraPageComponent,
+    AlertaLoginPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,28 @@
+<main class="contenedor">
+    <h1>Carrito</h1>
+    <table class="tablaCarr">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Titulo</th>
+                <th>Edicion</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>SubTotal</th>
+            </tr>
+        </thead>
+        <tbody id="libros">
+            <tr *ngFor="let item of listaItemsCarrito">
+                <td><img class="imagen-libro" [src]="item.image_url"></td>
+                <td>{{item.titulo}}</td>
+                <td>{{item.edicion}}</td>
+                <td>{{item.cantidad}}</td>
+                <td>{{item.precio | number: '.2'}}</td>
+                <td>{{item.subtotal | number: '.2'}}</td>
+                <td><a class="btnEliminar" (click)="eliminarUnElemento(item.id!)">Eliminar del carrito</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btnVaciar" (click)="vaciarCarrito()">Vaciar carrito</a>
+    <a class="btnCompra" (click)="verificarLogin()">Comprar producto</a>
+</main>

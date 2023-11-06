@@ -1,6 +1,7 @@
 import { Libro } from 'src/app/interfaces/libros';
 import { LibrosService } from './../../services/libros.service';
 import { Component, OnInit } from '@angular/core';
+import { Precio } from 'src/app/interfaces/precio';
 
 @Component({
   selector: 'app-listar-libros',
@@ -13,6 +14,7 @@ export class ListarLibrosComponent implements OnInit {
 
    listadoLibros:Libro[] | undefined =[];
    listadoLibrosFiltrados:Libro[] | undefined =[];
+   listP: Precio[] = []
 
   ngOnInit(): void {
     this.mostrarLibros();
@@ -25,6 +27,13 @@ export class ListarLibrosComponent implements OnInit {
       this.LibrosService.listadoLibros=this.listadoLibros
     }
   }
+
+  // async mostrarPrecios(){
+  //   this.listP = await this.LibrosService.getPrecios()
+  //   if(this.listP){
+  //     this.LibrosService.listP=this.listP
+  //   }
+  // }
 
   /* async mostrarLibros2(){
     this.listadoLibros=await this.LibrosService.getLibros();

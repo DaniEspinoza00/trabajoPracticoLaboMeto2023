@@ -1,0 +1,24 @@
+<main class="contenedor">
+    <h1>Carrito</h1>
+    <table class="tablaCarr">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Edicion</th>
+                <th>Cantidad</th>
+                <th>SubTotal</th>
+            </tr>
+        </thead>
+        <tbody id="libros">
+            <tr *ngFor="let item of listaItemsCarrito">
+                <td>{{item.titulo}}</td>
+                <td>{{item.edicion}}</td>
+                <td>{{item.cantidad}}</td>
+                <td>{{item.subtotal | number: '.2'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Total: ${{calcularTotalAPagar()}}</h2>
+    <a class="btnCompra" (click)="verificarTrajeta()">COMPRAR</a>
+    <a href="(aca va la ruta a la page de agregar tarjeta)" class="btnMetodo">AGREGAR TARJETA</a>
+</main>

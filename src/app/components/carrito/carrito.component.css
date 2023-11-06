@@ -1,0 +1,55 @@
+thead th {
+    background-color:#7087aa;
+    color: #fff;
+    text-align: left;
+    padding: 1rem;
+  }
+
+  /* Estilos para las celdas de datos */
+  tbody td {
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    padding: 1rem;
+  }
+
+  a{
+    display: inline-block;
+    padding: 20px 40px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+    border-radius: 10px;
+    font-size: x-large;
+  }
+
+.btnVaciar{
+    background-color: rgb(211, 56, 8);
+    color: #fff;
+}
+
+.btnCompra{
+    background-color: #76c879;
+    color: #fff;
+}
+
+.btnEliminar{
+    background-color: rgb(211, 56, 8);
+    color: #fff;
+}
+
+.btnEliminar:hover{
+    background-color: rgb(165, 44, 8); 
+    transition: background-color 0.3s
+}
+
+.btnVaciar:hover{
+
+    background-color: rgb(165, 44, 8); 
+    transition: background-color 0.3s
+}
+
+.btnCompra:hover{
+    background-color: #45a049; 
+    transition: background-color 0.3s
+}
