@@ -5,7 +5,8 @@
       "nombre": "Nacho",
       "apellido": "Katz",
       "mail": "katznacho@gmail.com",
-      "contra": "123"
+      "contra": "123",
+      "favoritos": [1,5,7]
     },
     {
       "id": 2,
@@ -34,16 +35,7 @@
       "apellido": "Chan",
       "mail": "Phe",
       "contra": "Ros"
-    },
-    {
-      "id": 6,
-      "nombre": "Gerardo",
-      "apellido": "Ignacio",
-      "mail": "katznacho@gmail.com",
-      "contra": "Ros",
-      "documento": 0,
-      "tarjetaCredito": false,
-      "favoritos": []
     }
+    
   ]
 }

@@ -147,7 +147,6 @@ export class LoginService {
         this.usuarioLogueado=await this.leerUsuario(this.listaUsuarios[i].id)
         if(this.usuarioLogueado){
           this.usuarioActual=this.usuarioLogueado
-          console.log(this.usuarioActual.nombre+" "+this.usuarioActual.apellido)
           flag=true;
           this.router.navigate(['home'])
           

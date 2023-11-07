@@ -6,5 +6,5 @@ export interface Usuario{
     contra:string,
     documento:number,
     tarjetaCredito:boolean,
-    favoritos:string[],//seria el seria/id/isbn del libro
+    favoritos:number[],//seria el seria/id/isbn del libro
 }    

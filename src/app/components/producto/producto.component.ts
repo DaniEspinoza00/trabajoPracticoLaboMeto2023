@@ -5,6 +5,7 @@ import { LibrosService } from './../../services/libros.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ItemCarrito } from 'src/app/interfaces/itemCarrito';
+import { LoginService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-producto',
@@ -21,7 +22,8 @@ export class ProductoComponent implements OnInit {
 
   constructor(private LibrosService:LibrosService,
               private route:ActivatedRoute,
-              private CarritoService:CarritoService){}
+              private CarritoService:CarritoService,
+              private loginService: LoginService){}
 
   ngOnInit(): void {
     this.mostrarLibro2();
@@ -94,6 +96,11 @@ export class ProductoComponent implements OnInit {
         localStorage.setItem("carrito", JSON.stringify(carrito))
       }
     }
+  }
+
+  agregarFavorito(idNuevo:number){
+    this.loginService.usuarioActual.favoritos.push(idNuevo)
+    this.loginService.modifJson(this.loginService.usuarioActual)
   }
 
 }

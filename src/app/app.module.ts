@@ -31,6 +31,7 @@ import { CompraPageComponent } from './pages/compra-page/compra-page.component';
 import { HttpClientModule } from '@angular/common/http'
 import { BehaviorSubject } from 'rxjs';
 import { AlertaLoginPageComponent } from './pages/alerta-login-page/alerta-login-page.component';
+import { FavoritosComponent } from './favoritos/favoritos.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { AlertaLoginPageComponent } from './pages/alerta-login-page/alerta-login
     CarritoComponent,
     CompraComponent,
     CompraPageComponent,
-    AlertaLoginPageComponent
+    AlertaLoginPageComponent,
+    FavoritosComponent
   ],
   imports: [
     BrowserModule,

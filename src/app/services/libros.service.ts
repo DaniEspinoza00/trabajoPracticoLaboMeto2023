@@ -19,6 +19,7 @@ export class LibrosService {
     try {
       const resultado = await fetch (this.urlLibros);
       const libros = await resultado.json();
+      this.listadoLibros=libros
       return libros;
     } catch (error) {
       console.log(error);

@@ -1,0 +1,13 @@
+.imgagen-libro{
+    width: 60%;
+    height: 60%;
+}
+
+.informacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
