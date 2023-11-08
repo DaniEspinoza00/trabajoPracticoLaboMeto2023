@@ -6,13 +6,13 @@
         <div class="contenedor-lista-libros">
             <h2>Todos nuestros libros</h2>
             <div class="lista-libros">
-                <div class="libro" *ngFor="let item of listadoLibros">
+                <div class="libro" *ngFor="let item of listadoLibros; let i=index">
                     <a href="" [routerLink]="['/producto',item.id]">
                         <img class="imagen-libro" [src]="item.image_url" alt="{{ item.title }}">
                     </a>
                     <div class="product">
                         <h3>{{item.title}}</h3>
-                        <p>$15000</p>
+                        <p>{{ listadoStock && listadoStock[i] ? listadoStock[i].precio : '' }}</p>
                     </div>
                 </div>
             </div>

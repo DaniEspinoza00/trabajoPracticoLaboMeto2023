@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Libro } from '../interfaces/libros';
-import { Precio } from '../interfaces/precio';
+import { LibroStock } from '../interfaces/libroStock';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +9,9 @@ export class LibrosService {
 
   urlLibros:string='https://example-data.draftbit.com/books?_limit=100'
   urlLibro:string="https://example-data.draftbit.com/books"
-  urlP='http://localhost:3000/librosStock'
+  //urlP='http://localhost:3000/librosStock'
   listadoLibros:Libro[]=[]
-  listP: Precio[] = []
+  //listP: LibroStock[] = []
 
   constructor() { }
 
@@ -39,7 +39,7 @@ export class LibrosService {
   }
   
 
-  async getLibrosGenero(genero:string): Promise < Libro[] | undefined >{
+/*   async getLibrosGenero(genero:string): Promise < Libro[] | undefined >{
     try {
       const resultado = await fetch (`${this.urlLibros}/${genero}`)
       const libros = resultado.json();
@@ -73,7 +73,7 @@ export class LibrosService {
     }
   }
 
-
+ */
 
   
 }

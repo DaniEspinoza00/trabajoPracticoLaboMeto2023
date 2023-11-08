@@ -1,6 +1,8 @@
+import { LibrosStockService } from './../../services/libro-stock.service';
 import { LibrosService } from './../../services/libros.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LibroStock } from 'src/app/interfaces/libroStock';
 import { Libro } from 'src/app/interfaces/libros';
 
 @Component({
@@ -11,9 +13,13 @@ import { Libro } from 'src/app/interfaces/libros';
 export class CategoriaComponent implements OnInit {
   
   listadoLibros:Libro[] | undefined =[];
-  listadoLibrosFiltrados:Libro[] | undefined =[];
+  listadoLibrosFiltrados:Libro[] =[];
+  stockID:LibroStock[]|undefined=[];
+
+
   constructor (private route:ActivatedRoute,
-              private LibrosService:LibrosService){}
+              private LibrosService:LibrosService,
+              private LibrosStockService:LibrosStockService){}
 
   ngOnInit(): void {
     this.mostrarLibrosPorCategoria();
@@ -49,12 +55,33 @@ export class CategoriaComponent implements OnInit {
         // Verifica si el género deseado está presente en los géneros del libro
         return generosDelLibro.includes(genre);
       });
+      this.stockID = [];
   
       // Puedes imprimir la lista filtrada en la consola para verificar
-      console.log(this.listadoLibrosFiltrados);
+      //console.log(this.listadoLibrosFiltrados);
+      this.mostrarPrecioIDstock(this.listadoLibrosFiltrados)
     } catch (error) {
       console.error('Error al obtener los libros:', error);
     }
   }
+
+  async mostrarPrecioIDstock(librosFiltrados:Libro[]) {
+    const resultado = await this.LibrosStockService.getStock();
+  
+    if(resultado === undefined){
+      console.log("No se obtuvo nada");
+      return;
+    }
+    let j=0;
+    for(let i=0;i<resultado.length;i++){
+      if(librosFiltrados[j].id===resultado[i].id){
+        this.stockID?.push(resultado[i])
+        j++;
+      }
+    }
+
+  }
+  
+
   
 }

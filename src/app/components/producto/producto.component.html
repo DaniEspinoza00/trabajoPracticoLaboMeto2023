@@ -7,14 +7,14 @@
             <div>
                 <h1>{{libro2?.title}}</h1>
                 <h4>{{libro2?.authors}}</h4>
-                <h2>$ {{precio?.precio}}</h2>
+                <h2>$ {{libroStock?.precio}}</h2>
             </div>
             <div class="metodos">
                 <a href="">Costo de Envio</a>
                 <a href="">Medios de Pago</a>
             </div>
             <div>
-                <a class="boton-compra" (click)="agregarCarrito(libro2!, precio!.precio)">COMPRAR</a>
+                <a class="boton-compra" (click)="agregarCarrito(libro2!, libroStock!.precio)">COMPRAR</a>
                 <!--<a class="boton-fav" (click)="agregarFavorito(libro2.id)"></a>-->
             </div>ProductoComponent
         </div>

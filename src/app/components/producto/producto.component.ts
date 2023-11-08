@@ -1,11 +1,12 @@
 import { CarritoService } from './../../services/carrito.service';
-import { Precio } from 'src/app/interfaces/precio';
+import { LibroStock } from 'src/app/interfaces/libroStock';
 import { Libro } from './../../interfaces/libros';
 import { LibrosService } from './../../services/libros.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ItemCarrito } from 'src/app/interfaces/itemCarrito';
 import { LoginService } from 'src/app/services/usuario.service';
+import { LibrosStockService } from 'src/app/services/libro-stock.service';
 
 @Component({
   selector: 'app-producto',
@@ -16,18 +17,19 @@ export class ProductoComponent implements OnInit {
 
   libro:Libro|undefined;
   libro2:Libro|undefined;
-  precio:Precio|undefined;
+  libroStock:LibroStock|undefined;//cambiado de precio a 
   list: Libro[] = []
-  listP: Precio[] = []
+  listP: LibroStock[] = []
 
   constructor(private LibrosService:LibrosService,
+              private LibroStock:LibrosStockService,
               private route:ActivatedRoute,
               private CarritoService:CarritoService,
               private loginService: LoginService){}
 
   ngOnInit(): void {
     this.mostrarLibro2();
-    this.mostrarPrecio();
+    this.mostrarPrecio2();
   }
 
   mostrarLibro2(){
@@ -39,11 +41,11 @@ export class ProductoComponent implements OnInit {
     })
   }
 
-  async mostrarPrecio(){
+  async mostrarPrecio2(){
     this.route.params.subscribe(async param=>{
-      const id = param['id']
-      console.log(id);
-      this.precio = await this.LibrosService.getPrecio(id)
+      const id = param ['id'];
+      this.libroStock=await this.LibroStock.getLibroStock(id);
+      console.log(this.libroStock);
     })
   }
 
