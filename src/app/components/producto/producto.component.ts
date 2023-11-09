@@ -20,6 +20,8 @@ export class ProductoComponent implements OnInit {
   libroStock:LibroStock|undefined;//cambiado de precio a 
   list: Libro[] = []
   listP: LibroStock[] = []
+  isClicked: boolean = false;
+  mensaje: string = '';
 
   constructor(private LibrosService:LibrosService,
               private LibroStock:LibrosStockService,
@@ -104,5 +106,19 @@ export class ProductoComponent implements OnInit {
     this.loginService.usuarioActual.favoritos.push(idNuevo)
     this.loginService.modifJson(this.loginService.usuarioActual)
   }
+
+  cambiarColor() {
+    this.isClicked = !this.isClicked;
+    if(this.isClicked){
+      this.mensaje=("se agregó el producto a favoritos")
+    }
+    else{
+      this.mensaje=("se ha quitado el producto de favoritos")
+    }
+    setTimeout(() => {
+      this.mensaje = '';
+    }, 1000);
+  }
+
 
 }

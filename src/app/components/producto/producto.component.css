@@ -40,8 +40,14 @@ img{
     transition: background-color 0.3s; 
 }
 
+.metodos{
+    display: flex;
+
+    justify-content: center;
+}
+
 .metodos a{
-    margin-right: 2rem;
+    margin: 1rem;
 }
 
 section{
@@ -56,4 +62,66 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+.boton-favoritos {
+    display: inline-block;
+    background-color: #3f4245;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+    border-radius: 5px;
+    font-size: x-small;
+}
+
+.boton-favoritos:hover {
+    background-color: #538856; 
+    transition: background-color 0.3s; 
+}
+
+
+.boton-favoritos.clicked {
+    background-color: #538856; 
+}
+
+/* styles.css o styles.scss */
+.clicked {
+    background-color: #538856; 
+}
+
+
+.mensaje-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color:rgb(192, 192, 169);
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    animation: fadeInOut 3s ease-out;
+  }
+  
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+    }
+    10%, 90% {
+      opacity: 1;
+    }
+  }
+
+
+
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.botones a{
+    margin-bottom: 2rem;
 }
