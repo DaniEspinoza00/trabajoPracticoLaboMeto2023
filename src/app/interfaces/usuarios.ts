@@ -4,7 +4,7 @@ export interface Usuario{
     apellido:string,
     mail:string,
     contra:string,
-    documento:number,
+    documento:string,
     tarjetaCredito:boolean,
     favoritos:number[],//seria el seria/id/isbn del libro
 }    

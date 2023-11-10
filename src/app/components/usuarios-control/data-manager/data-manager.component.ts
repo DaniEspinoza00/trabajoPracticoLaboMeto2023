@@ -11,7 +11,7 @@ import { LoginService } from 'src/app/services/usuario.service';
 export class DataManagerComponent implements OnInit{
   flag1 : boolean=true;
   flag2: boolean=true;
-  usuarioActual:Usuario= {id:0,nombre:'',apellido:'',mail:'',contra:'',documento:0,tarjetaCredito:false,favoritos:[]}
+  usuarioActual:Usuario= {id:0,nombre:'',apellido:'',mail:'',contra:'',documento:'0',tarjetaCredito:false,favoritos:[]}
   
   constructor(private loginService:LoginService){
   }

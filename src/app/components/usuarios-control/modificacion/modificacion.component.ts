@@ -28,6 +28,7 @@ export class ModificacionComponent {
     let apellido : string =(<HTMLInputElement>document.getElementById("apellido")).value
     let mail : string =(<HTMLInputElement>document.getElementById("mail")).value
     let contra : string =(<HTMLInputElement>document.getElementById("contra")).value
+    let dni : string =(<HTMLInputElement>document.getElementById("dni")).value
 
     if(nombre!=""){
     actual.nombre=nombre
@@ -45,7 +46,12 @@ export class ModificacionComponent {
         actual.contra=contra
       }
 
-    this.loginService.modifJson(actual)
+    if(dni!=""){
+        actual.documento=dni
+      }
+
+    this.loginService.modifUsuario(actual)
+    
   }
 
 

@@ -11,7 +11,8 @@ export class LoginService {
   url:string="http://localhost:2000/usuarios"
   listaUsuarios:Usuario[] |undefined=[];
   usuarioLogueado:Usuario | undefined;
-  usuarioVacio:Usuario = {id:0,nombre:'',apellido:'',mail:'',contra:'',documento:0,tarjetaCredito:false,favoritos:[]}
+  //usuarioVacio:Usuario = {id:10,nombre:'',apellido:'1',mail:'1',contra:'1',documento:'0',tarjetaCredito:false,favoritos:[1,2,3]}
+  usuarioVacio:Usuario = {id:0,nombre:'',apellido:'',mail:'',contra:'',documento:'0',tarjetaCredito:false,favoritos:[]}
   usuarioActual:Usuario=this.usuarioVacio
 
   constructor(private router:Router) {}
@@ -85,10 +86,15 @@ export class LoginService {
         })
         this.usuarioActual=cambio;
         console.log(this.usuarioActual)
-        this.router.navigate(['home'])
+        //
     }catch(error){
       console.log(error)
     }
+  }
+
+  modifUsuario(cambio:Usuario){
+    this.modifJson(cambio)
+    this.router.navigate(['home'])
   }
 
   agregarUsuarioLista(nuevo : Usuario){

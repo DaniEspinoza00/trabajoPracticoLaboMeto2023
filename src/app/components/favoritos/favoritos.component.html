@@ -10,20 +10,25 @@ else elseBlock1"></div>
     else elseBlock2"></div>
 
     <ng-template #thenBlock2>
-        <ul>
-            <p class="listaFav" *ngFor="let item of listaLibros">
-                <li>
+        <table class="contenedor-lista-fav">
+            <tbody class="listaFav">
+            <tr *ngFor="let item of listaLibros">
+                <td href="" [routerLink]="['/producto',item.id]">
                     <img class="imagen-libro" [src]="item.image_url" alt="{{item.title}}">
-                    <button (click)="eliminarFav(item.id,$event)">Eliminar de Favoritos</button>
+                </td>
+                <td>
                     <div class="informacion">
                         <h4>{{item.title}}</h4>
                         <h5>{{item.authors}}</h5>
                     </div>
+                </td>
+                <td>
+                    <button class="eliminar" (click)="eliminarFav(item.id)">Eliminar de Favoritos</button>
                     
-                    
-                </li>
-            </p>
-        </ul>
+                </td>
+            </tr >
+            </tbody>
+        </table>
     </ng-template>
 
     <ng-template #elseBlock2>

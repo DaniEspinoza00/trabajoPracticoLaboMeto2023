@@ -108,8 +108,8 @@ export class ProductoComponent implements OnInit {
     this.loginService.modifJson(this.loginService.usuarioActual)
   }
 
-  cambiarColor(e:Event) {
-    e.preventDefault()
+  cambiarColor() {
+    
     if(this.loginService.usuarioActual.id!=0){
     if(this.libro2){    
     this.isClicked=this.loginService.modifFav(this.libro2.id)

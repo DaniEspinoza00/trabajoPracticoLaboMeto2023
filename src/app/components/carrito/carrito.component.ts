@@ -80,6 +80,7 @@ export class CarritoComponent implements OnInit{
         carrito[index] = itemCarrito
         localStorage.setItem("carrito", JSON.stringify(carrito))
       }
-      window.location.href = 'carrito'
+      //window.location.href="/carrito/"
+      this.ngOnInit()
   }
 }

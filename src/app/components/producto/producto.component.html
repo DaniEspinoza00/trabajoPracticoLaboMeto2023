@@ -16,7 +16,7 @@
             <div class="botones">
                 <a class="boton-compra" (click)="agregarCarrito(libro2!, libroStock!.precio)">COMPRAR</a>
                 <!--<a class="boton-fav" (click)="agregarFavorito(libro2.id)"></a>-->
-                <a class="boton-favoritos" [ngClass]="{'clicked': isClicked}" (click)="cambiarColor($event)">AGREGAR A FAVORITOS</a>
+                <a class="boton-favoritos" [ngClass]="{'clicked': isClicked}" (click)="cambiarColor()">AGREGAR A FAVORITOS</a>
                 <div *ngIf="mensaje" class="mensaje-popup">{{ mensaje }}</div>
             </div>
         </div>

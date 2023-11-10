@@ -7,9 +7,9 @@
       "mail": "katznacho@gmail.com",
       "contra": "123",
       "favoritos": [
-        5,
-        7
-      ]
+        1
+      ],
+      "documento": "567"
     },
     {
       "id": 2,
