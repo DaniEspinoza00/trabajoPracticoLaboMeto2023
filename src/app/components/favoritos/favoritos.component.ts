@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Libro } from '../interfaces/libros';
-import { LoginService } from '../services/usuario.service';
-import { LibrosService } from '../services/libros.service';
+import { Libro } from '../../interfaces/libros';
+import { LoginService } from '../../services/usuario.service';
+import { LibrosService } from '../../services/libros.service';
 
 @Component({
   selector: 'app-favoritos',
@@ -32,14 +32,18 @@ export class FavoritosComponent implements OnInit {
     for (var j=0;j<this.listaFav.length;j++){
       console.log(this.listaFav[j])
       for(var i=0;i<this.librosService.listadoLibros.length;i++){
-        console.log(this.librosService.listadoLibros[i])
+        
         if(this.librosService.listadoLibros[i].id==this.listaFav[j]){
           
           this.listaLibros.push(this.librosService.listadoLibros[i])
         }
         
       }
-    }
-    
+    }  
+  }
+
+  eliminarFav(id:number,e:Event){
+    e.preventDefault()
+    this.loginSrvice.eliminarFav(id)
   }
 }

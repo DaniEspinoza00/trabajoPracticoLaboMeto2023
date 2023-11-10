@@ -6,7 +6,10 @@
       "apellido": "Katz",
       "mail": "katznacho@gmail.com",
       "contra": "123",
-      "favoritos": [1,5,7]
+      "favoritos": [
+        5,
+        7
+      ]
     },
     {
       "id": 2,
@@ -36,6 +39,5 @@
       "mail": "Phe",
       "contra": "Ros"
     }
-    
   ]
 }

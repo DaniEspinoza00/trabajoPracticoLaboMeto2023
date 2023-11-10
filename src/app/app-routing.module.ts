@@ -8,7 +8,7 @@ import { ProductoPageComponent } from './pages/producto-page/producto-page.compo
 import { CarritoPageComponent } from './pages/carrito-page/carrito-page.component';
 import { CompraPageComponent } from './pages/compra-page/compra-page.component';
 import { AlertaLoginPageComponent } from './pages/alerta-login-page/alerta-login-page.component';
-import { FavoritosComponent } from './favoritos/favoritos.component';
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
 
 const routes: Routes = [
   {path:'home', component:HomePageComponent},

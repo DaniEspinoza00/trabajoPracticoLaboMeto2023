@@ -102,22 +102,32 @@ export class ProductoComponent implements OnInit {
     }
   }
 
+  //¿Esta funcion se usa en algun momento?
   agregarFavorito(idNuevo:number){
     this.loginService.usuarioActual.favoritos.push(idNuevo)
     this.loginService.modifJson(this.loginService.usuarioActual)
   }
 
-  cambiarColor() {
-    this.isClicked = !this.isClicked;
+  cambiarColor(e:Event) {
+    e.preventDefault()
+    if(this.loginService.usuarioActual.id!=0){
+    if(this.libro2){    
+    this.isClicked=this.loginService.modifFav(this.libro2.id)
+
     if(this.isClicked){
-      this.mensaje=("se agregó el producto a favoritos")
+      this.mensaje=("Se agregó el producto a favoritos")
     }
     else{
-      this.mensaje=("se ha quitado el producto de favoritos")
+      this.mensaje=("Se ha quitado el producto de favoritos")
     }
-    setTimeout(() => {
-      this.mensaje = '';
-    }, 1000);
+    
+    }
+  }else{
+    this.mensaje=("Debe iniciar sesion para tener una lista de favoritos")
+  }
+  setTimeout(() => {
+    this.mensaje = '';
+  }, 1000);
   }
 
 

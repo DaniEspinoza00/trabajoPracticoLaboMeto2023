@@ -14,6 +14,7 @@ else elseBlock1"></div>
             <p class="listaFav" *ngFor="let item of listaLibros">
                 <li>
                     <img class="imagen-libro" [src]="item.image_url" alt="{{item.title}}">
+                    <button (click)="eliminarFav(item.id,$event)">Eliminar de Favoritos</button>
                     <div class="informacion">
                         <h4>{{item.title}}</h4>
                         <h5>{{item.authors}}</h5>

@@ -172,5 +172,21 @@ verificarMail(user: Usuario){
   return flag
 }
 
+modifFav(id:number):boolean{
+ 
+  if(this.usuarioActual.favoritos.indexOf(id)>-1){
+    this.eliminarFav(id)
+    return false
+  }else{
+    this.usuarioActual.favoritos.push(id)
+    this.modifJson(this.usuarioActual)
+    return true
+  }
+}
+
+eliminarFav(id:number){
+  this.usuarioActual.favoritos.splice(this.usuarioActual.favoritos.indexOf(id),1)
+  this.modifJson(this.usuarioActual)
+}
 
 }
