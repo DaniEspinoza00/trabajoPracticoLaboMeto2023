@@ -36,6 +36,7 @@ import { AgregarTarjetaPageComponent } from './pages/agregar-tarjeta-page/agrega
 import { AgregarTarjetaComponent } from './components/agregar-tarjeta/agregar-tarjeta.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgradecimientoPageComponent } from './pages/agradecimiento-page/agradecimiento-page.component';
+import { FavoritoPageComponent } from './pages/favorito-page/favorito-page.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { AgradecimientoPageComponent } from './pages/agradecimiento-page/agradec
     FavoritosComponent,
     AgregarTarjetaPageComponent,
     AgregarTarjetaComponent,
-    AgradecimientoPageComponent
+    AgradecimientoPageComponent,
+    FavoritoPageComponent
   ],
   imports: [
     BrowserModule,

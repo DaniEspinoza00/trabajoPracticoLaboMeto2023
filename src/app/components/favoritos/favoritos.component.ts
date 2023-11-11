@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Libro } from '../../interfaces/libros';
 import { LoginService } from '../../services/usuario.service';
 import { LibrosService } from '../../services/libros.service';
@@ -13,6 +13,7 @@ export class FavoritosComponent implements OnInit {
   flag2:boolean=false;
   listaLibros:Libro[]=[]
   listaFav:number[]=[]
+  @Output()newReinicio=new EventEmitter<any>();
   constructor(private loginSrvice:LoginService,private librosService:LibrosService){}
   
   ngOnInit(): void {
@@ -45,5 +46,6 @@ export class FavoritosComponent implements OnInit {
   eliminarFav(id:number){
    
     this.loginSrvice.eliminarFav(id)
+    this.newReinicio.emit()
   }
 }

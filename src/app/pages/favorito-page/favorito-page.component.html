@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div *ngIf="flag; 
+then thenBlock 
+else elseBlock"></div>
+
+
+<ng-template #thenBlock>
+    <app-favoritos (newReinicio)="reinicio()"></app-favoritos>
+</ng-template>
+
+
+<ng-template #elseBlock>
+    <app-favoritos (newReinicio)="reinicio()"></app-favoritos>
+</ng-template>
+
+
+<app-footer></app-footer>
