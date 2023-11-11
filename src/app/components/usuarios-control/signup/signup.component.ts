@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter,inject } from '@angular/core';
+import { Tarjeta } from 'src/app/interfaces/tarjeta';
 import { Usuario } from 'src/app/interfaces/usuarios';
 import {LoginService} from 'src/app/services/usuario.service';
 
@@ -9,6 +10,13 @@ import {LoginService} from 'src/app/services/usuario.service';
 })
 export class SignupComponent {
   @Output()newCambio=new EventEmitter<boolean>();
+  tarjeta: Tarjeta = {
+    numeroTarjeta: 0,
+    codigoSeguridad: 0,
+    nombreTarjeta: '',
+    dni: 0,
+    fechaCaducidad: ''
+  }
   constructor(private loginService:LoginService){}
 
 
@@ -26,7 +34,7 @@ export class SignupComponent {
     let contra : string =(<HTMLInputElement>document.getElementById("contra")).value
     let dni : string =(<HTMLInputElement>document.getElementById("dni")).value
 
-    let nuevo : Usuario=  {id:this.loginService.idDisponible(), nombre:nombre,apellido:apellido,mail:mail,contra:contra,documento:dni,tarjetaCredito:false,favoritos:[]}
+    let nuevo : Usuario=  {id:this.loginService.idDisponible(), nombre:nombre,apellido:apellido,mail:mail,contra:contra,documento:dni,tarjetaCredito:this.tarjeta,favoritos:[]}
     if(this.loginService.verificarMail(nuevo)){
       alert ("Ya existe una cuenta registrada con este correo electronico")
     }else{

@@ -9,6 +9,8 @@ import { CarritoPageComponent } from './pages/carrito-page/carrito-page.componen
 import { CompraPageComponent } from './pages/compra-page/compra-page.component';
 import { AlertaLoginPageComponent } from './pages/alerta-login-page/alerta-login-page.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
+import { AgregarTarjetaPageComponent } from './pages/agregar-tarjeta-page/agregar-tarjeta-page.component';
+import { AgradecimientoPageComponent } from './pages/agradecimiento-page/agradecimiento-page.component';
 
 const routes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path:'compra', component:CompraPageComponent},
   {path:'alerta-login', component:AlertaLoginPageComponent},
   {path: 'lista-favoritos', component: FavoritosComponent},
+  {path:'agregar-tarjeta', component:AgregarTarjetaPageComponent},
+  {path:'felicidades', component:AgradecimientoPageComponent},
   {path:'**', redirectTo:'home'}
 ];
 

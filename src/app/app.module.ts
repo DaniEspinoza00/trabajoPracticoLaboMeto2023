@@ -32,6 +32,10 @@ import { HttpClientModule } from '@angular/common/http'
 import { BehaviorSubject } from 'rxjs';
 import { AlertaLoginPageComponent } from './pages/alerta-login-page/alerta-login-page.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
+import { AgregarTarjetaPageComponent } from './pages/agregar-tarjeta-page/agregar-tarjeta-page.component';
+import { AgregarTarjetaComponent } from './components/agregar-tarjeta/agregar-tarjeta.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AgradecimientoPageComponent } from './pages/agradecimiento-page/agradecimiento-page.component';
 
 @NgModule({
   declarations: [
@@ -62,12 +66,16 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
     CompraComponent,
     CompraPageComponent,
     AlertaLoginPageComponent,
-    FavoritosComponent
+    FavoritosComponent,
+    AgregarTarjetaPageComponent,
+    AgregarTarjetaComponent,
+    AgradecimientoPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

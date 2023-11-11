@@ -1,3 +1,5 @@
+import { Tarjeta } from "./tarjeta";
+
 export interface Usuario{
     id:number,
     nombre:string,
@@ -5,6 +7,6 @@ export interface Usuario{
     mail:string,
     contra:string,
     documento:string,
-    tarjetaCredito:boolean,
+    tarjetaCredito:Tarjeta,
     favoritos:number[],//seria el seria/id/isbn del libro
 }    

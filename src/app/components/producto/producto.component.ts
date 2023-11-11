@@ -100,6 +100,10 @@ export class ProductoComponent implements OnInit {
         localStorage.setItem("carrito", JSON.stringify(carrito))
       }
     }
+    this.mensaje=("Se agregó el producto al carrito")
+    setTimeout(() => {
+      this.mensaje = '';
+    }, 2000);
   }
 
   //¿Esta funcion se usa en algun momento?

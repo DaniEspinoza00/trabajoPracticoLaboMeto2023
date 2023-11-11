@@ -45,6 +45,5 @@ export class FavoritosComponent implements OnInit {
   eliminarFav(id:number){
    
     this.loginSrvice.eliminarFav(id)
-    
   }
 }

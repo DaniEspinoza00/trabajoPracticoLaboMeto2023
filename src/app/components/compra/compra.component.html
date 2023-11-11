@@ -19,6 +19,13 @@
         </tbody>
     </table>
     <h2>Total: ${{calcularTotalAPagar()}}</h2>
+    <label for="tarjeta">Tarjeta</label>
+    <select name="tarjetas" id="tarjeta">
+        <option value="" disabled selected>-- Numero tarjeta --</option>
+        <option value="num">{{user?.tarjetaCredito?.numeroTarjeta}}</option>
+    </select>
+    <a (click)="viajarATarjeta()" class="btnMetodo">CAMBIAR TARJETA</a>
+    <br>
     <a class="btnCompra" (click)="verificarTrajeta()">COMPRAR</a>
-    <a href="(aca va la ruta a la page de agregar tarjeta)" class="btnMetodo">AGREGAR TARJETA</a>
+    <a (click)="viajarATarjeta()" class="btnMetodo">AGREGAR TARJETA</a>
 </main>

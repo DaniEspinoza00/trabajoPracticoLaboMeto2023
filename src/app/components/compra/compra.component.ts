@@ -34,17 +34,20 @@ export class CompraComponent implements OnInit{
     return result
   }
 
+  viajarATarjeta(){
+    this.router.navigate(['agregar-tarjeta'])
+  }
+
   verificarTrajeta(){
-    if(this.user?.tarjetaCredito){
+    if(this.user?.tarjetaCredito.numeroTarjeta != 0){
       // parte de agregar al historial
-      console.log(this.LoginService.usuarioActual)
       localStorage.clear()
-      console.log(this.LoginService.usuarioActual)
       this.listaItemsCarrito = []
-      // agregar redireccion de ruta a page c/mensaje de agradecimiento
+      this.router.navigate(['felicidades'])
     }
     else{
-      // alerta de q el usuario no tiene tarj, luego redireccionar a page agregar tarjeta
+      alert("El usuario no tiene ninguna tarjeta agregada")
+      this.router.navigate(['agregar-tarjeta'])
     }
   }
 }

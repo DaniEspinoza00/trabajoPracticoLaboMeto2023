@@ -38,6 +38,70 @@
       "apellido": "Chan",
       "mail": "Phe",
       "contra": "Ros"
+    },
+    {
+      "id": 6,
+      "nombre": "Luciano",
+      "apellido": "Ruffinengo",
+      "mail": "lucianoruffinengo@gmail.com",
+      "contra": "luchito",
+      "documento": "43516109",
+      "tarjetaCredito": {
+        "numeroTarjeta": 98745,
+        "codigoSeguridad": 987,
+        "nombreTarjeta": "Martin",
+        "dni": 43516109,
+        "fechaCaducidad": "2023-12-04"
+      },
+      "favoritos": []
+    },
+    {
+      "id": 7,
+      "nombre": "Papo",
+      "apellido": "Canto",
+      "mail": "prritomalo@.com",
+      "contra": "123456",
+      "documento": "125425",
+      "tarjetaCredito": {
+        "numeroTarjeta": 1235489,
+        "codigoSeguridad": 2,
+        "nombreTarjeta": "pepo",
+        "dni": 123456874,
+        "fechaCaducidad": "2023-12-20"
+      },
+      "favoritos": []
+    },
+    {
+      "id": 8,
+      "nombre": "mart",
+      "apellido": "cafo",
+      "mail": "123@gmail.com",
+      "contra": "12",
+      "documento": "356",
+      "tarjetaCredito": {
+        "numeroTarjeta": 13518,
+        "codigoSeguridad": 156,
+        "nombreTarjeta": "maco",
+        "dni": 123548,
+        "fechaCaducidad": "2023-12-08"
+      },
+      "favoritos": []
+    },
+    {
+      "id": 9,
+      "nombre": "kapo",
+      "apellido": "kap",
+      "mail": "kapo@gmail.com",
+      "contra": "kapon",
+      "documento": "48654168",
+      "tarjetaCredito": {
+        "numeroTarjeta": 123548,
+        "codigoSeguridad": 21535,
+        "nombreTarjeta": "kapo",
+        "dni": 184518,
+        "fechaCaducidad": "2023-12-09"
+      },
+      "favoritos": []
     }
   ]
 }
