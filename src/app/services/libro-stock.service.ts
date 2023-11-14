@@ -33,5 +33,19 @@ export class LibrosStockService {
     }
     return undefined;
   }
+
+  async putStock(stock: LibroStock | null){
+    try {
+      await fetch(`${this.urlStock}/${stock?.id}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify(stock),
+          headers: { 'Content-type': 'application/json' }
+        }
+      )
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
 

@@ -1,8 +1,10 @@
+import { LibrosStockService } from './../../services/libro-stock.service';
 import { LoginService } from 'src/app/services/usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemCarrito } from 'src/app/interfaces/itemCarrito';
 import { Usuario } from 'src/app/interfaces/usuarios';
+import { LibroStock } from 'src/app/interfaces/libroStock';
 
 @Component({
   selector: 'app-compra',
@@ -12,10 +14,13 @@ import { Usuario } from 'src/app/interfaces/usuarios';
 export class CompraComponent implements OnInit{
   listaItemsCarrito: ItemCarrito[] = []
   user: Usuario | undefined
+  stock: LibroStock | undefined
+
 
 
   constructor(private router: Router,
-              private LoginService:LoginService){
+              private LoginService:LoginService,
+              private LibrosStockService:LibrosStockService){
     
   }
 
@@ -38,9 +43,16 @@ export class CompraComponent implements OnInit{
     this.router.navigate(['agregar-tarjeta'])
   }
 
-  verificarTrajeta(){
+  async verificarTrajeta(){
     if(this.user?.tarjetaCredito.numeroTarjeta != 0){
       // parte de agregar al historial
+      for(let i = 0; i < this.listaItemsCarrito.length; i++){
+        this.stock = await this.LibrosStockService.getLibroStock(this.listaItemsCarrito[i].id)
+        console.log(`item ${i} antes: ${this.stock!.stock} `);
+        this.stock!.stock--
+        await this.LibrosStockService.putStock(this.stock!)
+        console.log(`item ${i} despues: ${this.stock!.stock} `);
+      }
       localStorage.clear()
       this.listaItemsCarrito = []
       this.router.navigate(['felicidades'])
