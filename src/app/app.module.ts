@@ -37,6 +37,12 @@ import { AgregarTarjetaComponent } from './components/agregar-tarjeta/agregar-ta
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgradecimientoPageComponent } from './pages/agradecimiento-page/agradecimiento-page.component';
 import { FavoritoPageComponent } from './pages/favorito-page/favorito-page.component';
+import { AdministracionComponent } from './components/administracion/administracion.component';
+import { AdministracionPageComponent } from './pages/administracion-page/administracion-page.component';
+import { LoginAdminComponent } from './components/login-admin/login-admin.component';
+import { LoginAdminPageComponent } from './pages/login-admin-page/login-admin-page.component';
+import { MostrarUsuariosComponent } from './components/mostrar-usuarios/mostrar-usuarios.component';
+import { MostrarUsuariosPageComponent } from './pages/mostrar-usuarios-page/mostrar-usuarios-page.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +77,13 @@ import { FavoritoPageComponent } from './pages/favorito-page/favorito-page.compo
     AgregarTarjetaPageComponent,
     AgregarTarjetaComponent,
     AgradecimientoPageComponent,
-    FavoritoPageComponent
+    FavoritoPageComponent,
+    AdministracionComponent,
+    AdministracionPageComponent,
+    LoginAdminComponent,
+    LoginAdminPageComponent,
+    MostrarUsuariosComponent,
+    MostrarUsuariosPageComponent
   ],
   imports: [
     BrowserModule,

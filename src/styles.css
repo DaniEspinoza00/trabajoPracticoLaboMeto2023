@@ -12,3 +12,20 @@ a{
     margin-right: 1rem;
     color: rgba(233, 227, 227, 0.861);
 }
+
+.libro a{
+    transition: 1s;
+}
+
+.libro a:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+.logo{ /* de navbar */
+    /* background-image: url(./fondo.png);
+    width: 10rem;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    width: 17rem;
+    height: 9rem;
+}

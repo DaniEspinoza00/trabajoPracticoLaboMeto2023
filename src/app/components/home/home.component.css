@@ -13,19 +13,19 @@ main{
     justify-content: center;
     width: 30%;
     margin: 0 auto;
-    gap: .5rem;
+    gap: 2rem;
 }
 .contenedor div{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-
 }
 
 div img{
     height: 20rem;
     width: 15rem;
+    
 }
 
 .product{

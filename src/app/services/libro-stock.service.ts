@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LibroStock } from '../interfaces/libroStock';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class LibrosStockService {
   urlStock:string = "http://localhost:3000/librosStock";
   ListadoStock:LibroStock [] |undefined=[];
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   async getStock(): Promise<LibroStock[] | undefined>{
     try {
@@ -32,6 +33,19 @@ export class LibrosStockService {
       console.log(error);
     }
     return undefined;
+  }
+
+
+  
+  async putLibro (libro:LibroStock){
+    try {
+      await fetch(`${this.urlStock}/${libro.id}`, {method:'PUT',
+      body: JSON.stringify(libro),
+      headers:{'Content-type': 'application/json'}})
+      this.router.navigate (['admin'])
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async putStock(stock: LibroStock | null){

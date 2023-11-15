@@ -1,0 +1,82 @@
+.campo{
+    display: flex;
+}
+
+.campo label{
+    flex-basis: 10rem;
+}
+
+.campo input[type="text"],
+.campo input[type="number"],
+.campo input[type="date"]
+{
+    margin-bottom: 1rem;
+    width: 100%;
+    border: .8px solid #e1e1e1;
+}
+
+.campo input[type="submit"]{
+    margin-bottom: 1rem;
+    border: .8px solid #e1e1e1;
+}
+.seccion{
+    width: 50%;
+    margin: 0 auto;
+    background-color: beige;
+    padding: 1rem;
+}
+
+.seccion fieldset{
+    border: .8px solid #e1e1e1;
+}
+.error{
+    background-color: rgb(216, 206, 206);
+    color: rgb(116, 78, 32);
+}
+
+body{
+    background-image: url(src\assets\images\libros-antiguos-2644117.png);
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0; /* Asegura que no haya margen en el cuerpo */
+    padding: 0; /* Asegura que no haya relleno en el cuerpo */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+legend{
+    text-align: center;
+    margin: 1rem;
+    font-size: larger;
+}
+
+.error span{
+    text-align: center;
+    color: red;
+}
+
+.formulario div{
+    display: flex;
+    justify-content: space-between;
+    margin: .5rem;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+.inputs input{
+    width: 70%;
+}
+.editar{
+    background-color: rgb(159, 215, 77);
+}
+.cancelar{
+    background-color: rgb(81, 107, 107);
+    display: block;
+    width: 70%;
+}

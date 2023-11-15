@@ -12,6 +12,10 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { AgregarTarjetaPageComponent } from './pages/agregar-tarjeta-page/agregar-tarjeta-page.component';
 import { AgradecimientoPageComponent } from './pages/agradecimiento-page/agradecimiento-page.component';
 import { FavoritoPageComponent } from './pages/favorito-page/favorito-page.component';
+import { AdministracionPageComponent } from './pages/administracion-page/administracion-page.component';
+import { MostrarLibroPageComponent } from './pages/mostrar-libro-page/mostrar-libro-page.component';
+import { MostrarUsuariosPageComponent } from './pages/mostrar-usuarios-page/mostrar-usuarios-page.component';
+import { LoginAdminPageComponent } from './pages/login-admin-page/login-admin-page.component';
 
 const routes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -23,6 +27,10 @@ const routes: Routes = [
   {path:'compra', component:CompraPageComponent},
   {path:'alerta-login', component:AlertaLoginPageComponent},
   {path: 'lista-favoritos', component: FavoritoPageComponent},
+  {path: 'admin',component:AdministracionPageComponent},
+  {path: 'libro/:id', component:MostrarLibroPageComponent},
+  {path: 'usuario/:id', component:MostrarUsuariosPageComponent},
+  {path: 'login-admin', component:LoginAdminPageComponent},
   {path:'agregar-tarjeta', component:AgregarTarjetaPageComponent},
   {path:'felicidades', component:AgradecimientoPageComponent},
   {path:'**', redirectTo:'home'}
