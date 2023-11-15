@@ -1,0 +1,29 @@
+<body>
+    <section class="seccion">
+        <fieldset>
+            <legend>Editar Usuario</legend>
+            <form action="" method="post" id="formulario" (ngSubmit)="editarUsuario()" [formGroup]="formulario">
+                <div class="campo">
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" id="nombre" name="nombre" formControlName="nombre">
+                </div>
+                <div class="campo">
+                    <label for="apellido">Apellido: </label>
+                    <input type="text" id="apellido" name="apellido" formControlName="apellido">
+                </div>
+                <div class="campo">
+                    <label for="mail">Mail: </label>
+                    <input type="text" id="mail" name="mail" formControlName="mail">
+                </div>
+                <div class="campo">
+                    <label for="documento">DNI: </label>
+                    <input type="text" id="documento" name="documento" formControlName="documento">
+                </div>
+                <div class="inputs">
+                    <input class="editar" type="submit" value="Editar Usuario" id="editar">
+                    <button class="cancelar" type="button"><a href="" routerLink="/admin">Cancelar</a></button>
+                </div>
+            </form>
+        </fieldset>
+    </section>
+</body>

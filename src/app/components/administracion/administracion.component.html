@@ -1,0 +1,68 @@
+<body>
+    <header>
+        <nav class="navegacion">
+            <div class="imagen">
+                <a href="" routerLink="home">
+                    <img class="logo" src="../assets/images/fondo.png" alt="">
+                </a>
+                <div class="logout">
+                    <a *ngIf="isUserLoggedIn" (click)="logout()" style="cursor: pointer;">CERRAR SESION</a>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+    <div class="hero">
+        <div class="contenedor">
+            <h1>Listado de Clientes</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Mail</th>
+                        <th>DNI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of listadoUsuarios">
+                        <td>{{item.id}}</td>
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.apellido}}</td>
+                        <td>{{item.mail}}</td>
+                        <td>{{item.documento}}</td>
+                        <td><a href="" (click)="eliminarCliente(item.id)">Eliminar</a></td>
+                        <td><a href="" [routerLink]="['/usuario', item.id]">Editar</a></td> <!-- /editar/6 -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="contenedor">
+            <h1>Listado de Productos</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo</th>
+                        <th>Autor/es</th>
+                        <th>Edition</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of listadoLibros;let i=index">
+                        <td>{{item.id}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.authors}}</td>
+                        <td>{{item.edition}}</td>
+                        <td>{{ listadoStock && listadoStock[i] ? listadoStock[i].precio : '' }}</td>
+                        <td>{{ listadoStock && listadoStock[i] ? listadoStock[i].stock : '' }}</td>
+                        <td><a href="" [routerLink]="['/libro', item.id]">Editar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
