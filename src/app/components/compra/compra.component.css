@@ -1,5 +1,5 @@
 thead th {
-    background-color: #7087aa;
+    background-color: #5e6266;
     color: #fff;
     text-align: left;
     padding: 1rem;
@@ -28,17 +28,66 @@ a {
     color: #fff;
 }
 
-.btnCompra:hover{
-    background-color: #45a049; 
+.btnCompra:hover {
+    background-color: #45a049;
     transition: background-color 0.3s
 }
 
-.btnMetodo{
-    background-color: rgba(68, 59, 117, 0.521);
+.btnMetodo {
+    background-color: #3f4245;
     color: #fff;
 }
 
-.btnMetodo:hover{
-    background-color: rgba(32, 29, 56, 0.521); 
+.btnMetodo:hover {
+    background-color: rgba(32, 29, 56, 0.521);
     transition: background-color 0.3s
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cont-btn {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.sel-tarjeta {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 1rem;
+}
+
+.label {
+    margin-right: 1rem;
+}
+
+@media (max-width:450px) {
+    a{
+        padding: none;
+    }
+
+    .cont-btn {
+        font-size: x-small;
+        height: 60px;
+        gap: 1rem;
+        padding: .5rem;
+    }
+
+    .btnMetodo{
+        font-display: left;
+        font-size: 12px;
+        padding-top: .7rem;
+    }
+
+    .btnCompra{
+        font-display: left;
+        font-size: 17px;
+        padding: .7rem;
+    }
 }

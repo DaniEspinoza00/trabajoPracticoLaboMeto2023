@@ -71,6 +71,72 @@
             }
           ],
           "total": 24.49
+        },
+        {
+          "fecha": "2023-11-16T23:08:07.498Z",
+          "pedidos": [
+            {
+              "id": 33,
+              "titulo": "Anne of Green Gables",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1390789015l/8127.jpg",
+              "cantidad": 1,
+              "precio": 8.99,
+              "subtotal": 8.99
+            },
+            {
+              "id": 2,
+              "titulo": "Harry Potter and the Order of the Phoenix",
+              "edicion": "US Edition",
+              "image_url": "https://images.gr-assets.com/books/1255614970l/2.jpg",
+              "cantidad": 1,
+              "precio": 25.49,
+              "subtotal": 25.49
+            },
+            {
+              "id": 5,
+              "titulo": "Twilight",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1361039443l/41865.jpg",
+              "cantidad": 1,
+              "precio": 7.99,
+              "subtotal": 7.99
+            }
+          ],
+          "total": 42.47
+        },
+        {
+          "fecha": "2023-11-16T23:10:14.714Z",
+          "pedidos": [
+            {
+              "id": 2,
+              "titulo": "Harry Potter and the Order of the Phoenix",
+              "edicion": "US Edition",
+              "image_url": "https://images.gr-assets.com/books/1255614970l/2.jpg",
+              "cantidad": 1,
+              "precio": 25.49,
+              "subtotal": 25.49
+            },
+            {
+              "id": 8,
+              "titulo": "Animal Farm",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1424037542l/7613.jpg",
+              "cantidad": 1,
+              "precio": 29.99,
+              "subtotal": 29.99
+            },
+            {
+              "id": 7,
+              "titulo": "The Chronicles of Narnia",
+              "edicion": "Reissue Edition",
+              "image_url": "https://images.gr-assets.com/books/1449868701l/11127.jpg",
+              "cantidad": 1,
+              "precio": 8.49,
+              "subtotal": 8.49
+            }
+          ],
+          "total": 63.97
         }
       ]
     },

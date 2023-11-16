@@ -34,7 +34,7 @@ import { AlertaLoginPageComponent } from './pages/alerta-login-page/alerta-login
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { AgregarTarjetaPageComponent } from './pages/agregar-tarjeta-page/agregar-tarjeta-page.component';
 import { AgregarTarjetaComponent } from './components/agregar-tarjeta/agregar-tarjeta.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgradecimientoPageComponent } from './pages/agradecimiento-page/agradecimiento-page.component';
 import { FavoritoPageComponent } from './pages/favorito-page/favorito-page.component';
 import { AdministracionComponent } from './components/administracion/administracion.component';
@@ -91,7 +91,8 @@ import { HistorialComponent } from './components/historial/historial.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,7 +8,7 @@
     {
       "id": 2,
       "precio": 25.49,
-      "stock": 26
+      "stock": 24
     },
     {
       "precio": "24.99",
@@ -23,7 +23,7 @@
     {
       "id": 5,
       "precio": 7.99,
-      "stock": 40
+      "stock": 39
     },
     {
       "id": 6,
@@ -33,12 +33,12 @@
     {
       "id": 7,
       "precio": 8.49,
-      "stock": 64
+      "stock": 63
     },
     {
       "id": 8,
       "precio": 29.99,
-      "stock": 10
+      "stock": 9
     },
     {
       "id": 9,
@@ -163,7 +163,7 @@
     {
       "id": 33,
       "precio": 8.99,
-      "stock": 55
+      "stock": 54
     },
     {
       "id": 34,
