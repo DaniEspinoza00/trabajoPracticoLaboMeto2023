@@ -25,31 +25,56 @@ export class HomeComponent implements OnInit{
     this.mostrarStock();
   }
 
-  async mostrarLibros(){
-    try{
-      const libros:any = await this.LibrosService.getLibros();
-    if(libros){
-      this.listadoLibros=libros.slice(0, 3);//aca falta un libros.items.slice
-      console.log(this.listadoLibros);
-    }else{
-      console.log('No se pudo acceder a los libros');
-    }
-    }catch(error){
-      console.log(error);
-    }
-  }
+  async mostrarLibros() {
+    try {
+        const libros: any = await this.LibrosService.getLibros();
+        if (libros) {
+            // Obtener 3 índices aleatorios únicos
+            const indicesAleatorios:any = [];
+            while (indicesAleatorios.length < 3) {
+                const indiceAleatorio = Math.floor(Math.random() * 100); // Suponiendo que el arreglo tiene 100 elementos
+                if (!indicesAleatorios.includes(indiceAleatorio)) {
+                    indicesAleatorios.push(indiceAleatorio);
+                }
+            }
 
-   async mostrarStock(){
-    try{
-      const libros:any = await this.LibroStock.getStock();
-    if(libros){
-      this.listadoStock=libros.slice(0, 3);
-      console.log(this.listadoStock);
-    }else{
-      console.log('No se pudo acceder a los libros');
+            // Obtener los objetos correspondientes a los índices aleatorios
+            this.listadoLibros = indicesAleatorios.map((indice: number)=> libros[indice]);
+
+            console.log(this.listadoLibros);
+        } else {
+            console.log('No se pudo acceder a los libros');
+        }
+    } catch (error) {
+        console.log(error);
     }
-    }catch(error){
+}
+
+
+async mostrarStock() {
+  try {
+      const libros: any = await this.LibroStock.getStock();
+      if (libros) {
+          // Obtener 3 índices aleatorios únicos
+          const indicesAleatorios: number[] = [];
+          while (indicesAleatorios.length < 3) {
+              const indiceAleatorio: number = Math.floor(Math.random() * 100); // Suponiendo que el arreglo tiene 100 elementos
+              if (!indicesAleatorios.includes(indiceAleatorio)) {
+                  indicesAleatorios.push(indiceAleatorio);
+              }
+          }
+
+          // Obtener los objetos correspondientes a los índices aleatorios
+          this.listadoStock = indicesAleatorios.map((indice: number) => libros[indice]);
+
+          console.log(this.listadoStock);
+      } else {
+          console.log('No se pudo acceder a los libros');
+      }
+  } catch (error) {
       console.log(error);
-    }
   }
+}
+
+
 }

@@ -1,88 +1,109 @@
-body{
-    background-image: url(src\assets\images\libros-antiguos-2644117.png);
-    background-size: cover;
-    background-attachment: fixed;
-    margin: 0; /* Asegura que no haya margen en el cuerpo */
-    padding: 0; /* Asegura que no haya relleno en el cuerpo */
-    min-height: 100vh;
+section{
+  background-image: url(src\assets\images\libros-antiguos-2644117.png);
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0; /* Asegura que no haya margen en el cuerpo */
+  padding: 0; /* Asegura que no haya relleno en el cuerpo */
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+
+/*     display: flex;
+  flex-direction: column;
+  align-items: center; */
 }
 .imagen{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1rem;
 }
 
-.hero{
-  margin-bottom: -2rem;
+.contenedor-ppal{
+margin-bottom: -2rem;
 }
 
-header{
-    height: 8rem;
-    width: 70%;
-    margin: 0 auto;
-    margin-bottom: 2rem;
+header {
+width: 70%;
+margin: 0 auto;
+margin-bottom: 2rem;
+display: flex;
+flex-direction: column;
+align-items: center; /* Centra verticalmente */
 }
+
 
 .navegacion{
-    display: flex;
-    height: 100%;
-    justify-content: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
 }
 .logout a{
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-left: 8.5rem;
-  padding-right: 8.5rem;
-  background-color: white;
+/*padding-top: 0.25rem;
+ padding-bottom: 0.25rem;
+padding-left: 8.5rem;
+padding-right: 8.5rem; */
+padding: 0.25rem 1rem;
+white-space: nowrap;
+background-color: white;
 }
 
 .contenedor {
-    margin: 0 auto;
-    width: 80%;
+  margin: 0 auto;
+  width: 80%;
 
 }
 
 h1{
-    color: white;
+  color: white;
 }
 
 /* Estilos para la tabla */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 2rem;
-  }
-  
-  /* Estilos para el encabezado de la tabla */
-  thead th {
-    background-color: #333;
-    color: #fff;
-    text-align: left;
-    padding: 1rem;
-  }
-  
-  /* Estilos para las celdas de datos */
-  tbody td {
-    border: 1px solid #ccc;
-    padding: 1rem;
-  }
-  
-  /* Estilos alternos para las filas */
-  tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  tbody tr:nth-child(odd) {
-    background-color: beige;
-  }
-  
-  /* Estilos para la primera fila de datos */
-  /* tbody tr:first-child {
-    font-weight: bold;
-  } */
-  
-  a{
-    text-decoration: none;
-    color: black;
-  }
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
 
+/* Estilos para el encabezado de la tabla */
+thead th {
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  padding: 1rem;
+}
+
+/* Estilos para las celdas de datos */
+tbody td {
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+
+/* Estilos alternos para las filas */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tbody tr:nth-child(odd) {
+  background-color: beige;
+}
+
+/* Estilos para la primera fila de datos */
+/* tbody tr:first-child {
+  font-weight: bold;
+} */
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+
+@media (max-width:435px){
+  .contenedor-ppal{
+    width: 100%;
+  }
+  section{
+    width: 200%;
+  }
+  
+}

@@ -83,3 +83,9 @@ legend{
 .inicioSesion{
     display: block;
 }
+
+@media (max-width:450px){
+    .seccion{
+        width: 90%;
+    }
+}

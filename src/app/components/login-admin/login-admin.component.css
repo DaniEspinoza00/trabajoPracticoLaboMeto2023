@@ -36,11 +36,11 @@
     color: rgb(116, 78, 32);
 }
 
-body{
+main{
     background-image: url(src\assets\images\libros-antiguos-2644117.png);
     background-size: cover;
     background-attachment: fixed;
-    margin: 0; /* Asegura que no haya margen en el cuerpo */
+    
     padding: 0; /* Asegura que no haya relleno en el cuerpo */
     min-height: 100vh;
     display: flex;
@@ -96,4 +96,11 @@ legend{
 
 .inicioSesion {
     width: 100%;
+}
+
+@media (max-width:435px){
+    .seccion{
+       width: 90%; 
+    }
+    
 }

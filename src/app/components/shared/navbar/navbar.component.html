@@ -1,38 +1,41 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<header>
-    <nav class="navegacion">
-        <div class="imagen">
-            <a href="" routerLink="home">
-                <img class="logo" src="../assets/images/fondo.png" alt="">
-            </a>
+<main>
+    <header>
+        <nav class="navegacion">
+            <div class="imagen">
+                <a href="" routerLink="home">
+                    <img class="logo" src="../assets/images/fondo.png" alt="">
+                </a>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Ingrese un libro a buscar">
+                <button class="search-icon"><i class="fa fa-search" routerLink=""></i></button>
+            </div>
+            <div class="search-container2">
+                <a href="#" routerLink="/usuario-menu">
+                    <div *ngIf="flag; 
+                    then thenBlock 
+                    else elseBlock"></div>
+    
+                    <ng-template #thenBlock> Mi cuenta</ng-template>
+                    <ng-template #elseBlock> Iniciar sesion/Registrarse</ng-template>
+                </a>
+                <a href="#" routerLink="/lista-favoritos">Lista de deseados</a>
+                <a href="#" routerLink="/carrito">Carrito</a>
+            </div>
+        </nav>
+    
+    </header>
+    
+    <nav class="links">
+        <div>
+            <a href="#" routerLink="/libros">Libros</a>
+            <a href="">Catalogo</a>
+            <a href="">Musica</a>
+            <a href="">Contacto</a>
+            
         </div>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Ingrese un libro a buscar">
-            <button class="search-icon"><i class="fa fa-search" routerLink=""></i></button>
-        </div>
-        <div class="search-container">
-            <a href="#" routerLink="/usuario-menu">
-                <div *ngIf="flag; 
-                then thenBlock 
-                else elseBlock"></div>
-
-                <ng-template #thenBlock> Mi cuenta</ng-template>
-                <ng-template #elseBlock> Iniciar sesion/Registrarse</ng-template>
-            </a>
-            <a href="#" routerLink="/lista-favoritos">Lista de deseados</a>
-            <a href="#" routerLink="/carrito">Carrito</a>
-        </div>
+    
     </nav>
+</main>
 
-</header>
-
-<nav class="links">
-    <div>
-        <a href="#" routerLink="/libros">Libros</a>
-        <a href="">Catalogo</a>
-        <a href="">Musica</a>
-        <a href="">Contacto</a>
-        
-    </div>
-
-</nav>

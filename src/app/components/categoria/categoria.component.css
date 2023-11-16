@@ -43,3 +43,23 @@ h3{
     margin: 0 auto;
 }
 
+@media (max-width:1150px){
+    .contenedor-principal{
+        flex-wrap: wrap;
+    }
+    .filter-container{
+        width: 100%;
+    }
+}
+
+ @media (max-width:900px){
+    .lista-libros{
+        grid-template-columns: repeat(3, 1fr);
+    }
+} 
+
+@media (max-width:435px){
+    .lista-libros{
+        grid-template-columns: repeat(2, 1fr);
+    }
+} 

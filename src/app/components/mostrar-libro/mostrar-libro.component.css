@@ -34,7 +34,7 @@
     color: rgb(116, 78, 32);
 }
 
-body{
+main{
     background-image: url(src\assets\images\libros-antiguos-2644117.png);
     background-size: cover;
     background-attachment: fixed;
@@ -79,4 +79,10 @@ legend{
     background-color: rgb(81, 107, 107);
     display: block;
     width: 70%;
+}
+
+@media (max-width:450px){
+    .seccion{
+        width: 90%;
+    }
 }

@@ -1,7 +1,3 @@
-main{
-    margin-top: 5rem;
-}
-
 .recomendations{
     display: flex;
     flex-direction:column;
@@ -40,3 +36,28 @@ h2{
 h3{
     text-align: center;
 }
+
+
+@media only screen and (max-width: 414px) {
+    .contenedor {
+      width: 100%; /* Ocupa todo el ancho disponible para pantallas pequeñas */
+    }
+    
+    .libro {
+      flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+      align-items: center; /* Ajusta la alineación de los libros */
+    }
+    
+    div img {
+      height: auto; /* Hace que la altura de la imagen sea automática para pantallas pequeñas */
+      width: 100%; /* Ocupa todo el ancho disponible para pantallas pequeñas */
+    }
+  }
+
+
+  @media (max-width: 900px) {
+    .contenedor{
+        flex-direction: column;
+        align-items: center;
+    }
+  }
