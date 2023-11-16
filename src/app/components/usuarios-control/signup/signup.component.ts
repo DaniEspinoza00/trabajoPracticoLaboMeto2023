@@ -34,7 +34,7 @@ export class SignupComponent {
     let contra : string =(<HTMLInputElement>document.getElementById("contra")).value
     let dni : string =(<HTMLInputElement>document.getElementById("dni")).value
 
-    let nuevo : Usuario=  {id:this.loginService.idDisponible(), nombre:nombre,apellido:apellido,mail:mail,contra:contra,documento:dni,tarjetaCredito:this.tarjeta,favoritos:[]}
+    let nuevo : Usuario=  {id:this.loginService.idDisponible(), nombre:nombre,apellido:apellido,mail:mail,contra:contra,documento:dni,tarjetaCredito:this.tarjeta,favoritos:[],historial:[]}
     if(this.loginService.verificarMail(nuevo)){
       alert ("Ya existe una cuenta registrada con este correo electronico")
     }else{

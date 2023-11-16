@@ -1,0 +1,26 @@
+th{
+    border: 2px solid;
+    text-align: center;
+}
+
+table{
+    border: 2.5 px solid;
+}
+
+.fecha{
+    border:1 px solid;
+    min-width: 30 px;
+    text-align: center;
+}
+
+.libro{
+    border:1 px solid;
+    min-width: 300 px;
+    text-align: left;
+}
+
+.precio{
+    border:1 px solid;
+    min-width: 30 px;
+    text-align: center;
+}

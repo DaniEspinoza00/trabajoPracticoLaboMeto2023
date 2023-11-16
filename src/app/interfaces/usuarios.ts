@@ -1,4 +1,5 @@
 import { Tarjeta } from "./tarjeta";
+import { Ventas } from "./ventas";
 
 export interface Usuario{
     id:number,
@@ -9,4 +10,5 @@ export interface Usuario{
     documento:string,
     tarjetaCredito:Tarjeta,
     favoritos:number[],//seria el seria/id/isbn del libro
+    historial:Ventas[]
 }    

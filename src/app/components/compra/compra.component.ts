@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ItemCarrito } from 'src/app/interfaces/itemCarrito';
 import { Usuario } from 'src/app/interfaces/usuarios';
 import { LibroStock } from 'src/app/interfaces/libroStock';
+import { Ventas } from 'src/app/interfaces/ventas';
 
 @Component({
   selector: 'app-compra',
@@ -19,7 +20,7 @@ export class CompraComponent implements OnInit{
 
 
   constructor(private router: Router,
-              private LoginService:LoginService,
+              private loginService:LoginService,
               private LibrosStockService:LibrosStockService){
     
   }
@@ -28,7 +29,7 @@ export class CompraComponent implements OnInit{
     let carritoStorage = localStorage.getItem("carrito") as string
     let carrito = JSON.parse(carritoStorage)
     this.listaItemsCarrito = carrito
-    this.user = this.LoginService.getUsuarioActual()
+    this.user = this.loginService.getUsuarioActual()
   }
 
   calcularTotalAPagar(){
@@ -45,7 +46,7 @@ export class CompraComponent implements OnInit{
 
   async verificarTrajeta(){
     if(this.user?.tarjetaCredito.numeroTarjeta != 0){
-      // parte de agregar al historial
+      
       for(let i = 0; i < this.listaItemsCarrito.length; i++){
         this.stock = await this.LibrosStockService.getLibroStock(this.listaItemsCarrito[i].id)
         console.log(`item ${i} antes: ${this.stock!.stock} `);
@@ -53,6 +54,7 @@ export class CompraComponent implements OnInit{
         await this.LibrosStockService.putStock(this.stock!)
         console.log(`item ${i} despues: ${this.stock!.stock} `);
       }
+      this.agregarHistorial()
       localStorage.clear()
       this.listaItemsCarrito = []
       this.router.navigate(['felicidades'])
@@ -61,5 +63,13 @@ export class CompraComponent implements OnInit{
       alert("El usuario no tiene ninguna tarjeta agregada")
       this.router.navigate(['agregar-tarjeta'])
     }
+  }
+
+  agregarHistorial(){
+    let cambio:Usuario=this.loginService.usuarioActual
+    let nuevo:Ventas={fecha: new Date(),pedidos:this.listaItemsCarrito,total:this.calcularTotalAPagar()}
+ 
+    cambio.historial.push(nuevo)
+    this.loginService.modifJson(cambio)
   }
 }

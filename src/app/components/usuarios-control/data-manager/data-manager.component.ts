@@ -19,7 +19,7 @@ export class DataManagerComponent implements OnInit{
     dni: 0,
     fechaCaducidad: ''
   }
-  usuarioActual:Usuario= {id:0,nombre:'',apellido:'',mail:'',contra:'',documento:'0',tarjetaCredito:this.tarjeta,favoritos:[]}
+  usuarioActual:Usuario= {id:0,nombre:'',apellido:'',mail:'',contra:'',documento:'0',tarjetaCredito:this.tarjeta,favoritos:[],historial:[]}
   
   constructor(private loginService:LoginService){
   }

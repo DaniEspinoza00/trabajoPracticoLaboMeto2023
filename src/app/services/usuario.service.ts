@@ -20,7 +20,7 @@ export class LoginService {
     fechaCaducidad: ''
   }
   //usuarioVacio:Usuario = {id:10,nombre:'',apellido:'1',mail:'1',contra:'1',documento:'0',tarjetaCredito:false,favoritos:[1,2,3]}
-  usuarioVacio: Usuario = { id: 0, nombre: '', apellido: '', mail: '', contra: '', documento: '0', tarjetaCredito: this.tarjeta, favoritos: [] }
+  usuarioVacio: Usuario = { id: 0, nombre: '', apellido: '', mail: '', contra: '', documento: '0', tarjetaCredito: this.tarjeta, favoritos: [], historial:[] }
   usuarioActual: Usuario = this.usuarioVacio
 
   constructor(private router: Router) { }

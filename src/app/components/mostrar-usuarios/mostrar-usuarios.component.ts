@@ -62,9 +62,13 @@ export class MostrarUsuariosComponent implements OnInit{
         documento:this.formulario.controls["documento"].value,
         tarjetaCredito:this.formulario.controls["tarjetaCredito"].value,
         favoritos:[],
+        historial:[]
       }
       if(this.usuario?.favoritos){
         usuario.favoritos=this.usuario.favoritos
+      }
+      if(this.usuario?.historial){
+        usuario.historial=this.usuario.historial
       }
       this.AdminService.putUsuario(usuario);
       console.log(usuario);

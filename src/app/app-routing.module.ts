@@ -16,6 +16,7 @@ import { AdministracionPageComponent } from './pages/administracion-page/adminis
 import { MostrarLibroPageComponent } from './pages/mostrar-libro-page/mostrar-libro-page.component';
 import { MostrarUsuariosPageComponent } from './pages/mostrar-usuarios-page/mostrar-usuarios-page.component';
 import { LoginAdminPageComponent } from './pages/login-admin-page/login-admin-page.component';
+import { HistorialComponent } from './components/historial/historial.component';
 
 const routes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path: 'login-admin', component:LoginAdminPageComponent},
   {path:'agregar-tarjeta', component:AgregarTarjetaPageComponent},
   {path:'felicidades', component:AgradecimientoPageComponent},
+  {path:'historial',component: HistorialComponent},
   {path:'**', redirectTo:'home'}
 ];
 

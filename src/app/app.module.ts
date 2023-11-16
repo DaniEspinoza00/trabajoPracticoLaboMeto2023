@@ -43,6 +43,7 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
 import { LoginAdminPageComponent } from './pages/login-admin-page/login-admin-page.component';
 import { MostrarUsuariosComponent } from './components/mostrar-usuarios/mostrar-usuarios.component';
 import { MostrarUsuariosPageComponent } from './pages/mostrar-usuarios-page/mostrar-usuarios-page.component';
+import { HistorialComponent } from './components/historial/historial.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { MostrarUsuariosPageComponent } from './pages/mostrar-usuarios-page/most
     LoginAdminComponent,
     LoginAdminPageComponent,
     MostrarUsuariosComponent,
-    MostrarUsuariosPageComponent
+    MostrarUsuariosPageComponent,
+    HistorialComponent
   ],
   imports: [
     BrowserModule,

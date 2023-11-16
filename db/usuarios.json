@@ -9,35 +9,102 @@
       "favoritos": [
         2
       ],
-      "documento": "567"
+      "documento": "567",
+      "tarjetaCredito": {
+        "numeroTarjeta": 44455,
+        "codigoSeguridad": 768,
+        "nombreTarjeta": "Nacho",
+        "dni": 567,
+        "fechaCaducidad": "2023-12-30"
+      },
+      "historial": [
+        {
+          "fecha": "2023-11-16T03:12:21.431Z",
+          "pedidos": [
+            {
+              "id": 11,
+              "titulo": "The Fault in Our Stars",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1360206420l/11870085.jpg",
+              "cantidad": 1,
+              "precio": 21.49,
+              "subtotal": 21.49
+            }
+          ],
+          "total": 21.49
+        },
+        {
+          "fecha": "2023-11-16T04:18:30.177Z",
+          "pedidos": [
+            {
+              "id": 16,
+              "titulo": "Memoirs of a Geisha",
+              "edicion": "Large Print",
+              "image_url": "https://images.gr-assets.com/books/1388367666l/930.jpg",
+              "cantidad": 1,
+              "precio": 17.99,
+              "subtotal": 17.99
+            },
+            {
+              "id": 27,
+              "titulo": "The Perks of Being a Wallflower",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1520093244l/22628.jpg",
+              "cantidad": 1,
+              "precio": 30.99,
+              "subtotal": 30.99
+            }
+          ],
+          "total": 48.98
+        },
+        {
+          "fecha": "2023-11-16T04:21:02.742Z",
+          "pedidos": [
+            {
+              "id": 31,
+              "titulo": "The Time Traveler's Wife",
+              "edicion": "Special Edition",
+              "image_url": "https://images.gr-assets.com/books/1380660571l/18619684.jpg",
+              "cantidad": 1,
+              "precio": 24.49,
+              "subtotal": 24.49
+            }
+          ],
+          "total": 24.49
+        }
+      ]
     },
     {
       "id": 2,
       "nombre": "Yako",
       "apellido": "Alegre",
       "mail": "cola123",
-      "contra": "pollo"
+      "contra": "pollo",
+      "historial": []
     },
     {
       "nombre": "Martin",
       "apellido": "Bile",
       "mail": "flecha@gmail.com",
       "contra": "pelo",
-      "id": 4
+      "id": 4,
+      "historial": []
     },
     {
       "id": 5,
       "nombre": "Patricia",
       "apellido": "Alegre",
       "mail": "bhvyv",
-      "contra": ".bvjcvu"
+      "contra": ".bvjcvu",
+      "historial": []
     },
     {
       "id": 3,
       "nombre": "Moni",
       "apellido": "Chan",
       "mail": "Phe",
-      "contra": "Ros"
+      "contra": "Ros",
+      "historial": []
     },
     {
       "id": 6,
@@ -53,7 +120,8 @@
         "dni": 43516109,
         "fechaCaducidad": "2023-12-04"
       },
-      "favoritos": []
+      "favoritos": [],
+      "historial": []
     },
     {
       "id": 7,
@@ -71,7 +139,8 @@
       },
       "favoritos": [
         3
-      ]
+      ],
+      "historial": []
     },
     {
       "id": 8,
@@ -87,7 +156,8 @@
         "dni": 123548,
         "fechaCaducidad": "2023-12-08"
       },
-      "favoritos": []
+      "favoritos": [],
+      "historial": []
     },
     {
       "id": 9,
@@ -103,7 +173,25 @@
         "dni": 184518,
         "fechaCaducidad": "2023-12-09"
       },
-      "favoritos": []
+      "favoritos": [],
+      "historial": []
+    },
+    {
+      "id": 10,
+      "nombre": "Sofi",
+      "apellido": "Aza",
+      "mail": "joaqui",
+      "contra": "ona",
+      "documento": "890",
+      "tarjetaCredito": {
+        "numeroTarjeta": 45,
+        "codigoSeguridad": 320,
+        "nombreTarjeta": "Sof",
+        "dni": 890,
+        "fechaCaducidad": "2024-02-28"
+      },
+      "favoritos": [],
+      "historial": []
     }
   ]
 }
