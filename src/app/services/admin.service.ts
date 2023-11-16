@@ -34,9 +34,9 @@ export class AdminService {
     return undefined;
   }
 
-  async putUsuario (Usuario:Usuario){
+  async putUsuario (Usuario:Usuario|null){
     try {
-      await fetch(`${this.url}/${Usuario.id}`, {method:'PUT',
+      await fetch(`${this.url}/${Usuario?.id}`, {method:'PUT',
       body: JSON.stringify(Usuario),
       headers:{'Content-type': 'application/json'}})
       this.router.navigate (['admin'])

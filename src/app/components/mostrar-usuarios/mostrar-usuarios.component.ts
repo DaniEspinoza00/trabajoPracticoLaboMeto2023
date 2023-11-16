@@ -21,7 +21,7 @@ export class MostrarUsuariosComponent implements OnInit{
     contra:['',[Validators.required]],
     documento:['',[Validators.required]],
     tarjetaCredito:[false,[Validators.required]],
-    favoritos:[[],[Validators.required]],
+    /* favoritos:[[0],[Validators.required]], */
   })
 
   constructor (private formsBuilder: FormBuilder,
@@ -36,7 +36,7 @@ export class MostrarUsuariosComponent implements OnInit{
     this.route.params.subscribe(async param =>{
       const id = param['id'];
       this.usuario=await this.AdminService.getUsuario(id);
-
+      
       this.formulario = this.formsBuilder.group({
         id: this.usuario?.id,
         nombre: this.usuario?.nombre,
@@ -61,7 +61,10 @@ export class MostrarUsuariosComponent implements OnInit{
         contra:this.formulario.controls["contra"].value,
         documento:this.formulario.controls["documento"].value,
         tarjetaCredito:this.formulario.controls["tarjetaCredito"].value,
-        favoritos:this.formulario.controls["favoritos"].value
+        favoritos:[],
+      }
+      if(this.usuario?.favoritos){
+        usuario.favoritos=this.usuario.favoritos
       }
       this.AdminService.putUsuario(usuario);
       console.log(usuario);
