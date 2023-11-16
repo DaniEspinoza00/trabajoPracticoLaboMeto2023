@@ -14,14 +14,14 @@
     
         display: flex;
         flex-direction: column;
-        align-items: left;
-        width: 100%;
-   
+        align-items: center;
+
 }
 
 .eliminar{
-    align-items: right;
-    margin-bottom: 30px;
+    /* align-items: right;
+    margin-bottom: 30px; */
+    margin-top: 50%;
 }
 
 .favoritos div{
@@ -29,4 +29,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+tr{
+    display: flex;
+    gap: 1rem;
 }
