@@ -8,8 +8,10 @@
                 </a>
             </div>
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="Ingrese un libro a buscar">
+                <form class="form-input" (submit)="buscarLibro()">
+                    <input type="text" class="search-input" [(ngModel)]="tituloLibro" name="tituloLibro" placeholder="Ingrese un libro a buscar">
                 <button class="search-icon"><i class="fa fa-search" routerLink=""></i></button>
+                </form>
             </div>
             <div class="search-container2">
                 <a href="#" routerLink="/usuario-menu">

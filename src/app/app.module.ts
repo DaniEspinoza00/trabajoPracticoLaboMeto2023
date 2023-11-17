@@ -85,13 +85,14 @@ import { HistorialComponent } from './components/historial/historial.component';
     LoginAdminPageComponent,
     MostrarUsuariosComponent,
     MostrarUsuariosPageComponent,
-    HistorialComponent
+    HistorialComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     BrowserModule
   ],
   providers: [],

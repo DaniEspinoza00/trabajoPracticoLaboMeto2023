@@ -62,13 +62,28 @@ header{
     color: white;
 }
 
-
+.form-input{
+    display: flex;
+}
 
 
  /*  @media (max-width:1400px) {
     .search-container{
         width: 50%;
     }
+  } */
+
+ /*  @media (max-width:1400px) {
+    .navegacion{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        width: 70%;
+    }
+    .navegacion:nth-child(1){
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    
   } */
 
   @media screen and (max-width:900px){

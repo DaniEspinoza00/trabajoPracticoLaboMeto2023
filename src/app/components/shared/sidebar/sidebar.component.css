@@ -1,9 +1,28 @@
 h3{
     text-align: center;
 }
+li{
+    list-style: none;
+}
+.menu-desplegable{
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+.categorias{
+    display: block;
+}
+
+
 
 @media (max-width:1150px){
     div {
         text-align: center;
     }
+    /* .menu-desplegable{
+        display: block;
+    } */
 }

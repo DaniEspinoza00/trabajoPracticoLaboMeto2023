@@ -37,43 +37,17 @@ export class LibrosService {
     }
     return undefined;
   }
-  
 
-/*   async getLibrosGenero(genero:string): Promise < Libro[] | undefined >{
+  async buscarLibroPorTitulo(titulo: string): Promise<Libro[] | undefined> {
     try {
-      const resultado = await fetch (`${this.urlLibros}/${genero}`)
-      const libros = resultado.json();
-      return libros;
+      // Realizar la búsqueda por título y devolver los resultados
+      const resultados = this.listadoLibros.filter(libro => libro.title.toLowerCase().includes(titulo.toLowerCase()));
+      return resultados;
     } catch (error) {
       console.log(error);
     }
     return undefined;
   }
-
-  async getPrecios(){
-    
-    try {
-      const result = await fetch(this.urlP)
-      const listaPrecios = await result.json()
-
-      return listaPrecios
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async getPrecio(id: number){
-    
-    try {
-      const result = await fetch(`${this.urlP}/${id}`)
-      const listaPrecios = await result.json()
-      return listaPrecios
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
- */
 
   
 }

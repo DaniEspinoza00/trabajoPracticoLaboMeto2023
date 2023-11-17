@@ -2,3 +2,6 @@ a{
     cursor: pointer;
     color: #7087aa;
 }
+main{
+    min-height: 55vh;
+}

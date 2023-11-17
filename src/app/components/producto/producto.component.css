@@ -50,7 +50,7 @@ img{
     margin: 1rem;
 }
 
-section{
+.producto-descripcion{
     border-top: 0.1em solid grey;
     width: 70%;
     margin: 0 auto;
@@ -125,13 +125,18 @@ section{
     margin-bottom: 2rem;
 }
 
-@media (max-width:435px){
+@media (max-width:850px){
     .contenedor{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
+    .titulo-autor-precio{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     section{
         display: flex;

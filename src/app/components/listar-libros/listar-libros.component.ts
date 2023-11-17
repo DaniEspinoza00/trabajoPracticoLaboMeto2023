@@ -36,15 +36,4 @@ export class ListarLibrosComponent implements OnInit {
 
   }
 
-  // async mostrarPrecios(){
-  //   this.listP = await this.LibrosService.getPrecios()
-  //   if(this.listP){
-  //     this.LibrosService.listP=this.listP
-  //   }
-  // }
-
-  /* async mostrarLibros2(){
-    this.listadoLibros=await this.LibrosService.getLibros();
-  }
- */
 }

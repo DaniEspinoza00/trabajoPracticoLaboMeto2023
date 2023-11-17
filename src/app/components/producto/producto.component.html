@@ -4,7 +4,7 @@
             <img class="imagen" [src]="libro2?.image_url" alt="{{ libro2?.title }}">
         </div>
         <div class="descripcion">
-            <div>
+            <div class="titulo-autor-precio">
                 <h1>{{libro2?.title}}</h1>
                 <h4>{{libro2?.authors}}</h4>
                 <h2>$ {{libroStock?.precio}}</h2>
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <section >
+    <div class="producto-descripcion" >
         <div class="descripcion2">
             <span>DESCRIPCION</span>
         </div>
@@ -30,6 +30,24 @@
             <h4>Sinopsis del Libro</h4>
             <p>{{libro2?.description}}</p>
         </div>
-    </section>
+    </div>
+    <div class="producto-descripcion">
+        <div class="descripcion2">
+            <span>AUTOR/ES</span>
+        </div>
+        <div class="sinopsis">
+            <h4>Autor</h4>
+            <p>{{libro2?.authors}}</p>
+        </div>
+    </div>
+    <div class="producto-descripcion">
+        <div class="descripcion2">
+            <span>GENERO</span>
+        </div>
+        <div class="sinopsis">
+            <h4>Generos</h4>
+            <p>{{libro2?.genres}}</p>
+        </div>
+    </div>
 
 </main>
