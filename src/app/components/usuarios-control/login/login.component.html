@@ -1,12 +1,26 @@
+<div class="contenedor">
+<h1>Iniciar Sesión</h1>
 <form action="" id="inicioSesion">
-   
+
     <p>Ingrese su correo electrónico
+       
+      </p>
+     <p>
       <input type="text" id="mail"  required>
-    </p>
+     </p>
+    
     <p>Ingrese su contraseña
+      
+      
+    </p>
+
+    <p>
       <input type="password" id="contra" required>
     </p>
-    <p>
+    <p class="botones">
       <button type="submit" class="inicioB" (click)="inicioSesion($event)">Iniciar Sesión</button> 
-      <button type="button" (click)="cambio()">Registrarse</button>
+      <button type="button" class="registroB" (click)="cambio()">Registrarse</button>
     </p>
+
+  </form>
+  </div>

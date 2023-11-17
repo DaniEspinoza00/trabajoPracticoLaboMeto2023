@@ -1,23 +1,30 @@
+<div class="contenedor">
+<h1>Registrarse</h1>
 <form action="" id="registrarse">
-    <label>
-        <p>Ingrese su nombre
+
+        <p>Ingrese su nombre</p>
+        <p>
         <input type="text" id="nombre"  required>
       </p>
-      <p>Ingrese su apellido
+      <p>Ingrese su apellido</p>
+      <p>
         <input type="text" id="apellido" required>
       </p>
-      <p>Ingrese su correo electrónico
+      <p>Ingrese su correo electrónico</p>
+      <p>
         <input type="text" id="mail"  required>
       </p>
-      <p>Ingrese su contraseña
+      <p>Ingrese su contraseña<p>
         <input type="password" id="contra" required>
       </p>
-      <p>Ingrese su DNI
+      <p>Ingrese su DNI</p>
+      <p>
         <input type="text" id="dni" required>
       </p>
       
-      <p>
+      <p class="botones">
         <button type="submit" class="registroB" (click)="registrar($event)">Registrarse</button>
-        <button type="button" (click)="cambio()">Iniciar Sesión</button>
+        <button type="button" class="inicioB" (click)="cambio()">Iniciar Sesión</button>
       </p>
-    </label>
+</form>
+</div>

@@ -1,9 +1,9 @@
 {
   "librosStock": [
     {
-      "id": 1,
       "precio": 10.99,
-      "stock": 0
+      "id": 1,
+      "stock": "7"
     },
     {
       "id": 2,
@@ -28,7 +28,7 @@
     {
       "id": 6,
       "precio": 12.99,
-      "stock": 55
+      "stock": 54
     },
     {
       "id": 7,
@@ -113,7 +113,7 @@
     {
       "id": 23,
       "precio": 23.99,
-      "stock": 20
+      "stock": 19
     },
     {
       "id": 24,

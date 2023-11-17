@@ -25,7 +25,7 @@ export class FavoritosComponent implements OnInit {
         this.igualarFavLibros()
       }
     }
-    
+    this.librosService.getLibros()
 
   }
 

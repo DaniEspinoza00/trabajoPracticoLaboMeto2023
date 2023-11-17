@@ -1,13 +1,14 @@
+<div class="contenedor">
 <div *ngIf="flag; 
 then thenBlock 
 else elseBlock"></div>
 
 <ng-template #thenBlock>
-    <h1>Iniciar Sesión</h1>
+    
     <app-login (newCambio)="cambiar($event)"></app-login>
 </ng-template>
 <ng-template #elseBlock>
-    <h1>Registrarse</h1>
+    
     <app-signup (newCambio)="cambiar($event)"></app-signup>
 </ng-template>
-
+</div>

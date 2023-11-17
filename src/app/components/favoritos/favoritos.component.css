@@ -1,42 +1,66 @@
 main{
     min-height:55vh;
-}
-
-
-.imgagen-libro{
-    width: 15 rem;
-    height: 15 rem;
-}
-
-.informacion{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: right;
+    align-items: center;
+    
 }
 
+
+.imagen-libro {
+    width: 8rem;
+    height: 12rem;
+}
+
+.imagen-libro:hover{
+    cursor: pointer;
+}
+
+.fila{
+    vertical-align: text-top;
+}
+
+.informacion{
+    vertical-align: top;
+    text-align: justify;
+    direction:ltr;
+    width: 300px;
+}
+
+
+
+
+
 .contenedor-lista-fav{
-    
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    margin-bottom: 30px;
+    margin-top:20px;
 
 }
 
 .eliminar{
-    /* align-items: right;
-    margin-bottom: 30px; */
-    margin-top: 50%;
+    
+    vertical-align: top;
+    text-align: right;
+    
 }
 
-.favoritos div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+.botonElim{
+    margin-top: 30px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: rgb(211, 56, 8);
+    color: #fff;
+    border:none;
+    border-radius: 15px;
+    
 }
 
-tr{
-    display: flex;
-    gap: 1rem;
+.botonElim:hover{
+    cursor: pointer;
+    background-color: rgb(165, 44, 8);
 }
+
+
+

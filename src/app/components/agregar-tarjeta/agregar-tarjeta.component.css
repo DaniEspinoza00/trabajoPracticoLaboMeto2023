@@ -21,6 +21,7 @@
     border: .8px solid #e1e1e1;
 }
 .seccion{
+    min-height: 55vh;
     width: 50%;
     margin: 0 auto;
     background-color: beige;
