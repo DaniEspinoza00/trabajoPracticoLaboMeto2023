@@ -137,6 +137,39 @@
             }
           ],
           "total": 63.97
+        },
+        {
+          "fecha": "2023-11-18T18:46:49.074Z",
+          "pedidos": [
+            {
+              "id": 4,
+              "titulo": "Pride and Prejudice",
+              "edicion": "Modern Library Classics, USA / CAN",
+              "image_url": "https://images.gr-assets.com/books/1320399351l/1885.jpg",
+              "cantidad": 1,
+              "precio": 18.99,
+              "subtotal": 18.99
+            },
+            {
+              "id": 6,
+              "titulo": "The Book Thief",
+              "edicion": "First American Edition (US / CAN)",
+              "image_url": "https://images.gr-assets.com/books/1522157426l/19063.jpg",
+              "cantidad": 1,
+              "precio": 12.99,
+              "subtotal": 12.99
+            },
+            {
+              "id": 8,
+              "titulo": "Animal Farm",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1424037542l/7613.jpg",
+              "cantidad": 1,
+              "precio": 29.99,
+              "subtotal": 29.99
+            }
+          ],
+          "total": 61.97
         }
       ]
     },

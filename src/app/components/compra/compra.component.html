@@ -25,11 +25,10 @@
             <option value="" disabled selected>-- Numero tarjeta --</option>
             <option value="num">{{user?.tarjetaCredito?.numeroTarjeta}}</option>
         </select>
+        <a (click)="viajarATarjeta()" class="btnMetodo">Cambiar</a>
     </div>
     <div class="cont-btn">
-        <a (click)="viajarATarjeta()" class="btnMetodo">CAMBIAR TARJETA</a>
         <a class="btnCompra" (click)="verificarTrajeta()">COMPRAR</a>
-        <a (click)="viajarATarjeta()" class="btnMetodo">AGREGAR TARJETA</a>
-
+        <a class="btnRechazar" (click)="volverACarrito()">RECHAZAR COMPRA</a>
     </div>
 </main>

@@ -78,6 +78,7 @@ export class CarritoComponent implements OnInit{
       else{
         let itemCarrito: ItemCarrito = carrito[index]
         itemCarrito.cantidad!--
+        itemCarrito.subtotal = itemCarrito.cantidad * itemCarrito.precio
         carrito[index] = itemCarrito
         localStorage.setItem("carrito", JSON.stringify(carrito))
       }

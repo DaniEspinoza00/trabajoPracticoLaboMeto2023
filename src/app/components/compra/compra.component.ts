@@ -72,4 +72,8 @@ export class CompraComponent implements OnInit{
     cambio.historial.push(nuevo)
     this.loginService.modifJson(cambio)
   }
+
+  volverACarrito(){
+    this.router.navigate(['carrito'])
+  }
 }
