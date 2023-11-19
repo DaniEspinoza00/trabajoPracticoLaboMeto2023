@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter,inject } from '@angular/core';
 import { Tarjeta } from 'src/app/interfaces/tarjeta';
 import { Usuario } from 'src/app/interfaces/usuarios';
 import {LoginService} from 'src/app/services/usuario.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -10,6 +11,16 @@ import {LoginService} from 'src/app/services/usuario.service';
 })
 export class SignupComponent {
   @Output()newCambio=new EventEmitter<boolean>();
+  
+  formulario:FormGroup = this.formsBuilder.group({
+    nombre:['',[Validators.required]],
+    apellido:['',[Validators.required]],
+    mail:['',[Validators.required]],
+    contra:['',[Validators.required]],
+    DNI:['',[Validators.required]],
+  })
+  
+
   tarjeta: Tarjeta = {
     numeroTarjeta: 0,
     codigoSeguridad: 0,
@@ -17,7 +28,7 @@ export class SignupComponent {
     dni: 0,
     fechaCaducidad: ''
   }
-  constructor(private loginService:LoginService){}
+  constructor(private loginService:LoginService,private formsBuilder:FormBuilder){}
 
 
   cambio(){
@@ -25,6 +36,7 @@ export class SignupComponent {
   }
 
   registrar(e:Event){
+    if(this.formulario.invalid)return;
     e.preventDefault();
     
 

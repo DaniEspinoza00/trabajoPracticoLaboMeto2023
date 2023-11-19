@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<main>
 <h2 class="titulo">Historial de compras</h2>
 <div *ngIf="flag; 
     then thenBlock 
@@ -6,17 +7,25 @@
 
 <ng-template #thenBlock>
     <table class="contenedor-lista-his">
-        <tbody class="listaHis">
-            <th>Fecha de transacción</th>
-            <th>Libros comprados</th>
-            <th>Total pagado</th>
+        <thead>
+            <tr>
+                <th>Fecha de transacción</th>
+                <th>Libros comprados</th>
+                <th>Total pagado</th>
+            </tr>
+        </thead>
+            <tbody class="listaHis">
         <tr *ngFor="let item of listaHisto">
-            <td class="fecha">
+            <td class="fecha">  
                 {{item.fecha|date:'yyyy-MM-dd'}}
             </td>
+  
             <td >
                 <tr *ngFor="let libro of item.pedidos">
-                    <p class="libro" href="" [routerLink]="['/producto',libro.id]">{{libro.titulo}}: {{libro.cantidad}}</p>
+                    <p class="libro" href="" [routerLink]="['/producto',libro.id]">{{libro.titulo}} 
+                        
+                        <a *ngIf="libro.cantidad!=1">: {{libro.cantidad}}</a>
+                        </p>
                 </tr>
                 
             </td>
@@ -33,5 +42,5 @@
         <h3>¡Aun no se han comprado ningún libro!</h3>
         <h4>¿Por que no revisa nuestro catalogo? Tal vez algo le interese c;</h4>
     </ng-template>
-
+</main>
 <app-footer></app-footer>

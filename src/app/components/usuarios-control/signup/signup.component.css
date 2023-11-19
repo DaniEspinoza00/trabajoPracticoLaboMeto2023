@@ -48,3 +48,15 @@ input{
 .botones{
     margin-top: 40px;
 }
+
+.error{
+    display: flex;
+    justify-content: center;
+    margin-bottom: .5rem;
+    color: rgb(116, 78, 32);
+}
+
+.error span{
+    text-align: center;
+    color: red;
+}

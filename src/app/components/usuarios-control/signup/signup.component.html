@@ -1,29 +1,55 @@
 <div class="contenedor">
 <h1>Registrarse</h1>
-<form action="" id="registrarse">
+
+<form action="" id="registrarse" [formGroup]="formulario">
 
         <p>Ingrese su nombre</p>
         <p>
-        <input type="text" id="nombre"  required>
-      </p>
+        <input type="text" id="nombre" formControlName="nombre">
+        </p>
+        <div class="error">
+          <span class="error" *ngIf="formulario.controls['nombre'].getError('required')&&formulario.touched">El campo es
+           requerido</span> 
+       </div>
+
       <p>Ingrese su apellido</p>
       <p>
-        <input type="text" id="apellido" required>
+        <input type="text" id="apellido" formControlName="apellido">
       </p>
+      <div class="error">
+        <span class="error" *ngIf="formulario.controls['apellido'].getError('required')&&formulario.touched">El campo es
+         requerido</span> 
+     </div>
+
       <p>Ingrese su correo electrónico</p>
       <p>
-        <input type="text" id="mail"  required>
+        <input type="text" id="mail"  formControlName="mail">
       </p>
-      <p>Ingrese su contraseña<p>
-        <input type="password" id="contra" required>
+      <div class="error">
+        <span class="error" *ngIf="formulario.controls['mail'].getError('required')&&formulario.touched">El campo es
+         requerido</span> 
+     </div>
+
+      <p>Ingrese su contraseña</p>
+      <p>
+        <input type="password" id="contra" formControlName="contra">
       </p>
+      <div class="error">
+        <span class="error" *ngIf="formulario.controls['contra'].getError('required')&&formulario.touched">El campo es
+         requerido</span> 
+     </div>
+
       <p>Ingrese su DNI</p>
       <p>
-        <input type="text" id="dni" required>
+        <input type="text" id="dni" formControlName="dni">
       </p>
+      <div class="error">
+        <span class="error" *ngIf="formulario.controls['dni'].getError('required')&&formulario.touched">El campo es
+         requerido</span> 
+     </div>
       
       <p class="botones">
-        <button type="submit" class="registroB" (click)="registrar($event)">Registrarse</button>
+        <button type="submit" class="registroB" (click)="registrar($event)"  >Registrarse</button>
         <button type="button" class="inicioB" (click)="cambio()">Iniciar Sesión</button>
       </p>
 </form>

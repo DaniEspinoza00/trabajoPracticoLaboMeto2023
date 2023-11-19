@@ -1,17 +1,19 @@
-th{
-    border: 2px solid;
-    text-align: center;
+thead th {
+    background-color: #5e6266;
+    color: #fff;
+    text-align: left;
+    padding: 1rem;
 }
 
-table{
-    border: 2.5 px solid;
-}
-
-.fecha{
-    border:1 px solid;
+tbody td{
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    padding: 1rem;
     min-width: 30 px;
     text-align: center;
 }
+
+
 
 .libro{
     border:1 px solid;
@@ -23,4 +25,13 @@ table{
     border:1 px solid;
     min-width: 30 px;
     text-align: center;
+}
+
+main{
+    min-height:55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }

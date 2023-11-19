@@ -1,26 +1,31 @@
 <div class="contenedor">
 <h1>Iniciar Sesión</h1>
-<form action="" id="inicioSesion">
 
-    <p>Ingrese su correo electrónico
-       
-      </p>
+<form action="" id="inicioSesion" [formGroup]="formulario">
+
+    <p>Ingrese su correo electrónico</p>
      <p>
-      <input type="text" id="mail"  required>
+      <input type="text" id="mail"  formControlName="mail">
      </p>
+     <div class="error">
+      <span class="error" *ngIf="formulario.controls['mail'].getError('required')&&formulario.touched">El campo es
+       requerido</span> 
+   </div>
     
-    <p>Ingrese su contraseña
-      
-      
-    </p>
-
+    <p>Ingrese su contraseña</p>
     <p>
-      <input type="password" id="contra" required>
+      <input type="password" id="contra" formControlName="contra">
     </p>
+    <div class="error">
+      <span class="error" *ngIf="formulario.controls['contra'].getError('required')&&formulario.touched">El campo es
+       requerido</span> 
+   </div>
+
     <p class="botones">
       <button type="submit" class="inicioB" (click)="inicioSesion($event)">Iniciar Sesión</button> 
       <button type="button" class="registroB" (click)="cambio()">Registrarse</button>
     </p>
+    
 
   </form>
   </div>

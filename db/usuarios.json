@@ -170,6 +170,21 @@
             }
           ],
           "total": 61.97
+        },
+        {
+          "fecha": "2023-11-19T04:07:26.652Z",
+          "pedidos": [
+            {
+              "id": 10,
+              "titulo": "J.R.R. Tolkien 4-Book Boxed Set: The Hobbit and The Lord of the Rings",
+              "edicion": "Hobbit Movie Tie-in Boxed set",
+              "image_url": "https://images.gr-assets.com/books/1346072396l/30.jpg",
+              "cantidad": 2,
+              "precio": 3.99,
+              "subtotal": 7.98
+            }
+          ],
+          "total": 7.98
         }
       ]
     },

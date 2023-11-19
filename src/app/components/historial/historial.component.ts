@@ -14,6 +14,7 @@ export class HistorialComponent {
   constructor(private loginSrvice:LoginService,private librosService:LibrosService){}
 
   ngOnInit(): void {
+    
       if(this.loginSrvice.usuarioActual.historial.length!=0){
         this.flag=true
         this.listaHisto=this.loginSrvice.usuarioActual.historial
