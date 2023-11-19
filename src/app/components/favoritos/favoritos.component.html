@@ -8,9 +8,11 @@ else elseBlock1"></div>
     <div *ngIf="flag2; 
     then thenBlock2 
     else elseBlock2"></div>
-
+   
     <ng-template #thenBlock2>
-        <table class="contenedor-lista-fav">
+        <a class="contenedor-lista-fav">
+        <table class="">
+            <thead></thead>
             <tbody class="listaFav">
             <tr *ngFor="let item of listaLibros" >
                 <div class="fila">
@@ -30,16 +32,21 @@ else elseBlock1"></div>
             </tr >
             </tbody>
         </table>
+        </a>
     </ng-template>
 
     <ng-template #elseBlock2>
+        
         <h3>¡Aun no se han agregado ningún libro a la lista de favoritos!</h3>
         <h4>¿Por que no revisa nuestro catalogo? Tal vez algo le interese c;</h4>
+    
     </ng-template>
 </ng-template>
 
 <ng-template #elseBlock1>
+    
     <h3>Inicie sesión para poder tener su propia lista con sus libros favoritos</h3>
+
 </ng-template>
 
 </main>

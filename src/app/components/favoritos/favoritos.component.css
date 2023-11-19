@@ -2,7 +2,7 @@ main{
     min-height:55vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    
     align-items: center;
     
 }
@@ -11,6 +11,7 @@ main{
 .imagen-libro {
     width: 8rem;
     height: 12rem;
+    margin-right: 30px;
 }
 
 .imagen-libro:hover{
@@ -29,7 +30,10 @@ main{
 }
 
 
-
+thead{
+    width: none;
+    height: none;
+}
 
 
 .contenedor-lista-fav{
@@ -42,6 +46,7 @@ main{
     
     vertical-align: top;
     text-align: right;
+    padding-left: 30px;
     
 }
 
@@ -61,6 +66,7 @@ main{
     cursor: pointer;
     background-color: rgb(165, 44, 8);
 }
+
 
 
 
