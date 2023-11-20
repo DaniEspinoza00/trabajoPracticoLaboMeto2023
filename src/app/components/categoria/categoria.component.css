@@ -43,13 +43,18 @@ h3{
     margin: 0 auto;
 }
 
-@media (max-width:1150px){
+@media (max-width:1200px){
     .contenedor-principal{
-        flex-wrap: wrap;
-    }
-    .filter-container{
-        width: 100%;
-    }
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       flex-wrap: wrap;
+   }
+   .filter-container{
+       display: flex;
+       width: 100%;
+       justify-content: space-evenly;
+   }
 }
 
  @media (max-width:900px){

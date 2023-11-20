@@ -18,6 +18,7 @@ export class ListarLibrosComponent implements OnInit {
    listadoStock:LibroStock [] | undefined=[];
    listadoStock2:LibroStock [] = [];
 
+
    ngOnInit(): void {
     this.mostrarLibros();
     this.mostrarStock();

@@ -11,6 +11,7 @@
 
 .inicioB:hover{
     background-color: #76c879;
+    transition: background-color 0.3s;
     cursor: pointer;
 }
 
@@ -26,6 +27,7 @@
 
 .registroB:hover{
     background-color: #3D49B6;
+    transition: background-color 0.3s;
     cursor: pointer;
 }
 

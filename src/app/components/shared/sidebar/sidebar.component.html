@@ -1,37 +1,7 @@
-<div class="menu-desplegable">
-    <input type="checkbox" id="check">
-    <label for="check" class="checkbtn">
-        <i class="fas fa-bars"></i>
-    </label>
-</div>
-<h3>FILTRAR POR CATEGORIA</h3>
-<div class="categorias">
-    <li><a href="" [routerLink]="['/categoria', 'Horror']">Terror</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'young-adult']">Jovenes</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'Fiction']">Ficcion</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'science-fiction']">Ciencia Ficcion</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'Fantasy']">Fantasia</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'Classics']">Clasicos</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'Historical']">Historico</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'read-for-school']">Escolares</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'Romance']">Romance</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'Childrens']">Infantiles</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'Literature']">Literatura</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'Humor']">Humor</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'Novels']">Novelas</a></li>
-    <hr>
-    <li><a href="" [routerLink]="['/categoria', 'Thriller']">Thriller</a></li>
-    <hr>
+<div class="select-container">
+    <h3>FILTRAR POR CATEGORIA</h3>
+   <select class="select-box" (change)="navigateToCategory($event)">
+    <option class="encabezado" value="">Seleccione un genero</option>
+    <option *ngFor="let genero of listadoGeneros" [value]="genero">{{ genero }}</option>
+  </select>
 </div>

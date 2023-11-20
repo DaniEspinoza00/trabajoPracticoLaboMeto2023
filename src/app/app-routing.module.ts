@@ -17,6 +17,9 @@ import { MostrarLibroPageComponent } from './pages/mostrar-libro-page/mostrar-li
 import { MostrarUsuariosPageComponent } from './pages/mostrar-usuarios-page/mostrar-usuarios-page.component';
 import { LoginAdminPageComponent } from './pages/login-admin-page/login-admin-page.component';
 import { HistorialComponent } from './components/historial/historial.component';
+import { AutoresPageComponent } from './pages/autores-page/autores-page.component';
+import { BusquedaPageComponent } from './pages/busqueda-page/busqueda-page.component';
+import { EnConstruccionPageComponent } from './pages/en-construccion-page/en-construccion-page.component';
 
 const routes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -35,6 +38,9 @@ const routes: Routes = [
   {path:'agregar-tarjeta', component:AgregarTarjetaPageComponent},
   {path:'felicidades', component:AgradecimientoPageComponent},
   {path:'historial',component: HistorialComponent},
+  {path:'autores/:authors', component: AutoresPageComponent},
+  {path: 'busqueda/:search', component: BusquedaPageComponent},
+  {path: 'en-construccion', component: EnConstruccionPageComponent},
   {path:'**', redirectTo:'home'}
 ];
 

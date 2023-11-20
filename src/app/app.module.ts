@@ -44,6 +44,13 @@ import { LoginAdminPageComponent } from './pages/login-admin-page/login-admin-pa
 import { MostrarUsuariosComponent } from './components/mostrar-usuarios/mostrar-usuarios.component';
 import { MostrarUsuariosPageComponent } from './pages/mostrar-usuarios-page/mostrar-usuarios-page.component';
 import { HistorialComponent } from './components/historial/historial.component';
+import { AutoresComponent } from './components/autores/autores.component';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { AutoresPageComponent } from './pages/autores-page/autores-page.component';
+import { BusquedaPageComponent } from './pages/busqueda-page/busqueda-page.component';
+import { Sidebar2Component } from './components/shared/sidebar2/sidebar2.component';
+import { EnConstruccionComponent } from './components/en-construccion/en-construccion.component';
+import { EnConstruccionPageComponent } from './pages/en-construccion-page/en-construccion-page.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +93,13 @@ import { HistorialComponent } from './components/historial/historial.component';
     MostrarUsuariosComponent,
     MostrarUsuariosPageComponent,
     HistorialComponent,
+    AutoresComponent,
+    BusquedaComponent,
+    AutoresPageComponent,
+    BusquedaPageComponent,
+    Sidebar2Component,
+    EnConstruccionComponent,
+    EnConstruccionPageComponent,
   ],
   imports: [
     BrowserModule,

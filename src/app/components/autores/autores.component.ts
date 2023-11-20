@@ -1,41 +1,39 @@
-import { LibrosStockService } from './../../services/libro-stock.service';
-import { LibrosService } from './../../services/libros.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LibroStock } from 'src/app/interfaces/libroStock';
 import { Libro } from 'src/app/interfaces/libros';
+import { LibrosStockService } from 'src/app/services/libro-stock.service';
+import { LibrosService } from 'src/app/services/libros.service';
 
 @Component({
-  selector: 'app-categoria',
-  templateUrl: './categoria.component.html',
-  styleUrls: ['./categoria.component.css']
+  selector: 'app-autores',
+  templateUrl: './autores.component.html',
+  styleUrls: ['./autores.component.css']
 })
-export class CategoriaComponent implements OnInit {
+export class AutoresComponent implements OnInit{
   
   listadoLibros:Libro[] | undefined =[];
   listadoLibrosFiltrados:Libro[] =[];
   stockID:LibroStock[]|undefined=[];
 
-
   constructor (private route:ActivatedRoute,
-              private LibrosService:LibrosService,
-              private LibrosStockService:LibrosStockService){}
-
+    private LibrosService:LibrosService,
+    private LibrosStockService:LibrosStockService){}
+  
+  
   ngOnInit(): void {
-    this.mostrarLibrosPorCategoria();
+   this.mostrarLibrosPorAutores(); 
   }
 
-
-   mostrarLibrosPorCategoria(){
-    this.route.params.subscribe(async param=>{
-      const genre:string=param['genre'];
-
-      this.filtrarLibros(genre);
+  mostrarLibrosPorAutores(){
+    this.route.params.subscribe(async param =>{
+      const author:string=param['authors']
+      this.filtrarLibros(author);
     })
   }
 
 
-  async filtrarLibros(genre: string) {
+  async filtrarLibros(author: string){
     try {
       // Obtén la lista completa de libros
       const todosLosLibros = await this.LibrosService.getLibros();
@@ -46,24 +44,24 @@ export class CategoriaComponent implements OnInit {
         return;
       }
   
-      // Filtra los libros por el género deseado
+      // Filtra los libros por el autor deseado
       this.listadoLibrosFiltrados = todosLosLibros.filter(libro => {
-        // Supongo que los géneros están separados por comas en el campo 'genres'.
+        // Supongo que cada libro tiene un solo autor en la cadena 'authors'.
         // Puedes ajustar esto según la estructura real de datos.
-        const generosDelLibro = libro.genres.split(',').map(genero => genero.trim());
-  
-        // Verifica si el género deseado está presente en los géneros del libro
-        return generosDelLibro.includes(genre);
+        return libro.authors.trim() === author.trim();
       });
+  
       this.stockID = [];
   
       // Puedes imprimir la lista filtrada en la consola para verificar
-      //console.log(this.listadoLibrosFiltrados);
-      this.mostrarPrecioIDstock(this.listadoLibrosFiltrados)
+       console.log(this.listadoLibrosFiltrados);
+  
+      // Llama a la función existente para mostrar precios e ID de stock
+      this.mostrarPrecioIDstock(this.listadoLibrosFiltrados);
     } catch (error) {
       console.error('Error al obtener los libros:', error);
     }
-  } 
+  }
 
   async mostrarPrecioIDstock(librosFiltrados:Libro[]) {
     const resultado = await this.LibrosStockService.getStock();

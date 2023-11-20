@@ -1,3 +1,8 @@
+main{
+    min-height: 60vh;
+}
+
+
 .contenedor-lista-libros{
     display: flex;
     flex-direction: column;
@@ -15,7 +20,6 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: .5rem;
-    flex-wrap: wrap;
 }
 
 .imagen-libro{
@@ -42,33 +46,20 @@ h3{
     display: flex;
     width: 70%;
     margin: 0 auto;
-
 }
-
-@media (max-width:1400px){
-
-    .lista-libros{
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .libro{
-        width: 10rem;
-    }
-}
-
 
 @media (max-width:1200px){
-     .contenedor-principal{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-    .filter-container{
-        display: flex;
-        width: 100%;
-        justify-content: space-evenly;
-    }
+    .contenedor-principal{
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       flex-wrap: wrap;
+   }
+   .filter-container{
+       display: flex;
+       width: 100%;
+       justify-content: space-evenly;
+   }
 }
 
  @media (max-width:900px){
@@ -77,7 +68,7 @@ h3{
     }
 } 
 
-@media (max-width:500px){
+@media (max-width:435px){
     .lista-libros{
         grid-template-columns: repeat(2, 1fr);
     }

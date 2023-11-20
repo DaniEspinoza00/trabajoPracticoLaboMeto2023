@@ -86,7 +86,10 @@ header{
     
   } */
 
-  @media screen and (max-width:900px){
+
+  
+
+  @media screen and (max-width:1400px){
     
     header{
         height: 100%;
@@ -104,13 +107,16 @@ header{
         display: flex;
         justify-content: center;
     }
-    .search-input{
-        width: auto;
-    }
+    
     .search-container2{
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        padding-top: 1rem;
         gap: .5rem;
+    }
+
+    @media (max-width:900px) {
+        .search-input{
+            width: auto;
+        }
     }
   }

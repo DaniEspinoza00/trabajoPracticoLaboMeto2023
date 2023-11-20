@@ -8,9 +8,6 @@ section{
   background-position: center;
   min-height: 100vh;
 
-/*     display: flex;
-  flex-direction: column;
-  align-items: center; */
 }
 .imagen{
 display: flex;
@@ -29,7 +26,7 @@ margin: 0 auto;
 margin-bottom: 2rem;
 display: flex;
 flex-direction: column;
-align-items: center; /* Centra verticalmente */
+align-items: center; 
 }
 
 
@@ -39,10 +36,6 @@ align-items: center; /* Centra verticalmente */
   justify-content: center;
 }
 .logout a{
-/*padding-top: 0.25rem;
- padding-bottom: 0.25rem;
-padding-left: 8.5rem;
-padding-right: 8.5rem; */
 padding: 0.25rem 1rem;
 white-space: nowrap;
 background-color: white;
@@ -58,14 +51,14 @@ h1{
   color: white;
 }
 
-/* Estilos para la tabla */
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 2rem;
 }
 
-/* Estilos para el encabezado de la tabla */
+
 thead th {
   background-color: #333;
   color: #fff;
@@ -73,13 +66,13 @@ thead th {
   padding: 1rem;
 }
 
-/* Estilos para las celdas de datos */
+
 tbody td {
   border: 1px solid #ccc;
   padding: 1rem;
 }
 
-/* Estilos alternos para las filas */
+
 tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
@@ -87,10 +80,6 @@ tbody tr:nth-child(odd) {
   background-color: beige;
 }
 
-/* Estilos para la primera fila de datos */
-/* tbody tr:first-child {
-  font-weight: bold;
-} */
 
 a{
   text-decoration: none;
@@ -102,8 +91,8 @@ a{
   .contenedor-ppal{
     width: 100%;
   }
-  section{
+  /* section{
     width: 200%;
-  }
+  } */
   
 }

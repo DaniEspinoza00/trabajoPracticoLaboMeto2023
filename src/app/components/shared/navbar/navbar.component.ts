@@ -11,6 +11,8 @@ import { LoginService } from 'src/app/services/usuario.service';
 export class NavbarComponent implements OnInit{
   flag: boolean=false;
   tituloLibro: string = '';
+
+
   constructor (private loginService: LoginService,
     private LibrosService:LibrosService,
     private Router:Router){}
@@ -20,20 +22,11 @@ export class NavbarComponent implements OnInit{
       this.flag=true
     }
   }
-    //----------------//
-    async buscarLibro() {
-      console.log("se ejecuta");
-      try {
-        const resultados = await this.LibrosService.buscarLibroPorTitulo(this.tituloLibro);
-        // Hacer algo con los resultados, por ejemplo, mostrarlos en la consola
-        console.log(resultados);
-  
-        if(resultados){
-          this.Router.navigate(['/producto', resultados[0]?.id]);
-        } 
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  
+
+
+  buscarLibros() {
+    // Utiliza el método navigate del servicio Router para navegar a la ruta de búsqueda
+    this.Router.navigate(['/busqueda', this.tituloLibro]);
+  }
+
 }

@@ -3,7 +3,7 @@ main{
 }
 
 thead th {
-    background-color: #5e6266;
+    background-color: #3f4245;
     color: #fff;
     text-align: left;
     padding: 1rem;
@@ -27,14 +27,14 @@ a {
 }
 
 .btnVaciar {
-    background-color: rgb(211, 56, 8);
+    background-color: #3f4245;
     font-size: 1.5rem;
     padding: 20px 40px;
     color: #fff;
 }
 
 .btnCompra {
-    background-color: #76c879;
+    background-color: #3f4245;
     font-size: 1.5rem;
     padding: 20px 40px;
     color: #fff;
