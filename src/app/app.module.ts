@@ -51,6 +51,8 @@ import { BusquedaPageComponent } from './pages/busqueda-page/busqueda-page.compo
 import { Sidebar2Component } from './components/shared/sidebar2/sidebar2.component';
 import { EnConstruccionComponent } from './components/en-construccion/en-construccion.component';
 import { EnConstruccionPageComponent } from './pages/en-construccion-page/en-construccion-page.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import { ContactoPageComponent } from './pages/contacto-page/contacto-page.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,8 @@ import { EnConstruccionPageComponent } from './pages/en-construccion-page/en-con
     Sidebar2Component,
     EnConstruccionComponent,
     EnConstruccionPageComponent,
+    ContactoComponent,
+    ContactoPageComponent,
   ],
   imports: [
     BrowserModule,

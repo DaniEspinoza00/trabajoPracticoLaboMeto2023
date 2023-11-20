@@ -1,0 +1,29 @@
+main{
+    min-height: 50vh;
+}
+.contenedor{
+    margin-top: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    height: 25rem;
+}
+img{
+    height: 100%;
+}
+.detalles{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    
+}
+a{
+    color: black;
+}
+span{
+    font-size: 1.2rem;
+}
+
+li{
+    list-style: none;
+}
