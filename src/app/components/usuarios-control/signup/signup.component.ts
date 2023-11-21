@@ -17,7 +17,7 @@ export class SignupComponent {
     apellido:['',[Validators.required]],
     mail:['',[Validators.required]],
     contra:['',[Validators.required]],
-    DNI:['',[Validators.required]],
+    dni:['',[Validators.required]],
   })
   
 

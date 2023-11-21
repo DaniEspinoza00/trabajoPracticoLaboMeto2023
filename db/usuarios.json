@@ -306,6 +306,23 @@
       },
       "favoritos": [],
       "historial": []
+    },
+    {
+      "id": 11,
+      "nombre": "Susana",
+      "apellido": "Giacone",
+      "mail": "prueba@gmail.com",
+      "contra": "123",
+      "documento": "908",
+      "tarjetaCredito": {
+        "numeroTarjeta": 0,
+        "codigoSeguridad": 0,
+        "nombreTarjeta": "",
+        "dni": 0,
+        "fechaCaducidad": ""
+      },
+      "favoritos": [],
+      "historial": []
     }
   ]
 }
