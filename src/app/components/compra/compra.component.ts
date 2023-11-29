@@ -6,6 +6,7 @@ import { ItemCarrito } from 'src/app/interfaces/itemCarrito';
 import { Usuario } from 'src/app/interfaces/usuarios';
 import { LibroStock } from 'src/app/interfaces/libroStock';
 import { Ventas } from 'src/app/interfaces/ventas';
+import { CarritoService } from 'src/app/services/carrito.service';
 
 @Component({
   selector: 'app-compra',
@@ -21,15 +22,16 @@ export class CompraComponent implements OnInit{
 
   constructor(private router: Router,
               private loginService:LoginService,
+              private CarritoService:CarritoService,
               private LibrosStockService:LibrosStockService){
     
   }
 
   ngOnInit(): void{
-    let carritoStorage = localStorage.getItem("carrito") as string
-    let carrito = JSON.parse(carritoStorage)
-    this.listaItemsCarrito = carrito
-    this.user = this.loginService.getUsuarioActual()
+    this.CarritoService.products.subscribe(products => {
+      this.listaItemsCarrito = products
+    })
+
   }
 
   calcularTotalAPagar(){

@@ -22,14 +22,9 @@ export class CarritoComponent implements OnInit{
   }
 
   ngOnInit(): void{
-    let carritoStorage = localStorage.getItem("carrito") as string
-    let carrito = JSON.parse(carritoStorage)
-    this.listaItemsCarrito = carrito
-
-    // this.CarritoService.getLibros().subscribe(items => {
-    //   this.listaItemsCarrito = items;
-    // })
-    // console.log(this.listaItemsCarrito);
+    this.CarritoService.products.subscribe(products => {
+      this.listaItemsCarrito = products
+    })
   }
 
   verificarLogin(){
@@ -51,38 +46,20 @@ export class CarritoComponent implements OnInit{
   }
 
   vaciarCarrito(){
-    localStorage.clear()
     this.listaItemsCarrito = []
   }
 
-  eliminarUnElemento(id: number){
-    let carritoStorage = localStorage.getItem("carrito") as string
-      let carrito = JSON.parse(carritoStorage)
-      let index = 0
-      let cant
-
-      for (let i = 0; i < carrito.length; i++) {
-        let itemC : ItemCarrito = carrito[i]
-        if(id === itemC.id)
-        {
-          index = i
-          cant = itemC.cantidad
-          break
-        }
-      }
-
-      if(cant! === 1){
-        carrito.splice(index, 1);
-        localStorage.setItem("carrito", JSON.stringify(carrito))
-      }
-      else{
-        let itemCarrito: ItemCarrito = carrito[index]
-        itemCarrito.cantidad!--
-        itemCarrito.subtotal = itemCarrito.cantidad * itemCarrito.precio
-        carrito[index] = itemCarrito
-        localStorage.setItem("carrito", JSON.stringify(carrito))
-      }
-      //window.location.href="/carrito/"
-      this.ngOnInit()
+  eliminarUnElemento(id: number) {
+    if (this.listaItemsCarrito[id].cantidad === 1) {
+      this.CarritoService.deleteProduct(id);
+    }
+    else {
+      let itemCarrito: ItemCarrito = this.listaItemsCarrito[id]
+      itemCarrito.cantidad!--
+      itemCarrito.subtotal = itemCarrito.cantidad * itemCarrito.precio
+      this.listaItemsCarrito[id] = itemCarrito
+      this.CarritoService.reemplazarCarrito(this.listaItemsCarrito)
+    }
   }
+
 }

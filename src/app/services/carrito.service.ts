@@ -8,27 +8,29 @@ import { Libro } from '../interfaces/libros';
 })
 export class CarritoService {
 
-  ItemsCarrito: ItemCarrito[] = []
-  items: BehaviorSubject<ItemCarrito[]> = new BehaviorSubject<ItemCarrito[]>([]);
+  cartProducts: ItemCarrito[] = []
+  _products: BehaviorSubject<ItemCarrito[]>;
 
   constructor() {
+    this._products = new BehaviorSubject<ItemCarrito[]>([]);
   }
 
-  getLibros(): Observable<ItemCarrito[]>{
-    return this.items.asObservable();
+  get products(){
+    return this._products.asObservable();
   }
 
-  agregarAlCarrito(libro: Libro, precio: number){
-    let iCarrito: ItemCarrito = {
-      id: libro.id,
-      titulo: libro.title,
-      edicion: libro.edition,
-      image_url: libro.image_url,
-      cantidad: 1,
-      precio: precio,
-    }
+  addNewProduct(product: ItemCarrito){
+    this.cartProducts.push(product);
+    this._products.next(this.cartProducts);
+  }
 
-    this.ItemsCarrito.push(iCarrito)
-    this.items.next(this.ItemsCarrito)
+  reemplazarCarrito(list: ItemCarrito[]){
+    this.cartProducts = list;
+    this._products.next(this.cartProducts);
+  }
+
+  deleteProduct(index: number){
+    this.cartProducts.splice(index, 1);
+    this._products.next(this.cartProducts);
   }
 }
