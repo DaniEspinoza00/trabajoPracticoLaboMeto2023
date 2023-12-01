@@ -1,6 +1,6 @@
 import { AutenticacionService } from './../../services/autenticacion.service';
 import { AdminService } from './../../services/admin.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Admin } from 'src/app/interfaces/admins';
@@ -11,16 +11,19 @@ import { Usuario } from 'src/app/interfaces/usuarios';
   templateUrl: './login-admin.component.html',
   styleUrls: ['./login-admin.component.css']
 })
-export class LoginAdminComponent implements OnInit{
+export class LoginAdminComponent {
   
   listadoAdmins:Admin[]|undefined=[];
+  private formBuilder: FormBuilder = inject(FormBuilder)
+  private auth: AutenticacionService = inject(AutenticacionService)
+  private router: Router = inject(Router)
 
-  formulario:FormGroup = this.formsBuilder.group({
+  formulario:FormGroup = this.formBuilder.group({
     usuario:['',[Validators.required]],
     contraseña:['',[Validators.required]]
   })
 
-  constructor(private formsBuilder:FormBuilder,
+/*   constructor(private formsBuilder:FormBuilder,
               private router:Router,
               private AdminService:AdminService,
               private AutenticacionService:AutenticacionService){}
@@ -51,6 +54,13 @@ export class LoginAdminComponent implements OnInit{
 logout() {
   this.AutenticacionService.logout();
   this.router.navigate(['/login-admin']);
-}
+} */
+iniciarSession() {
+  if (this.formulario.invalid) return;
 
+  this.auth.verificarUserAndPass(
+    this.formulario.controls['usuario'].value,
+    this.formulario.controls['contraseña'].value)
+
+}
 }

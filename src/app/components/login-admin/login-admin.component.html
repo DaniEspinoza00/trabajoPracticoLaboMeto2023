@@ -11,7 +11,7 @@
     <section class="seccion"  [formGroup]="formulario">
         <fieldset>
             <legend>Iniciar Sesion</legend>
-            <form action="" (ngSubmit)="login()" [formGroup]="formulario">
+            <form action="" (ngSubmit)="iniciarSession()" [formGroup]="formulario">
                 <div class="campo">
                     <label for="usuario">Usuario:</label>
                     <input type="text" id="usuario" formControlName="usuario">

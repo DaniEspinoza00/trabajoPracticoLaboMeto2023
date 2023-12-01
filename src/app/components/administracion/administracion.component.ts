@@ -59,5 +59,12 @@ export class AdministracionComponent implements OnInit{
     this.router.navigate(['/login-admin']);
   }
 
+    /////////////////////////////////////////
+
+    logout2() {
+      this.AutenticacionService.logout2();
+      alert("Se ha cerrado sesion");
+      this.router.navigate(['/login-admin']);
+    }
 
 }

@@ -21,6 +21,8 @@ import { AutoresPageComponent } from './pages/autores-page/autores-page.componen
 import { BusquedaPageComponent } from './pages/busqueda-page/busqueda-page.component';
 import { EnConstruccionPageComponent } from './pages/en-construccion-page/en-construccion-page.component';
 import { ContactoPageComponent } from './pages/contacto-page/contacto-page.component';
+import { AuthGuard } from './components/guards/auth-guard';
+import { LoginGuard } from './components/guards/login-guard';
 
 const routes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -32,10 +34,10 @@ const routes: Routes = [
   {path:'compra', component:CompraPageComponent},
   {path:'alerta-login', component:AlertaLoginPageComponent},
   {path: 'lista-favoritos', component: FavoritoPageComponent},
-  {path: 'admin',component:AdministracionPageComponent},
+  {path: 'admin',component:AdministracionPageComponent, canActivate: [AuthGuard]},
   {path: 'libro/:id', component:MostrarLibroPageComponent},
   {path: 'usuario/:id', component:MostrarUsuariosPageComponent},
-  {path: 'login-admin', component:LoginAdminPageComponent},
+  {path: 'login-admin', component:LoginAdminPageComponent, canActivate: [LoginGuard]},
   {path:'agregar-tarjeta', component:AgregarTarjetaPageComponent},
   {path:'felicidades', component:AgradecimientoPageComponent},
   {path:'historial',component: HistorialComponent},
