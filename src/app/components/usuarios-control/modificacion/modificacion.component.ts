@@ -51,7 +51,7 @@ export class ModificacionComponent {
       }
 
     this.loginService.modifUsuario(actual)
-    
+    this.newOpcion.emit(0)
   }
 
 

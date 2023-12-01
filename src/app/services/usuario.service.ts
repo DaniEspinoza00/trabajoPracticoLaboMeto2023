@@ -22,8 +22,20 @@ export class LoginService {
   //usuarioVacio:Usuario = {id:10,nombre:'John',apellido:'Doe',mail:'mimail@gmail.com',contra:'1',documento:'0',tarjetaCredito:this.tarjeta,favoritos:[1,7],historial:[]}
   usuarioVacio: Usuario = { id: 0, nombre: '', apellido: '', mail: '', contra: '', documento: '0', tarjetaCredito: this.tarjeta, favoritos: [], historial:[] }
   usuarioActual: Usuario = this.usuarioVacio
+  usuarioIniciado:Usuario|null= this.usuarioVacio
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.cargarUsuario()
+   }
+
+
+  cargarUsuario(){
+   this.usuarioIniciado=JSON.parse(sessionStorage.getItem('usuarioIniciado')||JSON.stringify(this.usuarioVacio))
+   if(this.usuarioIniciado){
+     this.usuarioActual= this.usuarioIniciado
+     
+   }
+  }
 
 
   getUsuarioActual(): Usuario {
@@ -80,6 +92,7 @@ export class LoginService {
           headers: { 'Content-type': 'application/json' }
         })
       this.router.navigate(['home'])
+      sessionStorage.setItem('usuarioIniciado',JSON.stringify(nuevo));
     } catch (error) {
       console.log(error)
     }
@@ -94,8 +107,8 @@ export class LoginService {
           headers: { 'Content-type': 'application/json' }
         })
       this.usuarioActual = cambio;
-      console.log(this.usuarioActual)
-      //
+      sessionStorage.setItem('usuarioIniciado',JSON.stringify(this.usuarioActual));
+      this.cargarUsuario()
     } catch (error) {
       console.log(error)
     }
@@ -103,7 +116,6 @@ export class LoginService {
 
   modifUsuario(cambio: Usuario) {
     this.modifJson(cambio)
-    this.router.navigate(['home'])
   }
 
   agregarUsuarioLista(nuevo: Usuario) {
@@ -161,6 +173,7 @@ export class LoginService {
           if (this.usuarioLogueado) {
             this.usuarioActual = this.usuarioLogueado
             flag = true;
+            sessionStorage.setItem('usuarioIniciado', JSON.stringify(this.usuarioActual))
             this.router.navigate(['home'])
 
           } else {

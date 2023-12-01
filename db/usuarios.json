@@ -323,6 +323,23 @@
       },
       "favoritos": [],
       "historial": []
+    },
+    {
+      "id": 12,
+      "nombre": "Nuevo",
+      "apellido": "Prueba",
+      "mail": "reinicio@gmail.com",
+      "contra": "123",
+      "documento": "890",
+      "tarjetaCredito": {
+        "numeroTarjeta": 0,
+        "codigoSeguridad": 0,
+        "nombreTarjeta": "",
+        "dni": 0,
+        "fechaCaducidad": ""
+      },
+      "favoritos": [],
+      "historial": []
     }
   ]
 }

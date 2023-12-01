@@ -16,17 +16,22 @@ export class FavoritosComponent implements OnInit {
   @Output()newReinicio=new EventEmitter<any>();
   constructor(private loginSrvice:LoginService,private librosService:LibrosService){}
   
-  ngOnInit(): void {
+  async ngOnInit() {
+    
+     
     if(this.loginSrvice.usuarioActual.id!=0){
-      this.flag1=true
-      if(this.loginSrvice.usuarioActual.favoritos.length!=0){
-        this.flag2=true
-        this.listaFav=this.loginSrvice.usuarioActual.favoritos
-        this.igualarFavLibros()
+    this.flag1=true
+    if(this.loginSrvice.usuarioActual.favoritos.length!=0){
+      this.flag2=true
+      if(this.librosService.listadoLibros.length==0){
+        await this.librosService.getLibros()
       }
+      this.listaFav=this.loginSrvice.usuarioActual.favoritos
+      this.igualarFavLibros()
+      
+     
     }
-    this.librosService.getLibros()
-
+  }
   }
 
   igualarFavLibros(){

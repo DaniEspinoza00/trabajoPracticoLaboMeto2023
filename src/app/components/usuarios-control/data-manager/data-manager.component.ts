@@ -49,7 +49,7 @@ export class DataManagerComponent implements OnInit{
 
     cerrarSesion(){
       this.loginService.usuarioActual=this.loginService.usuarioVacio
-      console.log(this.usuarioActual)
+      sessionStorage.clear()
     }
 
   }
