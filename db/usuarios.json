@@ -185,6 +185,90 @@
             }
           ],
           "total": 7.98
+        },
+        {
+          "fecha": "2023-12-01T17:47:00.391Z",
+          "pedidos": [
+            {
+              "id": 49,
+              "titulo": "Where the Wild Things Are",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1384434560l/19543.jpg",
+              "cantidad": 2,
+              "precio": 10.99,
+              "subtotal": 21.98
+            }
+          ],
+          "total": 21.98
+        },
+        {
+          "fecha": "2023-12-01T17:55:55.468Z",
+          "pedidos": [
+            {
+              "id": 2,
+              "titulo": "Harry Potter and the Order of the Phoenix",
+              "edicion": "US Edition",
+              "image_url": "https://images.gr-assets.com/books/1255614970l/2.jpg",
+              "cantidad": 1,
+              "precio": 25.49,
+              "subtotal": 25.49
+            },
+            {
+              "id": 1,
+              "titulo": "The Hunger Games",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1447303603l/2767052.jpg",
+              "cantidad": 1,
+              "precio": 10.99,
+              "subtotal": 10.99
+            }
+          ],
+          "total": 36.48
+        },
+        {
+          "fecha": "2023-12-01T18:23:53.825Z",
+          "pedidos": [
+            {
+              "id": 61,
+              "titulo": "The Kite Runner",
+              "edicion": "Riverhead trade paperback edition",
+              "image_url": "https://images.gr-assets.com/books/1484565687l/77203.jpg",
+              "cantidad": 1,
+              "precio": 22.99,
+              "subtotal": 22.99
+            }
+          ],
+          "total": 22.99
+        },
+        {
+          "fecha": "2023-12-01T19:06:40.661Z",
+          "pedidos": [
+            {
+              "id": 6,
+              "titulo": "The Book Thief",
+              "edicion": "First American Edition (US / CAN)",
+              "image_url": "https://images.gr-assets.com/books/1522157426l/19063.jpg",
+              "cantidad": 2,
+              "precio": 12.99,
+              "subtotal": 25.98
+            }
+          ],
+          "total": 25.98
+        },
+        {
+          "fecha": "2023-12-01T19:23:33.732Z",
+          "pedidos": [
+            {
+              "id": 18,
+              "titulo": "The Picture of Dorian Gray",
+              "edicion": "Modern Library Classics",
+              "image_url": "https://images.gr-assets.com/books/1424596966l/5297.jpg",
+              "cantidad": 1,
+              "precio": 11.49,
+              "subtotal": 11.49
+            }
+          ],
+          "total": 11.49
         }
       ]
     },

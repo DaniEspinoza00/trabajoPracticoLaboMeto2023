@@ -1,7 +1,25 @@
 a{
+    /* padding: .5rem; */
     cursor: pointer;
-    color: #7087aa;
+    color: #af3e22;
+    /* border: 5px solid #5e6266;
+    background-color: #5e6266; */
+    border-radius: 20px;
 }
 main{
     min-height: 55vh;
+    padding-left: 30rem;
+    padding-right: 30rem;
+}
+
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    padding: 2rem;
+    border: 5px solid #5e6266;
+    background-color: #a6acb4;
+    color: white;
+    border-radius: 20px;
 }

@@ -1,6 +1,21 @@
 .a{
     cursor: pointer;
+    color: white;
 }
 main{
     min-height: 55vh;
+}
+
+div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+}
+h2{
+    padding: 2rem;
+    border: 5px solid #5e6266;
+    background-color: #a6acb4;
+    color: white;
+    border-radius: 20px;
 }

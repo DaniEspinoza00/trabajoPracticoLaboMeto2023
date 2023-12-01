@@ -15,7 +15,6 @@ import { LibrosStockService } from 'src/app/services/libro-stock.service';
 })
 export class ProductoComponent implements OnInit {
 
-  listaItemsCarrito: ItemCarrito[] = []
   libro: Libro | undefined;
   libro2: Libro | undefined;
   libroStock: LibroStock | undefined;//cambiado de precio a 
@@ -69,31 +68,36 @@ export class ProductoComponent implements OnInit {
     iCarrito.subtotal = iCarrito.precio * iCarrito.cantidad
 
     this.stock = await this.LibroStock.getLibroStock(iCarrito.id)
-    this.CarritoService.products.subscribe(products =>{
-      this.listaItemsCarrito = products
-    })
     if (this.stock!.stock != 0) {
-      if(this.listaItemsCarrito.length === 0){
-        this.CarritoService.addNewProduct(iCarrito)
-      }else{
+      if (localStorage.getItem("carrito") === null) {
+        let carrito: ItemCarrito[] = []
+        carrito.push(iCarrito)
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+      }
+      else {
+        let carritoStorage = localStorage.getItem("carrito") as string
+        let carrito = JSON.parse(carritoStorage)
         let index = -1
-        for (let i = 0; i < this.listaItemsCarrito.length; i++) {
-          let itemC: ItemCarrito = this.listaItemsCarrito[i]
+
+        for (let i = 0; i < carrito.length; i++) {
+          let itemC: ItemCarrito = carrito[i]
           if (iCarrito.id === itemC.id) {
             index = i
             break
           }
         }
 
-        if(index === -1){
-          this.CarritoService.addNewProduct(iCarrito)
+        if (index === -1) {
+          console.log(iCarrito);
+          carrito.push(iCarrito)
+          localStorage.setItem("carrito", JSON.stringify(carrito))
         }
-        else{
-          let itemCarrito: ItemCarrito = this.listaItemsCarrito[index]
+        else {
+          let itemCarrito: ItemCarrito = carrito[index]
           itemCarrito.cantidad!++
           itemCarrito.subtotal = itemCarrito.precio! * itemCarrito.cantidad!
-          this.listaItemsCarrito[index] = itemCarrito
-          this.CarritoService.reemplazarCarrito(this.listaItemsCarrito)
+          carrito[index] = itemCarrito
+          localStorage.setItem("carrito", JSON.stringify(carrito))
         }
       }
     } else {
@@ -107,9 +111,7 @@ export class ProductoComponent implements OnInit {
     setTimeout(() => {
       this.mensaje = '';
     }, 2000);
-
   }
-
 
   //¿Esta funcion se usa en algun momento?
   agregarFavorito(idNuevo: number) {
