@@ -1,26 +1,49 @@
-.campo{
+.campo {
     display: flex;
+    margin-bottom: 1rem;
 }
 
-.campo label{
+.campo label {
     flex-basis: 22rem;
     color: white;
 }
 
 .campo input[type="text"],
-.campo input[type="number"],
-.campo input[type="date"]
-{
-    margin-bottom: 1rem;
+.campo input[type="number"]{
     width: 100%;
+    border: .8px solid #e1e1e1;
+    padding: .2rem;
+    border-radius: 5px;
+}
+
+.campo input[type="month"]{
+    padding: .2rem;
+    border-radius: 5px;
+    margin-right: 68.7rem;
+    width: 15%;
+}
+
+.campo input[type="submit"] {
+    margin-bottom: 1rem;
     border: .8px solid #e1e1e1;
 }
 
-.campo input[type="submit"]{
-    margin-bottom: 1rem;
-    border: .8px solid #e1e1e1;
+#submit {
+    background-color: #333538;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 42rem;
 }
-.seccion{
+
+#submit:hover{
+    background-color: #45a049;
+    transition: background-color 0.3s
+}
+.seccion {
     min-height: 55vh;
     width: 50%;
     margin: 0 auto;
@@ -28,18 +51,18 @@
     padding: 1rem;
 }
 
-.seccion fieldset{
+.seccion fieldset {
     border: .8px solid #e1e1e1;
     background-color: #5e6266;
     border-radius: 20px;
 }
-.error{
-    background-color: rgb(216, 206, 206);
+
+.error {
     color: rgb(116, 78, 32);
     margin-bottom: 1rem;
 }
 
-legend{
+legend {
     border: .8px solid #e1e1e1;
     text-align: center;
     margin: 1rem;
@@ -49,34 +72,53 @@ legend{
     border-radius: 4px;
 }
 
-.error span{
+.error span {
+    background-color: rgb(216, 206, 206);
     text-align: center;
     color: red;
+    border-radius: 8px;
+    padding: .3rem;
+    font-size: 1rem;
+    margin-left: 5rem;
 }
 
-.formulario div{
+.formulario div {
     display: flex;
     justify-content: space-between;
     margin: .5rem;
 }
 
-.inputs{
+.inputs {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
 }
 
-@media (max-width:450px){
-    .seccion{
+@media (max-width:450px) {
+    .seccion {
         width: 90%;
     }
 
-    legend{
+    legend {
         margin: .1rem;
     }
 
-    .campo{
+    .campo {
+        margin: 1.5rem;
+    }
+}
+
+@media (min-width:450px) {
+    .seccion {
+        width: 90%;
+    }
+
+    legend {
+        margin: .1rem;
+    }
+
+    .campo {
         margin: 1.5rem;
     }
 }

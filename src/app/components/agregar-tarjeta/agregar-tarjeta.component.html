@@ -2,72 +2,56 @@
     <fieldset class="form">
         <legend>Carga los datos de tu Tarjeta</legend>
         <form [formGroup]="formulario" id="formulario" (ngSubmit)="guardarTarjeta()">
-            <!-- <div class="campo">
-                <label for="numero-tarjeta">Numero de tarjeta: </label>
-                <input type="number" id="numero-tarjeta" formControlName="numeroTarjeta">
-            </div> -->
-            <!-- <div class="error" *ngIf="validar('numeroTarjeta', 'required')">
-                <span>El campo es requerido</span>
-            </div> -->
 
             <div class="campo">
                 <label for="numero-tarjeta">Numero de tarjeta: </label>
-                <input type="number" id="numero-tarjeta" formControlName="numeroTarjeta">
+                <input type="text" id="numero-tarjeta" formControlName="numeroTarjeta" maxlength="16" (input)="soloNumeros($event)">
             </div>
             <div class="error" *ngIf="formulario.controls['numeroTarjeta'].hasError('required') && formulario.touched">
-                <span>El campo es requerido</span>
+                <span>*El campo es requerido</span>
             </div>
             <div class="error" *ngIf="formulario.controls['numeroTarjeta'].hasError('minlength') && formulario.touched">
-                <span>Mínimo 16 caracteres</span>
+                <span>*Deben ser 16 caracteres</span>
             </div>
-            <div class="error" *ngIf="formulario.controls['numeroTarjeta'].hasError('maxlength') && formulario.touched">
-                <span>Máximo 16 caracteres</span>
-            </div>
-            <!-- <div class="error" *ngIf="validar('numeroTarjeta', 'maxlength')">
-                <span>Maximo 16 caracteres</span>
-            </div> -->
 
             <div class="campo">
                 <label for="codigo-seguridad">Codigo de seguridad: </label>
-                <input type="number" id="codigo-seguridad" formControlName="codigoSeguridad">
+                <input type="text" id="codigo-seguridad" formControlName="codigoSeguridad" maxlength="3" (input)="soloNumeros($event)">
             </div>
             <div class="error" *ngIf="validar('codigoSeguridad', 'required')">
-                <span>El campo es requerido</span>
+                <span>*El campo es requerido</span>
             </div>
             <div class="error" *ngIf="validar('codigoSeguridad', 'minlength')">
-                <span>Minimo 3 caracteres</span>
-            </div>
-            <div class="error" *ngIf="validar('codigoSeguridad', 'maxlength')">
-                <span>Minimo 3 caracteres</span>
+                <span>*Deben ser 3 caracteres</span>
             </div>
 
             <div class="campo">
                 <label for="nombre-tarjeta">Nombre que figura en la tarjeta: </label>
-                <input type="text" id="nombre-tarjeta" formControlName="nombreTarjeta">
+                <input type="text" id="nombre-tarjeta" formControlName="nombreTarjeta" (input)="soloLetras($event)">
             </div>
             <div class="error" *ngIf="validar('nombreTarjeta', 'required')">
-                <span>El campo es requerido</span>
+                <span>*El campo es requerido</span>
             </div>
 
             <div class="campo">
-                <label for="dni">DNI</label>
+                <label for="dni">DNI:</label>
                 <input type="number" id="dni" formControlName="dni">
             </div>
             <div class="error" *ngIf="validar('dni', 'required')">
-                <span>El campo es requerido</span>
+                <span>*El campo es requerido</span>
             </div>
 
             <div class="campo">
                 <label for="fecha-caducidad">Fecha de Vencimiento:</label>
-                <input type="date" id="fecha-caducidad" name="fecha_vencimiento" formControlName="fechaCaducidad">
+                <input type="month" id="fecha-caducidad" name="fecha_vencimiento" formControlName="fechaCaducidad" (change)="onMonthYearChange($event)">
                 <br>
             </div>
             <div class="error" *ngIf="validar('fechaCaducidad', 'required')">
-                <span>El campo es requerido</span>
+                <span>*El campo es requerido</span>
             </div>
 
             <div class="campo">
-                <input type="submit" value="Guardar Tarjeta">
+                <input type="submit" id="submit" value="Guardar Tarjeta">
             </div>
         </form>
     </fieldset>

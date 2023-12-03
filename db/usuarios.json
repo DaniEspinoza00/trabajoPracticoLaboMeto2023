@@ -11,11 +11,11 @@
       ],
       "documento": "567",
       "tarjetaCredito": {
-        "numeroTarjeta": 12354,
-        "codigoSeguridad": 15,
+        "numeroTarjeta": "1321354684616531",
+        "codigoSeguridad": "121",
         "nombreTarjeta": "nacho",
-        "dni": 123456,
-        "fechaCaducidad": "2023-12-07"
+        "dni": 43516109,
+        "fechaCaducidad": "2035-11"
       },
       "historial": [
         {

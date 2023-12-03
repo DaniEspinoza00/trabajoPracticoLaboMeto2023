@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tarjeta } from 'src/app/interfaces/tarjeta';
 import { Usuario } from 'src/app/interfaces/usuarios';
@@ -13,12 +13,13 @@ import { LoginService } from 'src/app/services/usuario.service';
 export class AgregarTarjetaComponent implements OnInit{
 
   user: Usuario | undefined
+  selectedMonthYear: string | undefined;
   
   formulario: FormGroup = this.formBuilder.group({
-    numeroTarjeta: [0, [Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
-    codigoSeguridad:[0, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
+    numeroTarjeta:['', [Validators.required, Validators.minLength(16)]],
+    codigoSeguridad:['', [Validators.required, Validators.minLength(3)]],
     nombreTarjeta:['', Validators.required],
-    dni:[0, Validators.required],
+    dni:['', Validators.required],
     fechaCaducidad:['', Validators.required],
   })
 
@@ -53,5 +54,23 @@ export class AgregarTarjetaComponent implements OnInit{
     return this.formulario.controls[field].getError(error)
     &&
     this.formulario.controls[field].touched
+  }
+
+  soloNumeros(event: any) {
+    const pattern = /^[0-9]*$/;
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^0-9]/g, "");
+    }
+  }
+
+  soloLetras(event: any) {
+    const pattern = /^[a-zA-Z ]*$/;
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^a-zA-Z ]/g, "");
+    }
+  }
+
+  onMonthYearChange(event: any) {
+    this.selectedMonthYear = event.target.value;
   }
 }
