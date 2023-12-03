@@ -19,3 +19,31 @@ h2{
     color: white;
     border-radius: 20px;
 }
+
+@media (max-width:450px) {
+    div{
+        font-size: .7rem;
+        padding: .5rem;
+    }
+}
+
+@media (min-width:450px){
+    div{
+        font-size: .8rem;
+        padding: .5rem;
+    }
+}
+
+@media (min-width:800px){
+    div{
+        font-size: 1rem;
+        padding: .5rem;
+    }
+}
+
+@media (min-width:1165px){
+    div{
+        font-size: 1rem;
+        padding: .5rem;
+    }
+}

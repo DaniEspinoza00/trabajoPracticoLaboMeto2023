@@ -1,9 +1,9 @@
 a{
-    /* padding: .5rem; */
+    padding: .5rem;
     cursor: pointer;
-    color: #af3e22;
-    /* border: 5px solid #5e6266;
-    background-color: #5e6266; */
+    color: #bebe82;
+    border: 5px solid #5e6266;
+    background-color: #5e6266;
     border-radius: 20px;
 }
 main{
@@ -22,4 +22,72 @@ div{
     background-color: #a6acb4;
     color: white;
     border-radius: 20px;
+}
+
+@media (max-width:450px) {
+    div{
+        font-size: .8rem;
+        padding: .5rem;
+    }
+
+    main{
+        padding-left: 0rem;
+        padding-right: 0rem;
+    }
+
+    a{
+        padding: .2rem;
+        font-size: .8rem;
+    }
+}
+
+@media (min-width:450px){
+    div{
+        font-size: .8rem;
+        padding: .5rem;
+    }
+
+    main{
+        padding-left: 0rem;
+        padding-right: 0rem;
+    }
+
+    a{
+        padding: .2rem;
+        font-size: .8rem;
+    }
+}
+
+@media (min-width:800px){
+    div{
+        font-size: 1rem;
+        padding: .5rem;
+    }
+
+    main{
+        padding-left: 7rem;
+        padding-right: 7rem;
+    }
+
+    a{
+        padding: .2rem;
+        font-size: .8rem;
+    }
+}
+
+@media (min-width:1165px){
+    div{
+        font-size: 1rem;
+        padding: .5rem;
+    }
+
+    main{
+        padding-left: 20rem;
+        padding-right: 20rem;
+    }
+
+    a{
+        padding: .2rem;
+        font-size: .8rem;
+    }
 }
