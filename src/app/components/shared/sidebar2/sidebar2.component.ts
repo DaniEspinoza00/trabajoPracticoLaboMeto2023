@@ -18,7 +18,7 @@ export class Sidebar2Component {
     private LibrosService:LibrosService) {}
 
     ngOnInit(): void {
-      this.getAutores();
+      this.getAutoresHttp();
     }
   
 
@@ -32,17 +32,21 @@ export class Sidebar2Component {
     }
   }
 
-  async getAutores() {
-    // Obtén los libros
-    this.listadoLibros = await this.LibrosService.getLibros();
-  
-    // Verifica si se obtuvieron libros correctamente
-    if (this.listadoLibros) {
-      // Extrae los autores y crea la lista de autores únicos
-      this.listadoAutores = this.listadoLibros.map(libro => libro.authors.trim());
-  
-      // Elimina duplicados convirtiendo el array a un conjunto y luego de nuevo a un array
-      this.listadoAutores = Array.from(new Set(this.listadoAutores));
-    }
+  getAutoresHttp(){
+    this.LibrosService.getLibrosHttp()
+    .subscribe(
+      {
+        next: (libros)=>{
+          this.listadoLibros=libros;
+          if(this.listadoLibros){
+            this.listadoAutores=this.listadoLibros.map(libro=>libro.authors.trim());
+            this.listadoAutores=Array.from(new Set(this.listadoAutores))
+          }
+        },
+        error:(error)=>{
+          console.log(error);
+        }
+      }
+    )
   }
 }

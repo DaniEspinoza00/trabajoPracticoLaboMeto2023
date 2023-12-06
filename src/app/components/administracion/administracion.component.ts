@@ -7,64 +7,103 @@ import { Libro } from 'src/app/interfaces/libros';
 import { LibroStock } from 'src/app/interfaces/libroStock';
 import { AutenticacionService } from 'src/app/services/autenticacion.service';
 import { Router } from '@angular/router';
+import { Admin } from 'src/app/interfaces/admins';
 
 @Component({
   selector: 'app-administracion',
   templateUrl: './administracion.component.html',
   styleUrls: ['./administracion.component.css']
 })
-export class AdministracionComponent implements OnInit{
+export class AdministracionComponent implements OnInit {
 
-  constructor (private AdminService:AdminService,
-              private LibrosService:LibrosService,
-              private LibrosStockService:LibrosStockService,
-              private AutenticacionService: AutenticacionService,
-              private router:Router){}
+  constructor(private AdminService: AdminService,
+    private LibrosService: LibrosService,
+    private LibrosStockService: LibrosStockService,
+    private AutenticacionService: AutenticacionService,
+    private router: Router) { }
 
-  listadoUsuarios:Usuario[]|undefined=[];
-  listadoLibros:Libro[]|undefined=[];
-  listadoStock:LibroStock[]|undefined=[];
+  listadoUsuarios: Usuario[] | undefined = [];
+  listadoLibros: Libro[] | undefined = [];
+  listadoStock: LibroStock[] | undefined = [];
 
   ngOnInit(): void {
-    this.mostrarUsuarios();
-    this.mostrarLibros();
-    this.mostrarStock();
+    this.mostrarUsuariosHttp();
+    this.mostrarLibrosHttp();
+    this.mostrarStockHttp();
   }
 
-  async mostrarUsuarios(){
-    this.listadoUsuarios=await this.AdminService.getUsuarios();
+  get getAdmin(): Admin | undefined {
+    return this.AutenticacionService.currentUser2;
   }
 
-  eliminarCliente(id:number){
-    const ok = confirm("Desea eliminar el cliente?")
-    if(!ok) return ;
-    this.AdminService.deleteUsuario(id) //llamo al servicio
-  }
-
-  async mostrarLibros(){
-    this.listadoLibros=await this.LibrosService.getLibros();
-  }
-
-  async mostrarStock(){
-    this.listadoStock=await this.LibrosStockService.getStock();
-  }
-
-  get isUserLoggedIn(): boolean {
-    return this.AutenticacionService.isUserLoggedIn;
-  }
-
-  logout() {
-    this.AutenticacionService.logout();
+  logout2() {
+    this.AutenticacionService.logout2();
     alert("Se ha cerrado sesion");
     this.router.navigate(['/login-admin']);
   }
 
-    /////////////////////////////////////////
+  mostrarUsuariosHttp() {
+    this.AdminService.getUsuariosHttp()
+      .subscribe(
+        {
+          next: (users) => {
+            this.listadoUsuarios = users;
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        }
+      )
+  }
+  eliminarClienteHttp(id: number) {
+    const ok = confirm("Desea eliminar el cliente?")
+    if (!ok) return;
+    this.AdminService.deleteUsuarioHttp(id)
+      .subscribe(
+        {
+          next: () => {
+            this.reloadCurrentRoute();
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        }
+      )
+  }
 
-    logout2() {
-      this.AutenticacionService.logout2();
-      alert("Se ha cerrado sesion");
-      this.router.navigate(['/login-admin']);
-    }
+  reloadCurrentRoute() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
 
+
+  mostrarLibrosHttp() {
+    this.LibrosService.getLibrosHttp()
+      .subscribe(
+        {
+          next: (libros) => {
+            this.listadoLibros = libros;
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        }
+      )
+  }
+
+  mostrarStockHttp() {
+    this.LibrosStockService.getStockHttp()
+      .subscribe(
+        {
+          next: (stock) => {
+            this.listadoStock = stock;
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        }
+      )
+  }
 }

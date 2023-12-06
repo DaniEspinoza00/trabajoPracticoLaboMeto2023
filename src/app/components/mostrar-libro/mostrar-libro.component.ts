@@ -2,7 +2,7 @@ import { LibrosService } from './../../services/libros.service';
 import { LibrosStockService } from 'src/app/services/libro-stock.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LibroStock } from 'src/app/interfaces/libroStock';
 import { Libro } from 'src/app/interfaces/libros';
 
@@ -20,49 +20,73 @@ export class MostrarLibroComponent implements OnInit {
     title: [''],
     authors: [''],
     edition: ['-'],
-    precio: [0, [Validators.required]],
     id:[0],
+    precio: [0.00, [Validators.required]],
     stock: [0, [Validators.required]],
   })
 
   constructor(private formsBuilder: FormBuilder,
     private route: ActivatedRoute,
     private LibrosStockService: LibrosStockService,
-    private LibrosService: LibrosService) { }
+    private LibrosService: LibrosService,
+    private Router:Router) { }
 
   ngOnInit(): void {
-    this.mostrarLibro();
+    this.mostrarLibroHttp();
   }
 
-  mostrarLibro() {
+  mostrarLibroHttp() {
     this.route.params.subscribe(async param => {
       const id = param['id'];
-      this.libro = await this.LibrosService.getLibro(id);
-      this.stock = await this.LibrosStockService.getLibroStock(id);
-
-      console.log(this.libro);
-      console.log(this.stock);
-
-      this.formulario = this.formsBuilder.group({
-        title: this.libro?.title,
-        authors: this.libro?.authors,
-        edition: this.libro?.edition,
-        precio: this.stock?.precio,
-        id:this.libro?.id,
-        stock: this.stock?.stock,
-      })
-    })
+  
+      this.LibrosService.getLibroHttp(id).subscribe({
+        next: (libro) => {
+          this.libro = libro;
+          this.formulario.patchValue({
+            title: this.libro?.title,
+            authors: this.libro?.authors,
+            edition: this.libro?.edition,
+          });
+          console.log(this.libro);
+        }
+      });
+  
+      this.LibrosStockService.getLibroStockHttp(id).subscribe({
+        next: (stock) => {
+          this.stock = stock;
+  
+          // Actualiza los controles del formulario con los datos obtenidos
+          this.formulario.patchValue({
+            id: this.stock?.id,
+            precio: this.stock?.precio,
+            stock: this.stock?.stock,
+          });
+          console.log(this.stock);
+        }
+      });
+    });
   }
+  
 
   editarStock(){
     if(this.formulario.invalid) return console.log("no se puede");
 
     const libro:LibroStock={
-      precio:this.formulario.controls["precio"].value,
       id:this.formulario.controls["id"].value,
+      precio:this.formulario.controls["precio"].value,
       stock:this.formulario.controls["stock"].value,
     }
-    this.LibrosStockService.putLibro(libro);
+    this.LibrosStockService.putLibroHttp(libro) //desde aca
+    .subscribe(
+      {
+        next:()=>{
+        this.Router.navigate(['/admin']);
+        },
+        error:(error)=>{
+          console.log(error);
+        }
+      }
+    ); //hasta aca
     console.log(libro);
   }
 }

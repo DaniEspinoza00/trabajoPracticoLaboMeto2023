@@ -6,10 +6,7 @@
       "apellido": "Katz",
       "mail": "katznacho@gmail.com",
       "contra": "123",
-      "favoritos": [
-        2
-      ],
-      "documento": "567",
+      "documento": "568",
       "tarjetaCredito": {
         "numeroTarjeta": "1321354684616531",
         "codigoSeguridad": "121",
@@ -17,6 +14,9 @@
         "dni": 43516109,
         "fechaCaducidad": "2035-11"
       },
+      "favoritos": [
+        2
+      ],
       "historial": [
         {
           "fecha": "2023-11-16T03:12:21.431Z",
@@ -274,10 +274,13 @@
     },
     {
       "id": 2,
-      "nombre": "Yako",
-      "apellido": "Alegre",
-      "mail": "cola123",
+      "nombre": "Daniel",
+      "apellido": "Espinoza",
+      "mail": "daniel@gmail.com",
       "contra": "pollo",
+      "documento": "37",
+      "tarjetaCredito": null,
+      "favoritos": [],
       "historial": []
     },
     {

@@ -20,21 +20,38 @@ export class ListarLibrosComponent implements OnInit {
 
 
    ngOnInit(): void {
-    this.mostrarLibros();
-    this.mostrarStock();
+    this.mostrarLibros2();
+    this.mostrarStock2();
   }
   
-  async mostrarLibros(){
-    this.listadoLibros=await this.LibrosService.getLibros();
-    console.log(this.listadoLibros);
-    if(this.listadoLibros){
-      this.LibrosService.listadoLibros=this.listadoLibros
-    }
+
+  mostrarLibros2(){
+    this.LibrosService.getLibrosHttp()
+    .subscribe(
+      {
+        next: (libros)=>{
+          this.listadoLibros=libros;
+        },
+        error: (error)=>{
+          console.log(error);
+        }
+      }
+    )
+  }
+  
+  mostrarStock2(){
+    this.LibrosStockService.getStockHttp()
+    .subscribe(
+      {
+        next:(stock)=>{
+          this.listadoStock=stock;
+        },
+        error:(error)=>{
+          console.log(error);
+        }
+      }
+    )
   }
 
-   async mostrarStock(){
-    this.listadoStock=await this.LibrosStockService.getStock();
-
-  }
 
 }

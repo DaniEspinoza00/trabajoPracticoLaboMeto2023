@@ -30,55 +30,52 @@ export class CategoriaComponent implements OnInit {
     this.route.params.subscribe(async param=>{
       const genre:string=param['genre'];
 
-      this.filtrarLibros(genre);
+      this.filtrarLibrosHttp(genre);
     })
   }
 
+  filtrarLibrosHttp(genre: string) {
+    this.LibrosService.getLibrosHttp()
+      .subscribe(
+        {
+          next: (libros) => {
+            const todosLosLibros = libros;
 
-  async filtrarLibros(genre: string) {
-    try {
-      // Obtén la lista completa de libros
-      const todosLosLibros = await this.LibrosService.getLibros();
-  
-      // Verifica si la respuesta es undefined o si hay un error
-      if (todosLosLibros === undefined) {
-        console.log('No se pudieron obtener los libros.');
-        return;
-      }
-  
-      // Filtra los libros por el género deseado
-      this.listadoLibrosFiltrados = todosLosLibros.filter(libro => {
-        // Supongo que los géneros están separados por comas en el campo 'genres'.
-        // Puedes ajustar esto según la estructura real de datos.
-        const generosDelLibro = libro.genres.split(',').map(genero => genero.trim());
-  
-        // Verifica si el género deseado está presente en los géneros del libro
-        return generosDelLibro.includes(genre);
-      });
-      this.stockID = [];
-  
-      // Puedes imprimir la lista filtrada en la consola para verificar
-      //console.log(this.listadoLibrosFiltrados);
-      this.mostrarPrecioIDstock(this.listadoLibrosFiltrados)
-    } catch (error) {
-      console.error('Error al obtener los libros:', error);
-    }
-  } 
+            if (todosLosLibros === undefined) {
+              console.log('No se pudieron obtener los libros.');
+              return;
+            }
+            this.listadoLibrosFiltrados = todosLosLibros.filter(libro => {
+              const generosDelLibro = libro.genres.split(',').map(genero => genero.trim());
+              return generosDelLibro.includes(genre);
+            });
+            this.stockID = [];
+            this.mostrarPrecioIDstockHttp(this.listadoLibrosFiltrados)
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        }
+      )
+  }
 
-  async mostrarPrecioIDstock(librosFiltrados:Libro[]) {
-    const resultado = await this.LibrosStockService.getStock();
-  
-    if(resultado === undefined){
-      console.log("No se obtuvo nada");
-      return;
-    }
-    let j=0;
-    for(let i=0;i<resultado.length;i++){
-      if(librosFiltrados[j].id===resultado[i].id){
-        this.stockID?.push(resultado[i])
-        j++;
-      }
-    }
-
+  mostrarPrecioIDstockHttp(librosFiltrados: Libro[]) {
+    this.LibrosStockService.getStockHttp()
+      .subscribe(
+        {
+          next: (resultado) => {
+            let j = 0;
+            for (let i = 0; i < resultado.length; i++) {
+              if (librosFiltrados[j].id === resultado[i].id) {
+                this.stockID?.push(resultado[i])
+                j++;
+              }
+            }
+          },
+          error:(error)=>{
+            console.log(error);
+          }
+        }
+      )
   }
 }

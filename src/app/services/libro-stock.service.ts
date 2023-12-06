@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { LibroStock } from '../interfaces/libroStock';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class LibrosStockService {
   urlStock:string = "http://localhost:3000/librosStock";
   ListadoStock:LibroStock [] |undefined=[];
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private http:HttpClient) { }
 
   async getStock(): Promise<LibroStock[] | undefined>{
     try {
@@ -60,6 +62,23 @@ export class LibrosStockService {
     } catch (error) {
       console.log(error)
     }
+  }
+
+/////////////////////////////////////
+  getStockHttp():Observable<LibroStock[]>{
+    return this.http.get<LibroStock[]>(this.urlStock)
+  }
+
+  getLibroStockHttp(id:number): Observable<LibroStock>{
+    return this.http.get<LibroStock>(`${this.urlStock}/${id}`)
+  }
+
+  putLibroHttp(libro:LibroStock):Observable<LibroStock>{
+    return this.http.put<LibroStock>(
+      `${this.urlStock}/${libro.id}`,
+      libro,
+      {headers: {'Content-type': 'application/json'}}
+    )
   }
 }
 

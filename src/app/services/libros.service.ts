@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Libro } from '../interfaces/libros';
 import { LibroStock } from '../interfaces/libroStock';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class LibrosService {
   listadoLibros:Libro[]=[]
   //listP: LibroStock[] = []
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   async getLibros(): Promise<Libro[] | undefined>{
     try {
@@ -49,5 +51,14 @@ export class LibrosService {
     return undefined;
   }
 
-  
+////////////////////////////////////////////////////////
+  getLibrosHttp(): Observable<Libro[]> {
+    return this.http.get<Libro[]>(this.urlLibros);
+  }
+
+  getLibroHttp(id:number): Observable<Libro>{
+    return this.http.get<Libro>(`${this.urlLibro}/${id}`)
+  }
+
+
 }

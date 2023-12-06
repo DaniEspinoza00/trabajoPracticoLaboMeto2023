@@ -6,10 +6,12 @@
                     <img class="logo" src="../assets/images/fondo.png" alt="">
                 </a>
                 <div class="logout">
+                    <a href="">Crear Administrador</a>
                     <a (click)="logout2()" style="cursor: pointer;">CERRAR SESION</a>
+                    <div style="color: white;" class="usuario">¡Hola {{getAdmin?.usuario}}!</div>
                 </div>
-                
             </div>
+             
         </nav>
     </header>
     <div class="contenedor-ppal">
@@ -32,8 +34,8 @@
                         <td>{{item.apellido}}</td>
                         <td>{{item.mail}}</td>
                         <td>{{item.documento}}</td>
-                        <td><a href="" (click)="eliminarCliente(item.id)">Eliminar</a></td>
-                        <td><a href="" [routerLink]="['/usuario', item.id]">Editar</a></td> <!-- /editar/6 -->
+                        <td><a style="cursor: pointer;" (click)="eliminarClienteHttp(item.id)">Eliminar</a></td>
+                        <td><a  [routerLink]="['/usuario', item.id]">Editar</a></td> <!-- /editar/6 -->
                     </tr>
                 </tbody>
             </table>

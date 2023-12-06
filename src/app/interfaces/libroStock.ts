@@ -1,5 +1,5 @@
 export interface LibroStock{
-    precio: number;
     id: number;
+    precio: number;
     stock: number;
 }

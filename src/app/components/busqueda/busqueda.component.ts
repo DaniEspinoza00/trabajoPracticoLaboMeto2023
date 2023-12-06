@@ -28,57 +28,57 @@ export class BusquedaComponent implements OnInit{
     this.route.params.subscribe(async param=>{
       const search:string=param['search'];
 
-      this.filtrarLibros(search);
+      this.filtrarLibrosHttp(search);
     })
   }
 
 
 
-  async filtrarLibros(search: string) {
-    try {
-      // Obtén la lista completa de libros
-      const todosLosLibros = await this.LibrosService.getLibros();
-  
-      // Verifica si la respuesta es undefined o si hay un error
-      if (todosLosLibros === undefined) {
-        console.log('No se pudieron obtener los libros.');
-        return;
+  filtrarLibrosHttp(search: string){
+    this.LibrosService.getLibrosHttp()
+    .subscribe(
+      {
+        next:(todosLosLibros)=>{
+          if (todosLosLibros === undefined) {
+            console.log('No se pudieron obtener los libros.');
+            return;
+          }
+          this.listadoLibrosFiltrados = todosLosLibros.filter(libro => {
+            const tituloDelLibro = libro.title.toLowerCase();
+            const busquedaEnMinusculas = search.toLowerCase();
+            return tituloDelLibro.includes(busquedaEnMinusculas);
+          });
+          this.stockID = [];
+           console.log(this.listadoLibrosFiltrados);
+          this.mostrarPrecioIDstockHttp(this.listadoLibrosFiltrados);
+        }
       }
-  
-      // Filtra los libros por el título deseado
-      this.listadoLibrosFiltrados = todosLosLibros.filter(libro => {
-        // Convierte el título y la búsqueda a minúsculas para hacer la comparación sin distinción entre mayúsculas y minúsculas
-        const tituloDelLibro = libro.title.toLowerCase();
-        const busquedaEnMinusculas = search.toLowerCase();
-  
-        // Verifica si la palabra de búsqueda está presente en el título del libro
-        return tituloDelLibro.includes(busquedaEnMinusculas);
-      });
-      this.stockID = [];
-  
-      // Puedes imprimir la lista filtrada en la consola para verificar
-       console.log(this.listadoLibrosFiltrados);
-      this.mostrarPrecioIDstock(this.listadoLibrosFiltrados);
-    } catch (error) {
-      console.error('Error al obtener los libros:', error);
-    }
+    )
   }
-  
-  async mostrarPrecioIDstock(librosFiltrados: Libro[]) {
-    const resultado = await this.LibrosStockService.getStock();
-  
-    if (resultado === undefined) {
-      console.log("No se obtuvo nada");
-      return;
-    }
-  
-    let j = 0;
-    for (let i = 0; i < resultado.length && j < librosFiltrados.length; i++) {
-      if (librosFiltrados[j].id !== undefined && librosFiltrados[j].id === resultado[i].id) {
-        this.stockID?.push(resultado[i]);
-        j++;
+
+  mostrarPrecioIDstockHttp(librosFiltrados: Libro[]){
+    this.LibrosStockService.getStockHttp()
+    .subscribe(
+      {
+        next:(resultado)=>{
+          if (resultado === undefined) {
+            console.log("No se obtuvo nada");
+            return;
+          }
+        
+          let j = 0;
+          for (let i = 0; i < resultado.length && j < librosFiltrados.length; i++) {
+            if (librosFiltrados[j].id !== undefined && librosFiltrados[j].id === resultado[i].id) {
+              this.stockID?.push(resultado[i]);
+              j++;
+            }
+          }
+        },
+        error:(error)=>{
+          console.log(error);
+        }
       }
-    }
+    )
   }
   
 }

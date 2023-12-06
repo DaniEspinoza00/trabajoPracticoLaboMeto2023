@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit{
   constructor(private router: Router,
               private LibrosService:LibrosService) {}
   ngOnInit(): void {
-    this.getGeneros();
+    this.getGenerosHttp();
   }
 
   navigateToCategory(event: Event): void {
@@ -28,26 +28,25 @@ export class SidebarComponent implements OnInit{
     }
   }
 
-
-  async getGeneros(){
-    this.listadoLibros = await this.LibrosService.getLibros();
-
-  // Verifica si se obtuvieron libros correctamente
-  if (this.listadoLibros) {
-    // Inicializa la lista de géneros como un conjunto para evitar duplicados
-    const generosSet = new Set<string>();
-
-    // Itera sobre los libros para obtener los géneros
-    this.listadoLibros.forEach(libro => {
-      // Divide la cadena de géneros (puede necesitar ajustes según el formato)
-      const generosArray = libro.genres.split(',');
-
-      // Añade cada género al conjunto
-      generosArray.forEach(genero => generosSet.add(genero.trim()));
-    });
-
-    // Convierte el conjunto de géneros de nuevo a un array
-    this.listadoGeneros = Array.from(generosSet);
-  }
+  getGenerosHttp(){
+    this.LibrosService.getLibrosHttp()
+    .subscribe(
+      {
+        next:(libros)=>{
+          this.listadoLibros=libros;
+          if(this.listadoLibros){
+            const generosSet = new Set<string>();
+            this.listadoLibros.forEach(libros=>{
+              const generosArray = libros.genres.split(',');
+              generosArray.forEach(genero=>generosSet.add(genero.trim()))
+            });
+            this.listadoGeneros=Array.from(generosSet)
+          }
+        },
+        error:(error)=>{
+          console.log(error);
+        }
+      }
+    )
   }
 }

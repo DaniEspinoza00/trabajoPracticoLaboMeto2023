@@ -28,55 +28,55 @@ export class AutoresComponent implements OnInit{
   mostrarLibrosPorAutores(){
     this.route.params.subscribe(async param =>{
       const author:string=param['authors']
-      this.filtrarLibros(author);
+      this.filtrarLibrosHttp(author);
     })
   }
 
-
-  async filtrarLibros(author: string){
-    try {
-      // Obtén la lista completa de libros
-      const todosLosLibros = await this.LibrosService.getLibros();
-  
-      // Verifica si la respuesta es undefined o si hay un error
-      if (todosLosLibros === undefined) {
-        console.log('No se pudieron obtener los libros.');
-        return;
+  filtrarLibrosHttp(author: string){
+    this.LibrosService.getLibrosHttp()
+    .subscribe(
+      {
+        next:(todosLosLibros)=>{
+          if (todosLosLibros === undefined) {
+            console.log('No se pudieron obtener los libros.');
+            return;
+          }
+          this.listadoLibrosFiltrados = todosLosLibros.filter(libro => {
+            return libro.authors.trim() === author.trim();
+          });
+          this.stockID = [];
+           console.log(this.listadoLibrosFiltrados);
+          this.mostrarPrecioIDstockHttp(this.listadoLibrosFiltrados);
+        },
+        error: (error)=>{
+          console.log(error);
+        }
       }
-  
-      // Filtra los libros por el autor deseado
-      this.listadoLibrosFiltrados = todosLosLibros.filter(libro => {
-        // Supongo que cada libro tiene un solo autor en la cadena 'authors'.
-        // Puedes ajustar esto según la estructura real de datos.
-        return libro.authors.trim() === author.trim();
-      });
-  
-      this.stockID = [];
-  
-      // Puedes imprimir la lista filtrada en la consola para verificar
-       console.log(this.listadoLibrosFiltrados);
-  
-      // Llama a la función existente para mostrar precios e ID de stock
-      this.mostrarPrecioIDstock(this.listadoLibrosFiltrados);
-    } catch (error) {
-      console.error('Error al obtener los libros:', error);
-    }
+    )
   }
 
-  async mostrarPrecioIDstock(librosFiltrados:Libro[]) {
-    const resultado = await this.LibrosStockService.getStock();
-  
-    if(resultado === undefined){
-      console.log("No se obtuvo nada");
-      return;
-    }
-    let j=0;
-    for(let i=0;i<resultado.length;i++){
-      if(librosFiltrados[j].id===resultado[i].id){
-        this.stockID?.push(resultado[i])
-        j++;
-      }
-    }
 
+  mostrarPrecioIDstockHttp(librosFiltrados:Libro[]){
+    this.LibrosStockService.getStockHttp()
+    .subscribe(
+      {
+        next:(resultado)=>{
+          if(resultado === undefined){
+            console.log("No se obtuvo nada");
+            return;
+          }
+          let j=0;
+          for(let i=0;i<resultado.length;i++){
+            if(librosFiltrados[j].id===resultado[i].id){
+              this.stockID?.push(resultado[i])
+              j++;
+            }
+          }
+        },
+        error:(error)=>{
+          console.log(error);
+        }
+      }
+    )
   }
 }
