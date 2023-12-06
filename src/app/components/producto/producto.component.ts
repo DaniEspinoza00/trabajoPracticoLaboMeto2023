@@ -30,46 +30,18 @@ export class ProductoComponent implements OnInit {
     private loginService: LoginService) { }
 
   ngOnInit(): void {
-    this.mostrarLibro2();
     this.mostrarPrecio2();
   }
 
-  mostrarLibro2() {
+  async mostrarPrecio2() {
     this.route.params.subscribe(async param => {
       const id = param['id'];
-      console.log(id);
-      this.LibrosService.getLibroHttp(id)
-      .subscribe(
-        {
-          next:(libro)=>{
-            this.libro2=libro;
-          },
-          error: (error)=>{
-            console.log(error);
-          }
-        }
-      )
+      this.libroStock = await this.LibroStock.getLibroStock(id);
+      console.log(this.libroStock);
     })
   }
 
-   mostrarPrecio2() {
-    this.route.params.subscribe(async param => {
-      const id = param['id'];
-      this.LibroStock.getLibroStockHttp(id)
-      .subscribe(
-        {
-          next:(stock)=>{
-            this.libroStock=stock;
-          },
-          error:(error)=>{
-            console.log(error);
-          }
-        }
-      )
-    })
-  }
-
-  async agregarCarrito(item: Libro, precio: number) {
+  agregarCarrito(item: Libro, precio: number) {
 
     let iCarrito: ItemCarrito = {
       id: item.id,
@@ -81,7 +53,6 @@ export class ProductoComponent implements OnInit {
     }
     iCarrito.subtotal = iCarrito.precio * iCarrito.cantidad
 
-    // this.stock = await this.LibroStock.getLibroStock(iCarrito.id)
     this.LibroStock.getLibroStockHttp(item.id).subscribe({
       next: (stock) => {
         if (stock.stock != 0) {
@@ -135,6 +106,8 @@ export class ProductoComponent implements OnInit {
       this.mensaje = '';
     }, 2000);
   }
+
+
 
   //¿Esta funcion se usa en algun momento?
   agregarFavorito(idNuevo: number) {
