@@ -19,7 +19,7 @@ export class ProductoComponent implements OnInit {
   libro2: Libro | undefined;
   libroStock: LibroStock | undefined;//cambiado de precio a 
   list: Libro[] = []
-  stock: LibroStock | undefined
+  // stock: LibroStock | undefined
   isClicked: boolean = false;
   mensaje: string = '';
 
@@ -51,10 +51,6 @@ export class ProductoComponent implements OnInit {
     })
   }
 
-  // onClick(item: Libro, precio: number){
-  //   this.CarritoService.agregarAlCarrito(item, precio)
-  // }
-
   async agregarCarrito(item: Libro, precio: number) {
 
     let iCarrito: ItemCarrito = {
@@ -67,46 +63,55 @@ export class ProductoComponent implements OnInit {
     }
     iCarrito.subtotal = iCarrito.precio * iCarrito.cantidad
 
-    this.stock = await this.LibroStock.getLibroStock(iCarrito.id)
-    if (this.stock!.stock != 0) {
-      if (localStorage.getItem("carrito") === null) {
-        let carrito: ItemCarrito[] = []
-        carrito.push(iCarrito)
-        localStorage.setItem("carrito", JSON.stringify(carrito))
-      }
-      else {
-        let carritoStorage = localStorage.getItem("carrito") as string
-        let carrito = JSON.parse(carritoStorage)
-        let index = -1
-
-        for (let i = 0; i < carrito.length; i++) {
-          let itemC: ItemCarrito = carrito[i]
-          if (iCarrito.id === itemC.id) {
-            index = i
-            break
+    // this.stock = await this.LibroStock.getLibroStock(iCarrito.id)
+    this.LibroStock.getLibroStockHttp(item.id).subscribe({
+      next: (stock) => {
+        if (stock.stock != 0) {
+          if (localStorage.getItem("carrito") === null) {
+            let carrito: ItemCarrito[] = []
+            carrito.push(iCarrito)
+            localStorage.setItem("carrito", JSON.stringify(carrito))
           }
+          else {
+            let carritoStorage = localStorage.getItem("carrito") as string
+            let carrito = JSON.parse(carritoStorage)
+            let index = -1
+
+            for (let i = 0; i < carrito.length; i++) {
+              let itemC: ItemCarrito = carrito[i]
+              if (iCarrito.id === itemC.id) {
+                index = i
+                break
+              }
+            }
+
+            if (index === -1) {
+              console.log(iCarrito);
+              carrito.push(iCarrito)
+              localStorage.setItem("carrito", JSON.stringify(carrito))
+            }
+            else {
+              let itemCarrito: ItemCarrito = carrito[index]
+              itemCarrito.cantidad!++
+              itemCarrito.subtotal = itemCarrito.precio! * itemCarrito.cantidad!
+              carrito[index] = itemCarrito
+              localStorage.setItem("carrito", JSON.stringify(carrito))
+            }
+          }
+        } else {
+          this.mensaje = ("No hay stock de este producto de momento")
+          setTimeout(() => {
+            this.mensaje = '';
+          }, 2000);
+          return
         }
 
-        if (index === -1) {
-          console.log(iCarrito);
-          carrito.push(iCarrito)
-          localStorage.setItem("carrito", JSON.stringify(carrito))
-        }
-        else {
-          let itemCarrito: ItemCarrito = carrito[index]
-          itemCarrito.cantidad!++
-          itemCarrito.subtotal = itemCarrito.precio! * itemCarrito.cantidad!
-          carrito[index] = itemCarrito
-          localStorage.setItem("carrito", JSON.stringify(carrito))
-        }
+      },
+      error: (error) => {
+        console.log('No se pudo acceder al stock de los libros', error);
       }
-    } else {
-      this.mensaje = ("No hay stock de este producto de momento")
-      setTimeout(() => {
-        this.mensaje = '';
-      }, 2000);
-      return
     }
+    )
     this.mensaje = ("Se agregó el producto al carrito")
     setTimeout(() => {
       this.mensaje = '';

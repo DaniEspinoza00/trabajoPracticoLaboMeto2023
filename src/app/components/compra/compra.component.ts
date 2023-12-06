@@ -6,74 +6,106 @@ import { ItemCarrito } from 'src/app/interfaces/itemCarrito';
 import { Usuario } from 'src/app/interfaces/usuarios';
 import { LibroStock } from 'src/app/interfaces/libroStock';
 import { Ventas } from 'src/app/interfaces/ventas';
+import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-compra',
   templateUrl: './compra.component.html',
   styleUrls: ['./compra.component.css']
 })
-export class CompraComponent implements OnInit{
+export class CompraComponent implements OnInit {
   listaItemsCarrito: ItemCarrito[] = []
   user: Usuario | undefined
-  stock: LibroStock | undefined
+  // stock: LibroStock | undefined
 
 
 
   constructor(private router: Router,
-              private loginService:LoginService,
-              private LibrosStockService:LibrosStockService){
-    
+    private loginService: LoginService,
+    private LibrosStockService: LibrosStockService) {
+
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     let carritoStorage = localStorage.getItem("carrito") as string
     let carrito = JSON.parse(carritoStorage)
     this.listaItemsCarrito = carrito
     this.user = this.loginService.getUsuarioActual()
   }
 
-  calcularTotalAPagar(){
+  calcularTotalAPagar() {
     let result = 0
-    for(let i = 0; this.listaItemsCarrito.length > i; i++){
+    for (let i = 0; this.listaItemsCarrito.length > i; i++) {
       result += this.listaItemsCarrito[i].subtotal!
     }
     return result
   }
 
-  viajarATarjeta(){
+  viajarATarjeta() {
     this.router.navigate(['agregar-tarjeta'])
   }
 
-  async verificarTrajeta(){
-    if(this.user?.tarjetaCredito.numeroTarjeta != 0){
-      
-      for(let i = 0; i < this.listaItemsCarrito.length; i++){
-        this.stock = await this.LibrosStockService.getLibroStock(this.listaItemsCarrito[i].id)
-        console.log(`item ${i} antes: ${this.stock!.stock} `);
-        this.stock!.stock--
-        await this.LibrosStockService.putStock(this.stock!)
-        console.log(`item ${i} despues: ${this.stock!.stock} `);
-      }
-      this.agregarHistorial()
-      localStorage.clear()
-      this.listaItemsCarrito = []
-      this.router.navigate(['felicidades'])
+  verificarTarjeta() {
+    let flag = 1
+    let i = 0
+    let stockLibro = 0
+    if (this.user?.tarjetaCredito.numeroTarjeta != 0) {
+
+      this.LibrosStockService.getStockHttp().subscribe({
+        next: (stock) => {
+          let j = 0
+          for (let i = 0; i < stock.length; i++) {
+            if (j < this.listaItemsCarrito.length) {
+              if (stock[i].id === this.listaItemsCarrito[j].id) {
+                if (this.listaItemsCarrito[j].cantidad > stock[i].stock) {
+                  stockLibro = stock[i].stock
+                  flag = 0
+                }
+                j++;
+              }
+
+            }
+          }
+          if (flag === 1) {
+            j = 0
+            console.log(`j = ${j}`);
+            for (let i = 0; i < stock.length; i++) {
+              if (j < this.listaItemsCarrito.length) {
+                if (stock[i].id === this.listaItemsCarrito[j].id) {
+                  stock[i].stock = stock[i].stock - this.listaItemsCarrito[j].cantidad
+                  this.LibrosStockService.putLibroHttp(stock[i]).subscribe()
+                  j++
+                }
+              }
+            }
+            this.agregarHistorial()
+            localStorage.clear()
+            this.listaItemsCarrito = []
+            this.router.navigate(['felicidades'])
+          } else {
+            alert(`No hay stock suficiente para el producto: "${this.listaItemsCarrito[i].titulo}", solo hay: "${stockLibro}" libros en stock del producto mencionado`)
+          }
+        },
+        error: (error) => {
+          console.log('No se pudo acceder al stock de los libros', error);
+        }
+      })
     }
-    else{
+    else {
       alert("El usuario no tiene ninguna tarjeta agregada")
       this.router.navigate(['agregar-tarjeta'])
     }
   }
 
-  agregarHistorial(){
-    let cambio:Usuario=this.loginService.usuarioActual
-    let nuevo:Ventas={fecha: new Date(),pedidos:this.listaItemsCarrito,total:this.calcularTotalAPagar()}
- 
+  agregarHistorial() {
+    let cambio: Usuario = this.loginService.usuarioActual
+    let nuevo: Ventas = { fecha: new Date(), pedidos: this.listaItemsCarrito, total: this.calcularTotalAPagar() }
+
     cambio.historial.push(nuevo)
     this.loginService.modifJson(cambio)
   }
 
-  volverACarrito(){
+  volverACarrito() {
     this.router.navigate(['carrito'])
   }
 }

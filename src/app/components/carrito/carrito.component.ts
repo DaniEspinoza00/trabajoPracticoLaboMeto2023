@@ -34,8 +34,6 @@ export class CarritoComponent implements OnInit {
 
   verificarLogin() {
     this.user = this.LoginService.getUsuarioActual()
-    console.log(this.LoginService.usuarioActual);
-    console.log(this.listaItemsCarrito.length);
     if (this.listaItemsCarrito.length != 0) {
       if (this.user.id === 0) {
         this.router.navigate(['alerta-login'])

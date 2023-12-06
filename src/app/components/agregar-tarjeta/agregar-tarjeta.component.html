@@ -35,7 +35,7 @@
 
             <div class="campo">
                 <label for="dni">DNI:</label>
-                <input type="number" id="dni" formControlName="dni">
+                <input type="text" id="dni" formControlName="dni" (input)="soloNumeros($event)">
             </div>
             <div class="error" *ngIf="validar('dni', 'required')">
                 <span>*El campo es requerido</span>

@@ -3,12 +3,12 @@
     {
       "id": 1,
       "precio": 10.99,
-      "stock": 6
+      "stock": 1
     },
     {
       "id": 2,
       "precio": 25.49,
-      "stock": 23
+      "stock": 0
     },
     {
       "id": 3,
