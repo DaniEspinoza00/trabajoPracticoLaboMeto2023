@@ -17,7 +17,7 @@ export class LibrosService {
 
   constructor(private http:HttpClient) { }
 
-  async getLibros(): Promise<Libro[] | undefined>{
+  async getLibros(): Promise<Libro[] | undefined>{ //este se usa
     try {
       const resultado = await fetch (this.urlLibros);
       const libros = await resultado.json();
@@ -29,29 +29,6 @@ export class LibrosService {
     return undefined;
   }
 
-  async getLibro(id: number): Promise<Libro | undefined> {
-    try {
-      const resultado = await fetch(`${this.urlLibro}/${id}`);
-      const libro = await resultado.json();
-      return libro;
-    } catch (error) {
-      console.log(error);
-    }
-    return undefined;
-  }
-
-  async buscarLibroPorTitulo(titulo: string): Promise<Libro[] | undefined> {
-    try {
-      // Realizar la búsqueda por título y devolver los resultados
-      const resultados = this.listadoLibros.filter(libro => libro.title.toLowerCase().includes(titulo.toLowerCase()));
-      return resultados;
-    } catch (error) {
-      console.log(error);
-    }
-    return undefined;
-  }
-
-////////////////////////////////////////////////////////
   getLibrosHttp(): Observable<Libro[]> {
     return this.http.get<Libro[]>(this.urlLibros);
   }
