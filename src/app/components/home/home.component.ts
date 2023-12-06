@@ -25,52 +25,47 @@ export class HomeComponent implements OnInit {
 
 
     mostrarLibrosHttp() {
-        this.LibrosService.getLibrosHttp().subscribe({
-            next: (libros: Libro[]) => {
-                // Obtener 3 índices aleatorios únicos
-                const indicesAleatorios: number[] = [];
-                while (indicesAleatorios.length < 3) {
-                    const indiceAleatorio: number = Math.floor(Math.random() * libros.length);
-                    if (!indicesAleatorios.includes(indiceAleatorio)) {
-                        indicesAleatorios.push(indiceAleatorio);
-                    }
-                }
-
-                // Obtener los objetos correspondientes a los índices aleatorios
-                this.listadoLibros = indicesAleatorios.map((indice: number) => libros[indice]);
-
-                console.log(this.listadoLibros);
-
-                this.buscarCoincidenciasEnStock();
-
-            },
-            error: (error) => {
-                console.log('No se pudo acceder a los libros', error);
-            }
-        });
-    }
-
-    buscarCoincidenciasEnStock() {
-        if (this.listadoLibros && this.listadoLibros.length > 0) {
-            // Obtener los IDs de los libros seleccionados
-            const idsLibrosSeleccionados: number[] = this.listadoLibros.map(libro => libro.id);
-            console.log(idsLibrosSeleccionados);
-
-            for (let i = 0; i < idsLibrosSeleccionados.length; i++) {
-
-                this.LibroStock.getLibroStockHttp(idsLibrosSeleccionados[i])
-                    .subscribe(
-                        {
-                            next: (stock) => {
-                                this.listadoStock?.push(stock);
-                            },
-                            error: (error) => {
-                                console.log(error);
+        this.LibrosService.getLibrosHttp()
+            .subscribe(
+                {
+                    next: (libros: Libro[]) => {
+                        // Obtener 3 índices aleatorios únicos
+                        const indicesAleatorios: number[] = [];
+                        while (indicesAleatorios.length < 3) {
+                            const indiceAleatorio: number = Math.floor(Math.random() * libros.length);
+                            if (!indicesAleatorios.includes(indiceAleatorio)) {
+                                indicesAleatorios.push(indiceAleatorio);
                             }
                         }
-                    )
-            }
-            console.log(this.listadoStock);
+
+                        // Obtener los objetos correspondientes a los índices aleatorios
+                        this.listadoLibros = indicesAleatorios.map((indice: number) => libros[indice]);
+
+                        console.log(this.listadoLibros);
+
+                        this.buscarCoincidenciasEnStock(this.listadoLibros);
+
+                    },
+                    error: (error) => {
+                        console.log('No se pudo acceder a los libros', error);
+                    }
+                }
+            );
+    }
+
+    buscarCoincidenciasEnStock(listado:Libro[]){
+        for (let i=0; i<listado.length;i++){
+            this.LibroStock.getLibroStockHttp(listado[i].id)
+            .subscribe(
+                {
+                    next:(stock)=>{
+                        this.listadoStock?.push(stock);
+                    },
+                    error:(error)=>{
+                        console.log(error);
+                    }
+                }
+            )
         }
     }
 

@@ -14,19 +14,8 @@ export class LibrosStockService {
 
   constructor(private router:Router, private http:HttpClient) { }
 
-  async getStock(): Promise<LibroStock[] | undefined>{
-    try {
-      const resultado = await fetch (this.urlStock);
-      const libros = await resultado.json();
-      return libros;
-    } catch (error) {
-      console.log(error);
-    }
-    return undefined;
-  }
 
-
-  async getLibroStock(id:number): Promise<LibroStock | undefined>{
+  async getLibroStock(id:number): Promise<LibroStock | undefined>{ //este lo usa
     try {
       const resultado = await fetch(`${this.urlStock}/${id}`);
       const libro = await resultado.json();
@@ -38,19 +27,8 @@ export class LibrosStockService {
   }
 
 
-  
-  async putLibro (libro:LibroStock){
-    try {
-      await fetch(`${this.urlStock}/${libro.id}`, {method:'PUT',
-      body: JSON.stringify(libro),
-      headers:{'Content-type': 'application/json'}})
-      this.router.navigate (['admin'])
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
-  async putStock(stock: LibroStock | null){
+  async putStock(stock: LibroStock | null){ //este se usa
     try {
       await fetch(`${this.urlStock}/${stock?.id}`,
         {
@@ -64,7 +42,6 @@ export class LibrosStockService {
     }
   }
 
-/////////////////////////////////////
   getStockHttp():Observable<LibroStock[]>{
     return this.http.get<LibroStock[]>(this.urlStock)
   }

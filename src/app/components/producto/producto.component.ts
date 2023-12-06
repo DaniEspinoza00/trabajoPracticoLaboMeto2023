@@ -38,16 +38,34 @@ export class ProductoComponent implements OnInit {
     this.route.params.subscribe(async param => {
       const id = param['id'];
       console.log(id);
-      this.libro2 = await this.LibrosService.getLibro(id);
-      console.log(this.libro2);
+      this.LibrosService.getLibroHttp(id)
+      .subscribe(
+        {
+          next:(libro)=>{
+            this.libro2=libro;
+          },
+          error: (error)=>{
+            console.log(error);
+          }
+        }
+      )
     })
   }
 
-  async mostrarPrecio2() {
+   mostrarPrecio2() {
     this.route.params.subscribe(async param => {
       const id = param['id'];
-      this.libroStock = await this.LibroStock.getLibroStock(id);
-      console.log(this.libroStock);
+      this.LibroStock.getLibroStockHttp(id)
+      .subscribe(
+        {
+          next:(stock)=>{
+            this.libroStock=stock;
+          },
+          error:(error)=>{
+            console.log(error);
+          }
+        }
+      )
     })
   }
 
