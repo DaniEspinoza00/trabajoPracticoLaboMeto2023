@@ -30,7 +30,21 @@ export class ProductoComponent implements OnInit {
     private loginService: LoginService) { }
 
   ngOnInit(): void {
+    this.mostrarLibro2();
     this.mostrarPrecio2();
+  }
+
+  mostrarLibro2() {
+    this.route.params.subscribe(async param => {
+      const id = param['id'];
+      console.log(id);
+      this.LibrosService.getLibroHttp(id).subscribe({
+        next:(libro) =>{
+          this.libro2 = libro
+        }
+      });
+      console.log(this.libro2);
+    })
   }
 
   async mostrarPrecio2() {
