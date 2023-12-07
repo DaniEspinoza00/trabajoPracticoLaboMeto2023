@@ -102,7 +102,13 @@ export class CompraComponent implements OnInit {
     let nuevo: Ventas = { fecha: new Date(), pedidos: this.listaItemsCarrito, total: this.calcularTotalAPagar() }
 
     cambio.historial.push(nuevo)
-    this.loginService.modifJson(cambio)
+    this.loginService.modifJsonHTTP(cambio).subscribe(
+      {
+        next:()=>{},
+        error:(err)=>{console.log(err)}
+      }
+    )
+
   }
 
   volverACarrito() {

@@ -14,7 +14,6 @@ export class ModificacionComponent {
 
   opcion(valor: number){
     
-    this.loginService.leerJson()
     this.newOpcion.emit(valor)
   }
 
@@ -50,8 +49,18 @@ export class ModificacionComponent {
         actual.documento=dni
       }
 
-    this.loginService.modifUsuario(actual)
-    this.newOpcion.emit(0)
+      this.loginService.modifJsonHTTP(actual).subscribe(
+        {
+          next:()=>{  
+            this.loginService.usuarioActual=actual
+            this.newOpcion.emit(0)
+          },
+          error:(err)=>{
+            console.log(err)
+          }
+        }
+      )
+  
   }
 
 

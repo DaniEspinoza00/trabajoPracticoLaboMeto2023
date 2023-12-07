@@ -19,6 +19,11 @@ export class EliminarComponent {
 
   borrar(){
    
-    this.loginService.borrarUsuarioActual();
+    this.loginService.borrarUsuarioHTTP(this.loginService.usuarioActual.id).subscribe(
+      {
+        next:()=>{},
+        error:(err)=>{console.log(err)}
+      }
+    );
     }
 }

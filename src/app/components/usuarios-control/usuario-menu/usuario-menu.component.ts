@@ -11,6 +11,19 @@ export class UsuarioMenuComponent {
   constructor(private loginService : LoginService){}
   
   ngOnInit(){
+      if(this.loginService.listaUsuarios?.length==0){
+        this.loginService.leerJsonHTTP().subscribe(
+          {
+            next : (users)=>{
+              this.loginService.listaUsuarios=users
+            },
+            error: (error)=>{
+              console.log(error)
+            }
+          }
+        )
+      }
+  
     this.cambio()
     
   }

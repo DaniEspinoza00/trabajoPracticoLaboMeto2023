@@ -19,18 +19,15 @@ export class LoginComponent {
   cambio(){
     this.newCambio.emit(false)
   }
-
-  async inicioSesion(e:Event){
+  
+  inicioSesion(e:Event){
     if(this.formulario.invalid)return;
     e.preventDefault()
     
     let mail : string =(<HTMLInputElement>document.getElementById("mail")).value
     let contra : string =(<HTMLInputElement>document.getElementById("contra")).value
 
-    if(!await this.loginService.inicioSesion(mail,contra)){
-      alert ("Correo electronico o contraseña incorrectos")
-    }
-
+    this.loginService.inicioSesion(mail,contra)
     
   }
 }

@@ -2,7 +2,8 @@ import { Tarjeta } from './../interfaces/tarjeta';
 import { Injectable, inject } from '@angular/core';
 import { Usuario } from '../interfaces/usuarios';
 import { Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -24,7 +25,7 @@ export class LoginService {
   usuarioActual: Usuario = this.usuarioVacio
   usuarioIniciado:Usuario|null= this.usuarioVacio
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private http: HttpClient) {
     this.cargarUsuario()
    }
 
@@ -114,15 +115,24 @@ export class LoginService {
     }
   }
 
-  modifUsuario(cambio: Usuario) {
-    this.modifJson(cambio)
-  }
+
 
   agregarUsuarioLista(nuevo: Usuario) {
     if (this.listaUsuarios) {
       this.listaUsuarios.push(nuevo)
       this.listaUsuarios.sort(function (a, b) { return a.id - b.id })
-      this.escribirJson(nuevo);
+      this.escribirJsonHTTP(nuevo).subscribe(
+        {
+          next:()=>{
+            sessionStorage.setItem('usuarioIniciado',JSON.stringify(nuevo));
+            this.router.navigate(['home'])
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        }
+      );
+
     }
   }
 
@@ -145,10 +155,7 @@ export class LoginService {
 
   }
 
-  asignarId(user: Usuario) {
-    user.id = this.idDisponible();
-  }
-
+  
   async borrarUsuarioActual() {
     try {
       await fetch(this.url + "/" + this.usuarioActual.id,
@@ -169,21 +176,26 @@ export class LoginService {
     if (this.listaUsuarios) {
       for (var i: number = 0; i < this.listaUsuarios.length && !flag; i++) {
         if (this.listaUsuarios[i].mail == mail && this.listaUsuarios[i].contra == contra) {
-          this.usuarioLogueado = await this.leerUsuario(this.listaUsuarios[i].id)
-          if (this.usuarioLogueado) {
-            this.usuarioActual = this.usuarioLogueado
-            flag = true;
-            sessionStorage.setItem('usuarioIniciado', JSON.stringify(this.usuarioActual))
-            this.router.navigate(['home'])
-
-          } else {
-            console.log(("Hubo error"))
-          }
-
+          this.leerUsuarioHTTP(this.listaUsuarios[i].id).subscribe(
+            {
+              next:(user)=>{
+                this.usuarioActual=user
+                
+                sessionStorage.setItem('usuarioIniciado', JSON.stringify(this.usuarioActual))
+                this.router.navigate(['home'])
+              },
+              error:(err)=>{
+                console.log(err)
+              }
+            }
+          )
+          flag = false;
         }
       }
+      if(flag){
+        alert ("Correo electronico o contraseña incorrectos")
+      }
     }
-    return flag
   }
 
   verificarMail(user: Usuario) {
@@ -205,14 +217,24 @@ export class LoginService {
       return false
     } else {
       this.usuarioActual.favoritos.push(id)
-      this.modifJson(this.usuarioActual)
+      this.modifJsonHTTP(this.usuarioActual).subscribe(
+        {
+          next:()=>{},
+          error:(err)=>{console.log(err)}
+        }
+      )
       return true
     }
   }
 
   eliminarFav(id: number) {
     this.usuarioActual.favoritos.splice(this.usuarioActual.favoritos.indexOf(id), 1)
-    this.modifJson(this.usuarioActual)
+    this.modifJsonHTTP(this.usuarioActual).subscribe(
+      {
+        next:()=>{},
+        error:(err)=>{console.log(err)}
+      }
+    )
   }
 
   async putTarjeta(usuario: Usuario | null){
@@ -229,4 +251,39 @@ export class LoginService {
     }
   }
 
+
+
+/////////////////////////////////////
+leerJsonHTTP(): Observable<Usuario[]> {
+  return this.http.get<Usuario[]>(this.url);
+}
+
+leerUsuarioHTTP(id:number):Observable<Usuario>{
+  return this.http.get<Usuario>(`${this.url}/${id}`)
+}
+
+escribirJsonHTTP(nuevo:Usuario):Observable<Usuario>{
+    return this.http.post<Usuario>(
+      this.url,
+      nuevo,
+      {headers: { 'Content-type': 'application/json' }}
+    )
+}
+
+modifJsonHTTP(cambio:Usuario):Observable<Usuario>{
+  
+    sessionStorage.setItem('usuarioIniciado',JSON.stringify(this.usuarioActual));
+    this.cargarUsuario()
+    return this.http.put<Usuario>(
+    `${this.url}/${cambio.id}`,
+    cambio,
+    {headers: { 'Content-type': 'application/json' }}
+  )
+}
+
+borrarUsuarioHTTP(id:number):Observable<Usuario>{
+  this.usuarioActual = this.usuarioVacio
+  this.router.navigate(['home'])
+  return this.http.delete<Usuario>(`${this.url}/${id}`);
+}
 }

@@ -6,7 +6,7 @@ import { LoginService } from 'src/app/services/usuario.service';
   templateUrl: './access-manager.component.html',
   styleUrls: ['./access-manager.component.css']
 })
-export class AccessManagerComponent implements OnInit{
+export class AccessManagerComponent{
   flag : boolean=true
   constructor(private loginService:LoginService){
   }
@@ -15,9 +15,7 @@ export class AccessManagerComponent implements OnInit{
     this.flag=valor;
   }
 
-  ngOnInit(){
-this.loginService.leerJson()
-  }
+
 
   
 }

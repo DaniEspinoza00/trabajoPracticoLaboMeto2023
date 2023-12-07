@@ -123,11 +123,7 @@ export class ProductoComponent implements OnInit {
 
 
 
-  //¿Esta funcion se usa en algun momento?
-  agregarFavorito(idNuevo: number) {
-    this.loginService.usuarioActual.favoritos.push(idNuevo)
-    this.loginService.modifJson(this.loginService.usuarioActual)
-  }
+  
 
   cambiarColor() {
 
