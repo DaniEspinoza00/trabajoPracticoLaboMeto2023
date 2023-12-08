@@ -1,19 +1,24 @@
 {
-    "admin": [
-        {
-            "id": 1,
-            "usuario": "mgallardo",
-            "contraseña": "91218"
-        },
-        {
-            "id": 2,
-            "usuario": "messi",
-            "contraseña": "181222"
-        },
-        {
-            "id": 3,
-            "usuario": "gchaldu",
-            "contraseña": "201123"
-        }
-    ]
+  "admin": [
+    {
+      "id": 1,
+      "usuario": "mgallardo",
+      "contraseña": "91218"
+    },
+    {
+      "id": 2,
+      "usuario": "messi",
+      "contraseña": "181222"
+    },
+    {
+      "id": 3,
+      "usuario": "gchaldu",
+      "contraseña": "201123"
+    },
+    {
+      "id": 4,
+      "usuario": "lenovo",
+      "contraseña": "verano"
+    }
+  ]
 }

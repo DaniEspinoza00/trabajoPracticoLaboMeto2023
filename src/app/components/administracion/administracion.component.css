@@ -31,23 +31,43 @@ align-items: center;
 
 
 .navegacion{
+
   display: flex;
   width: 100%; 
   justify-content: center;
 }
 
 .logout{
-  background-color: #727a83;
+  background-color: #3f4245;
   display: flex;
   justify-content: center;
   gap: 2rem;
   width: 100%;
 }
 .logout a{
-padding: 0.25rem 1rem;
-white-space: nowrap;
-background-color: white;
+  margin-right: 1rem;
+  color: rgba(233, 227, 227, 0.861);
 }
+
+.logout a:hover{
+  color: white;
+}
+
+.links div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a{
+  color: rgba(233, 227, 227, 0.861)
+}
+
+.links div a:hover{
+  color: white;
+}
+
+
+/****************************/
 
 .contenedor {
   margin: 0 auto;

@@ -23,6 +23,7 @@ import { EnConstruccionPageComponent } from './pages/en-construccion-page/en-con
 import { ContactoPageComponent } from './pages/contacto-page/contacto-page.component';
 import { AuthGuard } from './components/guards/auth-guard';
 import { LoginGuard } from './components/guards/login-guard';
+import { NuevoAdminPageComponent } from './pages/nuevo-admin-page/nuevo-admin-page.component';
 
 const routes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -35,8 +36,8 @@ const routes: Routes = [
   {path:'alerta-login', component:AlertaLoginPageComponent},
   {path: 'lista-favoritos', component: FavoritoPageComponent},
   {path: 'admin',component:AdministracionPageComponent, canActivate: [AuthGuard]},
-  {path: 'libro/:id', component:MostrarLibroPageComponent},
-  {path: 'usuario/:id', component:MostrarUsuariosPageComponent},
+  {path: 'libro/:id', component:MostrarLibroPageComponent, canActivate: [AuthGuard]},
+  {path: 'usuario/:id', component:MostrarUsuariosPageComponent, canActivate: [AuthGuard]},
   {path: 'login-admin', component:LoginAdminPageComponent, canActivate: [LoginGuard]},
   {path:'agregar-tarjeta', component:AgregarTarjetaPageComponent},
   {path:'felicidades', component:AgradecimientoPageComponent},
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path: 'busqueda/:search', component: BusquedaPageComponent},
   {path: 'en-construccion', component: EnConstruccionPageComponent},
   {path: 'contacto', component: ContactoPageComponent},
+  {path: 'nuevo-admin', component: NuevoAdminPageComponent, canActivate: [AuthGuard]},
   {path:'**', redirectTo:'home'}
 ];
 

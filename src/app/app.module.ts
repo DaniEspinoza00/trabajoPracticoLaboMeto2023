@@ -53,6 +53,8 @@ import { EnConstruccionComponent } from './components/en-construccion/en-constru
 import { EnConstruccionPageComponent } from './pages/en-construccion-page/en-construccion-page.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { ContactoPageComponent } from './pages/contacto-page/contacto-page.component';
+import { NuevoAdminComponent } from './components/nuevo-admin/nuevo-admin.component';
+import { NuevoAdminPageComponent } from './pages/nuevo-admin-page/nuevo-admin-page.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +106,8 @@ import { ContactoPageComponent } from './pages/contacto-page/contacto-page.compo
     EnConstruccionPageComponent,
     ContactoComponent,
     ContactoPageComponent,
+    NuevoAdminComponent,
+    NuevoAdminPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ import { Libro } from '../interfaces/libros';
 import { LibroStock } from '../interfaces/libroStock';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { environments } from 'src/environments/environments';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,9 +11,13 @@ export class LibrosService {
 
   urlLibros:string='https://example-data.draftbit.com/books?_limit=100'
   urlLibro:string="https://example-data.draftbit.com/books"
-  //urlP='http://localhost:3000/librosStock'
+
   listadoLibros:Libro[]=[]
-  //listP: LibroStock[] = []
+
+  urlApi:string=environments.baseUrl;
+  limit:string='books?_limit=100';
+  books:string='books';
+
 
   constructor(private http:HttpClient) { }
 
@@ -30,11 +34,11 @@ export class LibrosService {
   }
 
   getLibrosHttp(): Observable<Libro[]> {
-    return this.http.get<Libro[]>(this.urlLibros);
+    return this.http.get<Libro[]>(`${this.urlApi}/${this.limit}`);
   }
 
   getLibroHttp(id:number): Observable<Libro>{
-    return this.http.get<Libro>(`${this.urlLibro}/${id}`)
+    return this.http.get<Libro>(`${this.urlApi}/${this.books}/${id}`)
   }
 
 

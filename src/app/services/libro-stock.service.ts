@@ -3,6 +3,7 @@ import { LibroStock } from '../interfaces/libroStock';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environments } from 'src/environments/environments';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ import { Observable } from 'rxjs';
 export class LibrosStockService {
 
   urlStock:string = "http://localhost:3000/librosStock";
+  urlLibrosStock:string=environments.librosUrl;
+  stock:string='librosStock';
   ListadoStock:LibroStock [] |undefined=[];
 
   constructor(private router:Router, private http:HttpClient) { }
@@ -43,16 +46,16 @@ export class LibrosStockService {
   }
 
   getStockHttp():Observable<LibroStock[]>{
-    return this.http.get<LibroStock[]>(this.urlStock)
+    return this.http.get<LibroStock[]>(`${this.urlLibrosStock}/${this.stock}`)
   }
 
   getLibroStockHttp(id:number): Observable<LibroStock>{
-    return this.http.get<LibroStock>(`${this.urlStock}/${id}`)
+    return this.http.get<LibroStock>(`${this.urlLibrosStock}/${this.stock}/${id}`)
   }
 
   putLibroHttp(libro:LibroStock):Observable<LibroStock>{
     return this.http.put<LibroStock>(
-      `${this.urlStock}/${libro.id}`,
+      `${this.urlLibrosStock}/${this.stock}/${libro.id}`,
       libro,
       {headers: {'Content-type': 'application/json'}}
     )

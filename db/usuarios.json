@@ -6,7 +6,7 @@
       "apellido": "Katz",
       "mail": "katznacho@gmail.com",
       "contra": "123",
-      "documento": "568",
+      "documento": "570",
       "tarjetaCredito": {
         "numeroTarjeta": "1321354684616531",
         "codigoSeguridad": "121",
@@ -614,23 +614,6 @@
       "mail": "prueba@gmail.com",
       "contra": "123",
       "documento": "908",
-      "tarjetaCredito": {
-        "numeroTarjeta": 0,
-        "codigoSeguridad": 0,
-        "nombreTarjeta": "",
-        "dni": 0,
-        "fechaCaducidad": ""
-      },
-      "favoritos": [],
-      "historial": []
-    },
-    {
-      "id": 12,
-      "nombre": "Nuevo",
-      "apellido": "Prueba",
-      "mail": "reinicio@gmail.com",
-      "contra": "123",
-      "documento": "890",
       "tarjetaCredito": {
         "numeroTarjeta": 0,
         "codigoSeguridad": 0,

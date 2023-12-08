@@ -1,18 +1,18 @@
 <section>
-    <header>
-        <nav class="navegacion">
-            <div class="imagen">
-                <a href="" routerLink="home">
-                    <img class="logo" src="../assets/images/fondo.png" alt="">
-                </a>
-                <div class="logout">
-                    <a href="">Crear Administrador</a>
+    <header class="navegacion">
+        <div class="imagen">
+            <a href="" routerLink="home">
+                <img class="logo" src="../assets/images/fondo.png" alt="">
+            </a>
+            <nav class="links">
+                <div>
+                    <a style="cursor: pointer;" [routerLink]="['/nuevo-admin']">Crear Administrador</a>
                     <a (click)="logout2()" style="cursor: pointer;">CERRAR SESION</a>
-                    <div style="color: white;" class="usuario">¡Hola {{getAdmin?.usuario}}!</div>
+                    <a style="color: white;" class="usuario">¡Hola {{getAdmin?.usuario}}!</a>
                 </div>
-            </div>
-             
-        </nav>
+
+            </nav>
+        </div>
     </header>
     <div class="contenedor-ppal">
         <div class="contenedor">
