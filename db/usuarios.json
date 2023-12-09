@@ -506,6 +506,51 @@
             }
           ],
           "total": 36.48
+        },
+        {
+          "fecha": "2023-12-09T17:23:00.958Z",
+          "pedidos": [
+            {
+              "id": 32,
+              "titulo": "Charlotte's Web",
+              "edicion": "Full Color Edition",
+              "image_url": "https://images.gr-assets.com/books/1439632243l/24178.jpg",
+              "cantidad": 2,
+              "precio": 19.99,
+              "subtotal": 39.98
+            }
+          ],
+          "total": 39.98
+        },
+        {
+          "fecha": "2023-12-09T17:33:36.905Z",
+          "pedidos": [
+            {
+              "id": 87,
+              "titulo": "Atlas Shrugged",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1405868167l/662.jpg",
+              "cantidad": 2,
+              "precio": 15.99,
+              "subtotal": 31.98
+            }
+          ],
+          "total": 31.98
+        },
+        {
+          "fecha": "2023-12-09T17:41:08.565Z",
+          "pedidos": [
+            {
+              "id": 2,
+              "titulo": "Harry Potter and the Order of the Phoenix",
+              "edicion": "US Edition",
+              "image_url": "https://images.gr-assets.com/books/1255614970l/2.jpg",
+              "cantidad": 1,
+              "precio": 26.39,
+              "subtotal": 26.39
+            }
+          ],
+          "total": 26.39
         }
       ]
     },

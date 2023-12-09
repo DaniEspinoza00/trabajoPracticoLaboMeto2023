@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Usuario } from '../interfaces/usuarios';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 
 
 @Injectable({
@@ -285,5 +285,23 @@ borrarUsuarioHTTP(id:number):Observable<Usuario>{
   this.usuarioActual = this.usuarioVacio
   this.router.navigate(['home'])
   return this.http.delete<Usuario>(`${this.url}/${id}`);
+}
+
+checkStatusAutenticacion(): Observable<boolean> {
+  const token = localStorage.getItem('token')
+  if (!token) {
+    return of(false)
+  }
+  return this.http.get<Usuario>(`${this.url}/${token}`)
+    .pipe(
+      tap(u => this.usuarioActual = u),
+      map(u => !!u),
+      catchError(err => of(false))
+    )
+} 
+
+logout2() {
+  this.usuarioActual = this.usuarioVacio;
+  localStorage.removeItem('token')
 }
 }

@@ -49,7 +49,7 @@ export class CarritoComponent implements OnInit {
   }
 
   vaciarCarrito() {
-    localStorage.clear()
+    localStorage.removeItem('carrito')
     this.listaItemsCarrito = []
   }
 

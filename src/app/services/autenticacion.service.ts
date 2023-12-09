@@ -77,6 +77,9 @@ export class AutenticacionService {
 
   logout2() {
     this.Admin = undefined;
-    localStorage.clear()
+    localStorage.removeItem('token')
   }
+
+  /////////////////////////////////////
+  
 }

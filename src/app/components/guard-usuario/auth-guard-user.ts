@@ -1,18 +1,18 @@
 import { inject } from '@angular/core';
 import { Router} from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { Admin } from 'src/app/interfaces/admins';
-import { AutenticacionService } from 'src/app/services/autenticacion.service';
+import { Usuario } from 'src/app/interfaces/usuarios';
+import { LoginService } from 'src/app/services/usuario.service';
 
 function checkAuthStatus(): boolean | Observable<boolean>{
-  const authService = inject(AutenticacionService);
+  const authService = inject(LoginService);
   const  router = inject(Router);
-  const user:Admin | undefined = authService.currentUser2
+  const user:Usuario | undefined = authService.usuarioActual
 
   return authService.checkStatusAutenticacion()
                     .pipe(
                       tap( estaAutenticado => {
-                        if(!estaAutenticado) router.navigate(['/login-admin'])
+                        if(!estaAutenticado) router.navigate(['/usuario-menu'])
                       } )
                     )
 }
@@ -20,4 +20,3 @@ function checkAuthStatus(): boolean | Observable<boolean>{
 export const AuthGuard = () => {
   return checkAuthStatus()
 }
-

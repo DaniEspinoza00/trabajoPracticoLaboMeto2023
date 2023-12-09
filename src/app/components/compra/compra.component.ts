@@ -79,7 +79,7 @@ export class CompraComponent implements OnInit {
               }
             }
             this.agregarHistorial()
-            localStorage.clear()
+            localStorage.removeItem('carrito')
             this.listaItemsCarrito = []
             this.router.navigate(['felicidades'])
           } else {
