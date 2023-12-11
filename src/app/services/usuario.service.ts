@@ -287,21 +287,21 @@ borrarUsuarioHTTP(id:number):Observable<Usuario>{
   return this.http.delete<Usuario>(`${this.url}/${id}`);
 }
 
-checkStatusAutenticacion(): Observable<boolean> {
-  const token = localStorage.getItem('token')
-  if (!token) {
-    return of(false)
-  }
-  return this.http.get<Usuario>(`${this.url}/${token}`)
-    .pipe(
-      tap(u => this.usuarioActual = u),
-      map(u => !!u),
-      catchError(err => of(false))
-    )
-} 
+// checkStatusAutenticacion(): Observable<boolean> {
+//   const token = localStorage.getItem('token')
+//   if (!token) {
+//     return of(false)
+//   }
+//   return this.http.get<Usuario>(`${this.url}/${token}`)
+//     .pipe(
+//       tap(u => this.usuarioActual = u),
+//       map(u => !!u),
+//       catchError(err => of(false))
+//     )
+// } 
 
-logout2() {
-  this.usuarioActual = this.usuarioVacio;
-  localStorage.removeItem('token')
-}
+// logout2() {
+//   this.usuarioActual = this.usuarioVacio;
+//   localStorage.removeItem('token')
+// }
 }
