@@ -37,14 +37,9 @@ export class HomeComponent implements OnInit {
                                 indicesAleatorios.push(indiceAleatorio);
                             }
                         }
-
                         // Obtener los objetos correspondientes a los índices aleatorios
                         this.listadoLibros = indicesAleatorios.map((indice: number) => libros[indice]);
-
-                        console.log(this.listadoLibros);
-
                         this.buscarCoincidenciasEnStock(this.listadoLibros);
-
                     },
                     error: (error) => {
                         console.log('No se pudo acceder a los libros', error);

@@ -61,6 +61,13 @@ h3{
     .lista-libros{
         grid-template-columns: repeat(3, 1fr);
     }
+    .filter-container{
+        flex-direction: column;
+    }
+    .imagen-libro{
+        height: 15rem;
+        width: 9rem;
+    }
 } 
 
 @media (max-width:435px){

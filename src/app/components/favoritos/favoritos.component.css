@@ -1,5 +1,4 @@
-main{
-    min-height:55vh;
+section{
     display: flex;
     flex-direction: column;
     
@@ -66,7 +65,3 @@ thead{
     cursor: pointer;
     background-color: rgb(165, 44, 8);
 }
-
-
-
-

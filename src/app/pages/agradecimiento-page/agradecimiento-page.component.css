@@ -6,13 +6,12 @@ a{
     background-color: #5e6266;
     border-radius: 20px;
 }
-main{
-    min-height: 55vh;
+section{
     padding-left: 30rem;
     padding-right: 30rem;
 }
 
-div{
+.mensaje{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,12 +24,12 @@ div{
 }
 
 @media (max-width:450px) {
-    div{
+    .mensaje{
         font-size: .8rem;
         padding: .5rem;
     }
 
-    main{
+    section{
         padding-left: 0rem;
         padding-right: 0rem;
     }
@@ -42,12 +41,12 @@ div{
 }
 
 @media (min-width:450px){
-    div{
+    .mensaje{
         font-size: .8rem;
         padding: .5rem;
     }
 
-    main{
+    section{
         padding-left: 0rem;
         padding-right: 0rem;
     }
@@ -59,12 +58,12 @@ div{
 }
 
 @media (min-width:800px){
-    div{
+    .mensaje{
         font-size: 1rem;
         padding: .5rem;
     }
 
-    main{
+    section{
         padding-left: 7rem;
         padding-right: 7rem;
     }
@@ -76,12 +75,12 @@ div{
 }
 
 @media (min-width:1165px){
-    div{
+    .mensaje{
         font-size: 1rem;
         padding: .5rem;
     }
 
-    main{
+    section{
         padding-left: 20rem;
         padding-right: 20rem;
     }

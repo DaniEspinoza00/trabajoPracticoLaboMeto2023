@@ -1,14 +1,17 @@
-footer {
+.pie-de-pagina{
+    bottom: 0;
+}
+
+.footer {
     width: 100%;
     background-color: #3f4245; 
-    margin-top: auto;
     display: flex;
     justify-content: center;
 }
-
 .footer-container {
     width: 70%;
     display: flex;
+    
 }
 
 .footer-column {
@@ -47,5 +50,11 @@ a:hover{
     }
     .links a{
         font-size: 12px;
+    }
+  }
+  @media (max-width:700px) {
+    .footer-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
   }

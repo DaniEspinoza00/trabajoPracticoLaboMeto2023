@@ -1,53 +1,51 @@
-<main>
-    <div class="contenedor">
-        <div>
-            <img class="imagen" [src]="libro2?.image_url" alt="{{ libro2?.title }}">
+<div class="contenedor">
+    <div>
+        <img class="imagen" [src]="libro2?.image_url" alt="{{ libro2?.title }}">
+    </div>
+    <div class="descripcion">
+        <div class="titulo-autor-precio">
+            <h1>{{libro2?.title}}</h1>
+            <h4>{{libro2?.authors}}</h4>
+            <h2>$ {{libroStock?.precio}}</h2>
         </div>
-        <div class="descripcion">
-            <div class="titulo-autor-precio">
-                <h1>{{libro2?.title}}</h1>
-                <h4>{{libro2?.authors}}</h4>
-                <h2>$ {{libroStock?.precio}}</h2>
-            </div>
-            <div class="metodos">
-                <a href="">Costo de Envio</a>
-                <a href="">Medios de Pago</a>
-            </div>
-            <div class="botones">
-                <a class="boton-compra" (click)="agregarCarrito(libro2!, libroStock!.precio)">COMPRAR</a>
-                <!--<a class="boton-fav" (click)="agregarFavorito(libro2.id)"></a>-->
-                <a class="boton-favoritos" [ngClass]="{'clicked': isClicked}" (click)="cambiarColor()">AGREGAR A FAVORITOS</a>
-                <div *ngIf="mensaje" class="mensaje-popup">{{ mensaje }}</div>
-            </div>
+        <div class="metodos">
+            <a href="">Costo de Envio</a>
+            <a href="">Medios de Pago</a>
+        </div>
+        <div class="botones">
+            <a class="boton-compra" (click)="agregarCarrito(libro2!, libroStock!.precio)">COMPRAR</a>
+            <!--<a class="boton-fav" (click)="agregarFavorito(libro2.id)"></a>-->
+            <a class="boton-favoritos" [ngClass]="{'clicked': isClicked}" (click)="cambiarColor()">AGREGAR A
+                FAVORITOS</a>
+            <div *ngIf="mensaje" class="mensaje-popup">{{ mensaje }}</div>
         </div>
     </div>
+</div>
 
-    <div class="producto-descripcion" >
-        <div class="descripcion2">
-            <span>DESCRIPCION</span>
-        </div>
-        <div class="sinopsis">
-            <h4>Sinopsis del Libro</h4>
-            <p>{{libro2?.description}}</p>
-        </div>
+<div class="producto-descripcion">
+    <div class="descripcion2">
+        <span>DESCRIPCION</span>
     </div>
-    <div class="producto-descripcion">
-        <div class="descripcion2">
-            <span>AUTOR/ES</span>
-        </div>
-        <div class="sinopsis">
-            <h4>Autor</h4>
-            <p>{{libro2?.authors}}</p>
-        </div>
+    <div class="sinopsis">
+        <h4>Sinopsis del Libro</h4>
+        <p>{{libro2?.description}}</p>
     </div>
-    <div class="producto-descripcion">
-        <div class="descripcion2">
-            <span>GENERO</span>
-        </div>
-        <div class="sinopsis">
-            <h4>Generos</h4>
-            <p>{{libro2?.genres}}</p>
-        </div>
+</div>
+<div class="producto-descripcion">
+    <div class="descripcion2">
+        <span>AUTOR/ES</span>
     </div>
-
-</main>
+    <div class="sinopsis">
+        <h4>Autor</h4>
+        <p>{{libro2?.authors}}</p>
+    </div>
+</div>
+<div class="producto-descripcion">
+    <div class="descripcion2">
+        <span>GENERO</span>
+    </div>
+    <div class="sinopsis">
+        <h4>Generos</h4>
+        <p>{{libro2?.genres}}</p>
+    </div>
+</div>

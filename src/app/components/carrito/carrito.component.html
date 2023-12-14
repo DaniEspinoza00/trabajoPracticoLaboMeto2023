@@ -1,4 +1,4 @@
-<main class="contenedor">
+<div class="contenedor">
     <h1>Carrito</h1>
     <table class="tablaCarr">
         <thead>
@@ -13,7 +13,7 @@
         </thead>
         <tbody id="libros">
             <tr *ngFor="let item of listaItemsCarrito">
-                <td class="td"><img class="imagen-libro" [src]="item.image_url"></td>
+                <td class="td"><img class="imagen" [src]="item.image_url"></td>
                 <td>{{item.titulo}}</td>
                 <td class="td">{{item.edicion}}</td>
                 <td>{{item.cantidad}}</td>
@@ -28,4 +28,4 @@
         <a class="btnCompra" (click)="verificarLogin()">Comprar producto</a>
     </div>
 
-</main>
+</div>

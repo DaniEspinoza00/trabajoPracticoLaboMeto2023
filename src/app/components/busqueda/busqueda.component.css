@@ -1,73 +1,71 @@
-main{
-    min-height: 58vh;
-  }
-  
-  .contenedor {
-      margin: 0 auto;
-      width: 80%;
-      padding: 5rem;
-    }
-    
-    h1{
-      color: white;
-    }
-    
-    /* Estilos para la tabla */
-    table {
-      width: 100%; /*ESTE HAY QUE CAMBIAR PARA QUE ESTE MAS CHIKITO*/
-      border-collapse: collapse;
-      margin-bottom: 2rem;
-    }
-    
-    /* Estilos para el encabezado de la tabla */
-    thead th {
-      background-color: #333;
-      color: #fff;
-      text-align: left;
-      padding: 1rem;
-    }
-    
-    /* Estilos para las celdas de datos */
-    tbody td {
-      border: 1px solid #ccc;
-      padding: 1rem;
-    }
-    
-    /* Estilos alternos para las filas */
-    tbody tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-    tbody tr:nth-child(odd) {
-      background-color: beige;
-    }
-    
-    /* Estilos para la primera fila de datos */
-    /* tbody tr:first-child {
+.contenedor {
+  margin: 0 auto;
+  width: 80%;
+  padding: 5rem;
+}
+
+h1 {
+  color: white;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  /*ESTE HAY QUE CAMBIAR PARA QUE ESTE MAS CHIKITO*/
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+/* Estilos para el encabezado de la tabla */
+thead th {
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  padding: 1rem;
+}
+
+/* Estilos para las celdas de datos */
+tbody td {
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+
+/* Estilos alternos para las filas */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: beige;
+}
+
+/* Estilos para la primera fila de datos */
+/* tbody tr:first-child {
       font-weight: bold;
     } */
-    
-    .libro{
-      text-decoration: none;
-      color: black;
-    }
-  
-    .imagen-libro{
-      width: 4rem;
-    }
-  
-    .mensaje{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  
-    }
-  
-    div h1{
-      color: black;
-    }
-  
-  @media (max-width:900px){
-    .contenedor{
-      width: 100%;
-    }
+
+.libro {
+  text-decoration: none;
+  color: black;
+}
+
+.imagen {
+  width: 4rem;
+}
+
+.mensaje {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+div h1 {
+  color: black;
+}
+
+@media (max-width:900px) {
+  .contenedor {
+    width: 100%;
   }
+}

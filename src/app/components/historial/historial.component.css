@@ -27,8 +27,8 @@ tbody td{
     text-align: center;
 }
 
-main{
-    min-height:55vh;
+section{
+    
     display: flex;
     flex-direction: column;
     align-items: center;

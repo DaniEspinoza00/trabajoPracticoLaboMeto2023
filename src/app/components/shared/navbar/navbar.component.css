@@ -83,4 +83,25 @@ header{
             width: auto;
         }
     }
+
+    @media (max-width:450px) {
+        .logo{
+            width: 10rem;
+            height: 6rem;
+        }
+        .links div{
+            gap: .5rem;
+        }
+        .search-container2{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .usuario-menu{
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        .search-container2 a{
+            text-align: center;
+        }
+    }
   }

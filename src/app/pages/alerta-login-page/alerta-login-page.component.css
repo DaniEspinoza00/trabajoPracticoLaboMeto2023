@@ -2,11 +2,11 @@
     cursor: pointer;
     color: white;
 }
-main{
+/* main{
     min-height: 55vh;
-}
+} */
 
-div{
+section{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,28 +21,28 @@ h2{
 }
 
 @media (max-width:450px) {
-    div{
+    section{
         font-size: .7rem;
         padding: .5rem;
     }
 }
 
 @media (min-width:450px){
-    div{
+    section{
         font-size: .8rem;
         padding: .5rem;
     }
 }
 
 @media (min-width:800px){
-    div{
+    section{
         font-size: 1rem;
         padding: .5rem;
     }
 }
 
 @media (min-width:1165px){
-    div{
+    section{
         font-size: 1rem;
         padding: .5rem;
     }
