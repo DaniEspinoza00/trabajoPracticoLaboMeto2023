@@ -1,4 +1,4 @@
-<div class="contenedor">
+<div *ngIf="listaItemsCarrito && listaItemsCarrito.length>0; else noCoincidencias" class="contenedor">
     <h1>Carrito</h1>
     <table class="tablaCarr">
         <thead>
@@ -29,3 +29,12 @@
     </div>
 
 </div>
+
+<ng-template #noCoincidencias>
+    <div class="mensaje">
+        <div>
+            <h1>Parece que no hay productos en el carrito</h1>
+            <span>Vuelva a la <a href="" routerLink="home">pagina principal</a> para seguir buscando entre nuestro catalogo de productos</span>
+        </div>
+    </div>
+</ng-template>

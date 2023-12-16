@@ -107,6 +107,13 @@ a {
     margin-bottom: 1rem;
 }
 
+.mensaje{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width:450px) {
     a{
         padding: 0px;
