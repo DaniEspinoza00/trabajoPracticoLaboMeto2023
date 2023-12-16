@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ItemCarrito } from 'src/app/interfaces/itemCarrito';
 import { LoginService } from 'src/app/services/usuario.service';
 import { LibrosStockService } from 'src/app/services/libro-stock.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-producto',
@@ -27,11 +28,17 @@ export class ProductoComponent implements OnInit {
     private LibroStock: LibrosStockService,
     private route: ActivatedRoute,
     private CarritoService: CarritoService,
-    private loginService: LoginService) { }
+    private loginService: LoginService,
+    private location:Location) { }
 
   ngOnInit(): void {
     this.mostrarLibro2();
     this.mostrarPrecio2();
+  }
+
+
+  irAtras(){
+    this.location.back();
   }
 
   mostrarLibro2() {

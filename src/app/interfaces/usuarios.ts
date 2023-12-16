@@ -9,6 +9,6 @@ export interface Usuario{
     contra:string,
     documento:string,
     tarjetaCredito:Tarjeta,
-    favoritos:number[],//seria el seria/id/isbn del libro
+    favoritos:number[],
     historial:Ventas[]
 }    
