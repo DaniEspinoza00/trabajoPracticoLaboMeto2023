@@ -54,7 +54,6 @@ export class MostrarUsuariosComponent implements OnInit{
         tarjetaCredito: this.usuario?.tarjetaCredito,
         favoritos: this.usuario?.favoritos,
       });
-      console.log(this.usuario);
     });
     
   }

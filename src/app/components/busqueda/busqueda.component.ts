@@ -49,7 +49,6 @@ export class BusquedaComponent implements OnInit{
             return tituloDelLibro.includes(busquedaEnMinusculas);
           });
           this.stockID = [];
-           console.log(this.listadoLibrosFiltrados);
           this.mostrarPrecioIDstockHttp(this.listadoLibrosFiltrados);
         }
       }

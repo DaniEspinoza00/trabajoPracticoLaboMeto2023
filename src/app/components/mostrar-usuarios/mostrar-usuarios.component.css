@@ -92,6 +92,15 @@ legend{
     display: block;
 }
 
+@media (max-width:900px) {
+    .seccion{
+        width: 90%;
+    }
+    label{
+        font-size: .9rem;
+    }
+}
+
 @media (max-width:450px){
     .seccion{
         width: 90%;

@@ -47,7 +47,6 @@ export class MostrarLibroComponent implements OnInit {
             authors: this.libro?.authors,
             edition: this.libro?.edition,
           });
-          console.log(this.libro);
         }
       });
   
@@ -61,7 +60,6 @@ export class MostrarLibroComponent implements OnInit {
             precio: this.stock?.precio,
             stock: this.stock?.stock,
           });
-          console.log(this.stock);
         }
       });
     });

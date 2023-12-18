@@ -44,13 +44,11 @@ export class ProductoComponent implements OnInit {
   mostrarLibro2() {
     this.route.params.subscribe(async param => {
       const id = param['id'];
-      console.log(id);
       this.LibrosService.getLibroHttp(id).subscribe({
         next:(libro) =>{
           this.libro2 = libro
         }
       });
-      console.log(this.libro2);
     })
   }
 
@@ -58,7 +56,6 @@ export class ProductoComponent implements OnInit {
     this.route.params.subscribe(async param => {
       const id = param['id'];
       this.libroStock = await this.LibroStock.getLibroStock(id);
-      console.log(this.libroStock);
     })
   }
 
