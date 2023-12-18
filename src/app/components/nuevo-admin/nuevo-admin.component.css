@@ -1,17 +1,20 @@
 .campo{
     display: flex;
+    justify-content: space-between;
 }
 
 .campo label{
     flex-basis: 10rem;
+    width: 30%;
 }
 
 .campo input[type="text"],
 .campo input[type="number"],
-.campo input[type="password"]
+.campo input[type="password"],
+.campo select
 {
     margin-bottom: 1rem;
-    width: 100%;
+    width: 70%;
     border: .8px solid #e1e1e1;
 }
 
@@ -20,7 +23,7 @@
     border: .8px solid #e1e1e1;
 }
 .seccion{
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     background-color: beige;
     padding: 1rem;
@@ -80,6 +83,15 @@ legend{
     background-color: rgb(81, 107, 107);
     display: block;
     width: 70%;
+}
+
+@media (max-width:900px) {
+    .seccion{
+        width: 90%;
+    }
+    label{
+        font-size: .9rem;
+    }
 }
 
 @media (max-width:450px){

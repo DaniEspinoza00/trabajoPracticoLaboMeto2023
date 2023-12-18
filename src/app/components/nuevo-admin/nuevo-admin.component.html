@@ -9,17 +9,18 @@
                 </div>
                 <div>
                     <span class="error" *ngIf="userForm.get('usuario')?.hasError('minlength')">
-                     El usuario debe tener al menos 6 caracteres.
-                 </span> 
-                 </div>
+                        El usuario debe tener al menos 6 caracteres.
+                    </span>
+                </div>
                 <div class="campo">
                     <label for="contraseña">Contraseña:</label>
                     <input type="password" id="contraseña" formControlName="contraseña" required>
                 </div>
                 <div>
-                   <span class="error" *ngIf="userForm.get('contraseña')?.hasError('minlength') || userForm.get('contraseña')?.hasError('maxlength')">
-                    La contraseña debe tener entre 6 y 12 caracteres.
-                </span> 
+                    <span class="error"
+                        *ngIf="userForm.get('contraseña')?.hasError('minlength') || userForm.get('contraseña')?.hasError('maxlength')">
+                        La contraseña debe tener entre 6 y 12 caracteres.
+                    </span>
                 </div>
                 <div class="campo">
                     <label for="confirmPassword">Repetir Contraseña:</label>
@@ -27,9 +28,19 @@
                 </div>
                 <div>
                     <span class="error" *ngIf="userForm.hasError('mismatch')">
-                      Las contraseñas no coinciden.
+                        Las contraseñas no coinciden.
                     </span>
-                  </div>
+                </div>
+
+                <div class="campo">
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria" formControlName="categoria">
+                        <option value="" disabled selected>Seleccione categoría</option>
+                        <option value="administrador">Administrador</option>
+                        <option value="empleado">Empleado</option>
+                    </select>
+                </div>
+
                 <div class="inputs">
                     <input class="editar" type="submit" value="Guardar Usuario" id="editar">
                     <button class="cancelar" type="button"><a href="" routerLink="/admin">Cancelar</a></button>

@@ -81,7 +81,8 @@ a{
 
 .campo input[type="text"],
 .campo input[type="number"],
-.campo input[type="date"]
+.campo input[type="date"],
+.campo select
 {
     margin-bottom: 1rem;
     width: 100%;

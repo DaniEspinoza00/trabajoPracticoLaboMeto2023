@@ -26,6 +26,7 @@ export class NuevoAdminComponent {
       usuario: ['', [Validators.required, Validators.minLength(6)]],
       contraseña: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
       confirmPassword: ['', Validators.required],
+      categoria: ['', Validators.required],  // Agregamos validador para el campo 'categoria'
     }, { validator: this.passwordMatchValidator });
   }
 
@@ -37,7 +38,6 @@ export class NuevoAdminComponent {
   }
 
   cancelar() {
-    // Implementa la lógica para cancelar
     console.log("Operación cancelada");
   }
 
@@ -53,9 +53,10 @@ export class NuevoAdminComponent {
           alert('El usuario ya existe. Por favor, elija otro nombre de usuario.');
         } else {
           const adminData: Admin = {
-            id: 0,  // Puedes asignar el valor que corresponda o dejar que el servidor lo genere
+            id: 0, 
             usuario: this.userForm.value.usuario,
             contraseña: this.userForm.value.contraseña,
+            categoria: this.userForm.value.categoria,//verificar esto.
           };
 
           this.AdminService.postAdminHttp(adminData)
@@ -72,6 +73,6 @@ export class NuevoAdminComponent {
             );
         }
       }
-    );
+      );
   }
 }

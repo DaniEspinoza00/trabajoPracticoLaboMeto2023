@@ -9,13 +9,6 @@ section{
   min-height: 100vh;
 
 }
-.imagen{
-width: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 1rem;
-}
 
 .contenedor-ppal{
 margin-bottom: -2rem;
@@ -29,6 +22,13 @@ flex-direction: column;
 align-items: center; 
 }
 
+.imagen{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  }
 
 .navegacion{
 
@@ -44,6 +44,12 @@ align-items: center;
   gap: 2rem;
   width: 100%;
 }
+
+.admin-links{
+  display: flex;
+  width: auto;
+}
+
 .logout a{
   margin-right: 1rem;
   color: rgba(233, 227, 227, 0.861);
@@ -53,7 +59,7 @@ align-items: center;
   color: white;
 }
 
-.links div{
+.opciones{
   display: flex;
   justify-content: space-between;
 }

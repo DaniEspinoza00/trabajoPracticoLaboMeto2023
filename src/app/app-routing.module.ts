@@ -24,6 +24,8 @@ import { ContactoPageComponent } from './pages/contacto-page/contacto-page.compo
 import { AuthGuard } from './components/guards/auth-guard';
 import { LoginGuard } from './components/guards/login-guard';
 import { NuevoAdminPageComponent } from './pages/nuevo-admin-page/nuevo-admin-page.component';
+import { ListarAdminsPageComponent } from './pages/listar-admins-page/listar-admins-page.component';
+import { MostrarAdminPageComponent } from './pages/mostrar-admin-page/mostrar-admin-page.component';
 
 const routes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -47,6 +49,8 @@ const routes: Routes = [
   {path: 'en-construccion', component: EnConstruccionPageComponent},
   {path: 'contacto', component: ContactoPageComponent},
   {path: 'nuevo-admin', component: NuevoAdminPageComponent, canActivate: [AuthGuard]},
+   {path: 'lista-admins', component: ListarAdminsPageComponent/*, canActivate: [AuthGuard]*/},
+   {path: 'admin/:id', component: MostrarAdminPageComponent},
   {path:'**', redirectTo:'home'}
 ];
 

@@ -1,19 +1,33 @@
 <section>
+
     <header class="navegacion">
         <div class="imagen">
             <a href="" routerLink="home">
                 <img class="logo" src="../assets/images/fondo.png" alt="">
             </a>
             <nav class="links">
-                <div>
-                    <a style="cursor: pointer;" [routerLink]="['/nuevo-admin']">Crear Administrador</a>
-                    <a (click)="logout2()" style="cursor: pointer;">CERRAR SESION</a>
-                    <a style="color: white;" class="usuario">¡Hola {{getAdmin?.usuario}}!</a>
-                </div>
+                <div class="opciones" *ngIf="getAdmin?.categoria==='administrador'; else noCoincidencias">
 
+                    <div class="admin-links">
+                        <a style="cursor: pointer;" [routerLink]="['/nuevo-admin']">Crear Administrador</a>
+                        <a style="cursor: pointer;"[routerLink]="['/lista-admins']">Editar/Eliminar Empleado</a>
+                    </div>
+
+                    <div class="admin-links">
+                        <a (click)="logout2()" style="cursor: pointer;">CERRAR SESION</a>
+                        <a style="color: white;" class="usuario">¡Hola {{getAdmin?.usuario}}!</a>
+                    </div>
+                </div>
+                <ng-template #noCoincidencias>
+                    <div class="opciones">
+                        <a (click)="logout2()" style="cursor: pointer;">CERRAR SESION</a>
+                        <a style="color: white;" class="usuario">¡Hola {{getAdmin?.usuario}}!</a>
+                    </div>
+                </ng-template>
             </nav>
         </div>
     </header>
+
     <div class="contenedor-ppal">
         <div class="contenedor">
             <h1>Listado de Clientes</h1>
@@ -35,7 +49,7 @@
                         <td>{{item.mail}}</td>
                         <td>{{item.documento}}</td>
                         <td><a style="cursor: pointer;" (click)="eliminarClienteHttp(item.id)">Eliminar</a></td>
-                        <td><a  [routerLink]="['/usuario', item.id]">Editar</a></td> <!-- /editar/6 -->
+                        <td><a [routerLink]="['/usuario', item.id]">Editar</a></td> <!-- /editar/6 -->
                     </tr>
                 </tbody>
             </table>

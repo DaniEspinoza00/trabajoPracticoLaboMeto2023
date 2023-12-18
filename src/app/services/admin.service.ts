@@ -44,6 +44,22 @@ export class AdminService {
     return this.http.get<Admin[]>(`${this.urlAdmin}/${this.admins}`);
   }
 
+  getAdminHttp(id:number):Observable<Admin>{
+    return this.http.get<Admin>(`${this.urlAdmin}/${this.admins}/${id}`);
+  }
+
+  putAdminHttp(admin:Admin):Observable<Admin>{
+    return this.http.put<Admin>(
+      `${this.urlAdmin}/${this.admins}/${admin.id}`,
+      admin,
+      {headers: {'Content-type': 'application/json'}}
+    )
+  }
+
+  deleteAdminsHttp(id:number):Observable<Admin>{
+    return this.http.delete<Admin>(`${this.urlAdmin}/${this.admins}/${id}`);
+  }
+
   postAdminHttp(admin:Admin):Observable<Admin>{//revisar
     return this.http.post<Admin>(
       `${this.urlAdmin}/${this.admins}`,

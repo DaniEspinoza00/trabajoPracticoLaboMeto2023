@@ -55,6 +55,10 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { ContactoPageComponent } from './pages/contacto-page/contacto-page.component';
 import { NuevoAdminComponent } from './components/nuevo-admin/nuevo-admin.component';
 import { NuevoAdminPageComponent } from './pages/nuevo-admin-page/nuevo-admin-page.component';
+import { ListarAdminsComponent } from './components/listar-admins/listar-admins.component';
+import { ListarAdminsPageComponent } from './pages/listar-admins-page/listar-admins-page.component';
+import { MostrarAdminComponent } from './components/mostrar-admin/mostrar-admin.component';
+import { MostrarAdminPageComponent } from './pages/mostrar-admin-page/mostrar-admin-page.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +112,10 @@ import { NuevoAdminPageComponent } from './pages/nuevo-admin-page/nuevo-admin-pa
     ContactoPageComponent,
     NuevoAdminComponent,
     NuevoAdminPageComponent,
+    ListarAdminsComponent,
+    ListarAdminsPageComponent,
+    MostrarAdminComponent,
+    MostrarAdminPageComponent,
   ],
   imports: [
     BrowserModule,
