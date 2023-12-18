@@ -21,7 +21,7 @@
     <h2>Total: ${{calcularTotalAPagar()|number:'.2'}}</h2>
     <div class="sel-tarjeta">
         <label class="label" for="tarjeta">Tarjeta:</label>
-        <select name="tarjetas" id="tarjeta">
+        <select required [(ngModel)]="selectedOption" #option="ngModel" name="option" (change)="onChangeSelect()">
             <option value="" disabled selected>-- Numero tarjeta --</option>
             <option value="num">{{user?.tarjetaCredito?.numeroTarjeta}}</option>
         </select>

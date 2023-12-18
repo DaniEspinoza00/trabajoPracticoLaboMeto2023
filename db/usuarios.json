@@ -551,6 +551,51 @@
             }
           ],
           "total": 26.39
+        },
+        {
+          "fecha": "2023-12-18T18:16:19.733Z",
+          "pedidos": [
+            {
+              "id": 36,
+              "titulo": "Brave New World",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1523061131l/5129.jpg",
+              "cantidad": 1,
+              "precio": 10.49,
+              "subtotal": 10.49
+            }
+          ],
+          "total": 10.49
+        },
+        {
+          "fecha": "2023-12-18T18:31:57.030Z",
+          "pedidos": [
+            {
+              "id": 13,
+              "titulo": "The Giving Tree",
+              "edicion": "",
+              "image_url": "https://images.gr-assets.com/books/1174210942l/370493.jpg",
+              "cantidad": 1,
+              "precio": 16.99,
+              "subtotal": 16.99
+            }
+          ],
+          "total": 16.99
+        },
+        {
+          "fecha": "2023-12-18T18:32:52.403Z",
+          "pedidos": [
+            {
+              "id": 22,
+              "titulo": "Romeo and Juliet",
+              "edicion": "New Folger edition",
+              "image_url": "https://images.gr-assets.com/books/1327872146l/18135.jpg",
+              "cantidad": 1,
+              "precio": 7.49,
+              "subtotal": 7.49
+            }
+          ],
+          "total": 7.49
         }
       ]
     },
