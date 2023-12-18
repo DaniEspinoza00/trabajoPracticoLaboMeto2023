@@ -49,8 +49,8 @@ const routes: Routes = [
   {path: 'en-construccion', component: EnConstruccionPageComponent},
   {path: 'contacto', component: ContactoPageComponent},
   {path: 'nuevo-admin', component: NuevoAdminPageComponent, canActivate: [AuthGuard]},
-   {path: 'lista-admins', component: ListarAdminsPageComponent/*, canActivate: [AuthGuard]*/},
-   {path: 'admin/:id', component: MostrarAdminPageComponent},
+   {path: 'lista-admins', component: ListarAdminsPageComponent, canActivate: [AuthGuard]},
+   {path: 'admin/:id', component: MostrarAdminPageComponent, canActivate: [AuthGuard]},
   {path:'**', redirectTo:'home'}
 ];
 
