@@ -35,7 +35,6 @@ export class MostrarAdminComponent implements OnInit {
   mostrarAdminHttp() {
     this.route.params.subscribe(async param => {
       const id = param['id'];
-      console.log(id);
       this.AdminService.getAdminHttp(id).subscribe(
         {
           next: (administrador) => {

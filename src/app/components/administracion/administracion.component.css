@@ -2,8 +2,8 @@ section{
   background-image: url(src\assets\images\libros-antiguos-2644117.png);
   background-size: cover;
   background-attachment: fixed;
-  margin: 0; /* Asegura que no haya margen en el cuerpo */
-  padding: 0; /* Asegura que no haya relleno en el cuerpo */
+  margin: 0;
+  padding: 0;
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
@@ -73,8 +73,6 @@ align-items: center;
 }
 
 
-/****************************/
-
 .contenedor {
   margin: 0 auto;
   width: 80%;
@@ -126,8 +124,4 @@ a{
   .contenedor-ppal{
     width: 100%;
   }
-  /* section{
-    width: 200%;
-  } */
-  
 }

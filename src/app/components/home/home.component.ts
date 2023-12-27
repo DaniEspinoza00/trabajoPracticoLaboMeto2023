@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
             .subscribe(
                 {
                     next: (libros: Libro[]) => {
-                        // Obtener 3 índices aleatorios únicos
                         const indicesAleatorios: number[] = [];
                         while (indicesAleatorios.length < 3) {
                             const indiceAleatorio: number = Math.floor(Math.random() * libros.length);
@@ -37,7 +36,6 @@ export class HomeComponent implements OnInit {
                                 indicesAleatorios.push(indiceAleatorio);
                             }
                         }
-                        // Obtener los objetos correspondientes a los índices aleatorios
                         this.listadoLibros = indicesAleatorios.map((indice: number) => libros[indice]);
                         this.buscarCoincidenciasEnStock(this.listadoLibros);
                     },

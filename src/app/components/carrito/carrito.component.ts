@@ -26,10 +26,6 @@ export class CarritoComponent implements OnInit {
     let carrito = JSON.parse(carritoStorage)
     this.listaItemsCarrito = carrito
 
-    // this.CarritoService.getLibros().subscribe(items => {
-    //   this.listaItemsCarrito = items;
-    // })
-    // console.log(this.listaItemsCarrito);
   }
 
   verificarLogin() {
@@ -79,7 +75,6 @@ export class CarritoComponent implements OnInit {
       carrito[index] = itemCarrito
       localStorage.setItem("carrito", JSON.stringify(carrito))
     }
-    //window.location.href="/carrito/"
     this.ngOnInit()
   }
 }

@@ -45,7 +45,7 @@ export class AutoresComponent implements OnInit{
             return libro.authors.trim() === author.trim();
           });
           this.stockID = [];
-           console.log(this.listadoLibrosFiltrados);
+
           this.mostrarPrecioIDstockHttp(this.listadoLibrosFiltrados);
         },
         error: (error)=>{

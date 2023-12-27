@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="search-container2">
-                <a href="#" routerLink="/usuario-menu">
+                <a class="usuario-menu" href="#" routerLink="/usuario-menu">
                     <div *ngIf="flag; 
                     then thenBlock 
                     else elseBlock"></div>
@@ -25,8 +25,8 @@
                     <ng-template #thenBlock> Mi cuenta</ng-template>
                     <ng-template #elseBlock> Iniciar sesion/Registrarse</ng-template>
                 </a>
-                <a href="#" routerLink="/lista-favoritos">Lista de deseados</a>
-                <a href="#" routerLink="/carrito">Carrito</a>
+                <a class="lista-menu" href="#" routerLink="/lista-favoritos">Lista de deseados</a>
+                <a class="carrito-menu" href="#" routerLink="/carrito">Carrito</a>
             </div>
         </nav>
     </header>

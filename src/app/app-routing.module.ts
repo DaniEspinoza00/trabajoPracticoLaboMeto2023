@@ -32,17 +32,17 @@ const routes: Routes = [
   {path:'libros', component:ListarLibrosPageComponent},
   {path:'categoria/:genre', component:CategoriaPageComponent},
   {path:'producto/:id', component:ProductoPageComponent},
-  {path: 'usuario-menu', component:UsuarioPageComponent},////!!!!!!!!! loginguard
+  {path: 'usuario-menu', component:UsuarioPageComponent},
   {path:'carrito', component:CarritoPageComponent},
-  {path:'compra', component:CompraPageComponent}, ////!!!!!!!!! authguard
+  {path:'compra', component:CompraPageComponent},
   {path:'alerta-login', component:AlertaLoginPageComponent},
   {path: 'lista-favoritos', component: FavoritoPageComponent},
   {path: 'admin',component:AdministracionPageComponent, canActivate: [AuthGuard]},
   {path: 'libro/:id', component:MostrarLibroPageComponent, canActivate: [AuthGuard]},
   {path: 'usuario/:id', component:MostrarUsuariosPageComponent, canActivate: [AuthGuard]},
   {path: 'login-admin', component:LoginAdminPageComponent, canActivate: [LoginGuard]},
-  {path:'agregar-tarjeta', component:AgregarTarjetaPageComponent},///////!!!!!!! authguard
-  {path:'felicidades', component:AgradecimientoPageComponent},///////!!!!!!! authguard
+  {path:'agregar-tarjeta', component:AgregarTarjetaPageComponent},
+  {path:'felicidades', component:AgradecimientoPageComponent},
   {path:'historial',component: HistorialComponent},
   {path:'autores/:authors', component: AutoresPageComponent},
   {path: 'busqueda/:search', component: BusquedaPageComponent},

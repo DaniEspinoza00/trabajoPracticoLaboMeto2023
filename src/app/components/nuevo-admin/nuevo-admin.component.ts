@@ -26,7 +26,7 @@ export class NuevoAdminComponent {
       usuario: ['', [Validators.required, Validators.minLength(6)]],
       contraseña: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
       confirmPassword: ['', Validators.required],
-      categoria: ['', Validators.required],  // Agregamos validador para el campo 'categoria'
+      categoria: ['', Validators.required],
     }, { validator: this.passwordMatchValidator });
   }
 
@@ -56,7 +56,7 @@ export class NuevoAdminComponent {
             id: 0, 
             usuario: this.userForm.value.usuario,
             contraseña: this.userForm.value.contraseña,
-            categoria: this.userForm.value.categoria,//verificar esto.
+            categoria: this.userForm.value.categoria,
           };
 
           this.AdminService.postAdminHttp(adminData)

@@ -104,7 +104,6 @@ h4{
     background-color: #538856;
 }
 
-/* styles.css o styles.scss */
 .clicked {
     background-color: #538856;
 }
@@ -124,9 +123,6 @@ h4{
 .open {
     color: #3f4245;
     text-decoration: none;
-    /*     padding: 15px 50px;
-    border-radius: 2em;
-    background-color: #44a786; */
 }
 
 .modal {
@@ -135,7 +131,6 @@ h4{
     inset: 0;
     background: #0000005d;
     display: flex;
-    /* transition: transform .5s;*/
     transform: translate(100%);
 }
 
@@ -144,9 +139,7 @@ h4{
 }
 
 .modal__container {
-    /* position: relative; */
     width: 30%;
-    /*     height: 60%; */
     background-color: beige;
     margin: auto;
     display: flex;
@@ -167,9 +160,6 @@ h4{
 }
 
 .modal__titular {
-    /* position: absolute;
-    top: 0;
-    left: 0; */
     text-align: center;
     line-height: 40px;
     font-weight: bold;
@@ -181,10 +171,7 @@ h4{
 }
 
 .modal__close {
-    /* position: absolute; */
     background-color: crimson;
-    /* top: 0;
-    right: 0; */
     width: 40px;
     height: 40px;
     text-align: center;

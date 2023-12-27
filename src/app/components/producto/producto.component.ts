@@ -18,9 +18,9 @@ export class ProductoComponent implements OnInit {
 
   libro: Libro | undefined;
   libro2: Libro | undefined;
-  libroStock: LibroStock | undefined;//cambiado de precio a 
+  libroStock: LibroStock | undefined;
   list: Libro[] = []
-  // stock: LibroStock | undefined
+
   isClicked: boolean = false;
   mensaje: string = '';
 
@@ -93,7 +93,6 @@ export class ProductoComponent implements OnInit {
             }
 
             if (index === -1) {
-              console.log(iCarrito);
               carrito.push(iCarrito)
               localStorage.setItem("carrito", JSON.stringify(carrito))
             }

@@ -41,7 +41,7 @@ main{
     background-size: cover;
     background-attachment: fixed;
     
-    padding: 0; /* Asegura que no haya relleno en el cuerpo */
+    padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

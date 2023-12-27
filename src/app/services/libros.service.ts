@@ -21,7 +21,7 @@ export class LibrosService {
 
   constructor(private http:HttpClient) { }
 
-  async getLibros(): Promise<Libro[] | undefined>{ //este se usa
+  async getLibros(): Promise<Libro[] | undefined>{
     try {
       const resultado = await fetch (this.urlLibros);
       const libros = await resultado.json();

@@ -80,6 +80,5 @@ export class AutenticacionService {
     localStorage.removeItem('token')
   }
 
-  /////////////////////////////////////
   
 }

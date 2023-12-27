@@ -5,7 +5,7 @@ thead th {
     padding: 1rem;
 }
 
-/* Estilos para las celdas de datos */
+
 tbody td {
     border: 1px solid #ccc;
     background-color: #f2f2f2;
@@ -14,7 +14,6 @@ tbody td {
 
 a {
     display: inline-block;
-    /* padding: 20px 40px; */
     border: none;
     text-decoration: none;
     cursor: pointer;
@@ -35,12 +34,6 @@ a {
     padding: 20px 40px;
     color: #fff;
 }
-
-/* .btnEliminar{
-    background-color: rgb(211, 56, 8);
-    color: white;
-}*/
-
 
 .btnEliminar {
     display: inline-block;

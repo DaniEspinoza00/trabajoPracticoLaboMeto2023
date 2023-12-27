@@ -53,8 +53,6 @@ export class MostrarLibroComponent implements OnInit {
       this.LibrosStockService.getLibroStockHttp(id).subscribe({
         next: (stock) => {
           this.stock = stock;
-  
-          // Actualiza los controles del formulario con los datos obtenidos
           this.formulario.patchValue({
             id: this.stock?.id,
             precio: this.stock?.precio,
@@ -74,7 +72,7 @@ export class MostrarLibroComponent implements OnInit {
       precio:this.formulario.controls["precio"].value,
       stock:this.formulario.controls["stock"].value,
     }
-    this.LibrosStockService.putLibroHttp(libro) //desde aca
+    this.LibrosStockService.putLibroHttp(libro) 
     .subscribe(
       {
         next:()=>{
@@ -84,7 +82,7 @@ export class MostrarLibroComponent implements OnInit {
           console.log(error);
         }
       }
-    ); //hasta aca
+    );
     console.log(libro);
   }
 }

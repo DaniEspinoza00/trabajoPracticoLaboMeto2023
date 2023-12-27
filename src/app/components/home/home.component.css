@@ -129,10 +129,22 @@ h3 {
   order: 1;
 }
 
+@media (max-width:1400px){
+  .contenedor-4-elementos{
+    width: 90%;
+  }
+  .div-imagenes img{
+    height: 15rem;
+  }
+}
+
 @media (max-width: 900px) {
   .imagen-libro {
     height: 15rem;
     width: 9rem;
+  }
+  .div-imagenes img{
+    height: 20rem;
   }
 }
 
@@ -170,6 +182,12 @@ h3 {
   }
   .boton-contenedor p{
     font-size: .75rem;
+  }
+  .product p{
+    font-size: .8rem;
+  }
+  h3{
+    font-size: .9rem;
   }
 }
 

@@ -8,15 +8,12 @@ h1 {
   color: white;
 }
 
-/* Estilos para la tabla */
 table {
   width: 100%;
-  /*ESTE HAY QUE CAMBIAR PARA QUE ESTE MAS CHIKITO*/
   border-collapse: collapse;
   margin-bottom: 2rem;
 }
 
-/* Estilos para el encabezado de la tabla */
 thead th {
   background-color: #333;
   color: #fff;
@@ -24,13 +21,11 @@ thead th {
   padding: 1rem;
 }
 
-/* Estilos para las celdas de datos */
 tbody td {
   border: 1px solid #ccc;
   padding: 1rem;
 }
 
-/* Estilos alternos para las filas */
 tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
@@ -39,10 +34,6 @@ tbody tr:nth-child(odd) {
   background-color: beige;
 }
 
-/* Estilos para la primera fila de datos */
-/* tbody tr:first-child {
-      font-weight: bold;
-    } */
 
 .libro {
   text-decoration: none;

@@ -18,7 +18,7 @@ export class LibrosStockService {
   constructor(private router:Router, private http:HttpClient) { }
 
 
-  async getLibroStock(id:number): Promise<LibroStock | undefined>{ //este lo usa
+  async getLibroStock(id:number): Promise<LibroStock | undefined>{ 
     try {
       const resultado = await fetch(`${this.urlStock}/${id}`);
       const libro = await resultado.json();
@@ -31,7 +31,7 @@ export class LibrosStockService {
 
 
 
-  async putStock(stock: LibroStock | null){ //este se usa
+  async putStock(stock: LibroStock | null){
     try {
       await fetch(`${this.urlStock}/${stock?.id}`,
         {

@@ -251,9 +251,6 @@ export class LoginService {
     }
   }
 
-
-
-/////////////////////////////////////
 leerJsonHTTP(): Observable<Usuario[]> {
   return this.http.get<Usuario[]>(this.url);
 }

@@ -36,7 +36,6 @@ export class FavoritosComponent implements OnInit {
 
   igualarFavLibros(){
     for (var j=0;j<this.listaFav.length;j++){
-      console.log(this.listaFav[j])
       for(var i=0;i<this.librosService.listadoLibros.length;i++){
         
         if(this.librosService.listadoLibros[i].id==this.listaFav[j]){

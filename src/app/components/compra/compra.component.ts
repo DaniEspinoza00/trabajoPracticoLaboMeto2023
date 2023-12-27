@@ -16,7 +16,6 @@ import { IfStmt } from '@angular/compiler';
 export class CompraComponent implements OnInit {
   listaItemsCarrito: ItemCarrito[] = []
   user: Usuario | undefined
-  // stock: LibroStock | undefined
   selectedOption: string = '';
   tarjeta: number = 0;
 
