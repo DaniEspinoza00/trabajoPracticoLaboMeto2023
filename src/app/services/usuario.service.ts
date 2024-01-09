@@ -176,11 +176,12 @@ export class LoginService {
     if (this.listaUsuarios) {
       for (var i: number = 0; i < this.listaUsuarios.length && !flag; i++) {
         if (this.listaUsuarios[i].mail == mail && this.listaUsuarios[i].contra == contra) {
+          
           this.leerUsuarioHTTP(this.listaUsuarios[i].id).subscribe(
             {
               next:(user)=>{
                 this.usuarioActual=user
-                
+                localStorage.setItem('tokenUser',JSON.stringify(user))
                 sessionStorage.setItem('usuarioIniciado', JSON.stringify(this.usuarioActual))
                 this.router.navigate(['home'])
               },
@@ -284,21 +285,16 @@ borrarUsuarioHTTP(id:number):Observable<Usuario>{
   return this.http.delete<Usuario>(`${this.url}/${id}`);
 }
 
-// checkStatusAutenticacion(): Observable<boolean> {
-//   const token = localStorage.getItem('token')
-//   if (!token) {
-//     return of(false)
-//   }
-//   return this.http.get<Usuario>(`${this.url}/${token}`)
-//     .pipe(
-//       tap(u => this.usuarioActual = u),
-//       map(u => !!u),
-//       catchError(err => of(false))
-//     )
-// } 
+checkStatusAutenticacion(): Observable<boolean> {
+  const token = localStorage.getItem('tokenUser')
+  if (!token) {
+    return of(false)
+  }
+  return of(true)
+} 
 
-// logout2() {
-//   this.usuarioActual = this.usuarioVacio;
-//   localStorage.removeItem('token')
-// }
+logout() {
+  this.usuarioActual = this.usuarioVacio;
+  localStorage.removeItem('tokenUser')
+}
 }

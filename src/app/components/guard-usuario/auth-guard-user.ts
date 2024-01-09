@@ -7,6 +7,7 @@ import { LoginService } from 'src/app/services/usuario.service';
 function checkAuthStatus(): boolean | Observable<boolean>{
   const authService = inject(LoginService);
   const  router = inject(Router);
+
   const user:Usuario | undefined = authService.usuarioActual
 
   return authService.checkStatusAutenticacion()
@@ -17,6 +18,6 @@ function checkAuthStatus(): boolean | Observable<boolean>{
                     )
 }
 
-export const AuthGuard = () => {
+export const AuthGuardUser = () => {
   return checkAuthStatus()
 }

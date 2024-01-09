@@ -15,7 +15,7 @@ export class SignupComponent {
   formulario:FormGroup = this.formsBuilder.group({
     nombre:['',[Validators.required]],
     apellido:['',[Validators.required]],
-    mail:['',[Validators.required]],
+    mail:['',[Validators.required,Validators.email]],
     contra:['',[Validators.required]],
     dni:['',[Validators.required]],
   })

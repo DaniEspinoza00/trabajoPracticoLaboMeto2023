@@ -48,7 +48,7 @@ export class DataManagerComponent implements OnInit{
     }
 
     cerrarSesion(){
-      this.loginService.usuarioActual=this.loginService.usuarioVacio
+      this.loginService.logout()
       sessionStorage.clear()
     }
 

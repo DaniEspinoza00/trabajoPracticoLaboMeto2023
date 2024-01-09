@@ -28,6 +28,7 @@
       <div class="error">
         <span class="error" *ngIf="formulario.controls['mail'].getError('required')&&formulario.touched">El campo es
          requerido</span> 
+         <span class="error" *ngIf="formulario.controls['mail'].getError('email')">Debe ser un dominio valido</span>
      </div>
 
       <p>Ingrese su contraseña</p>

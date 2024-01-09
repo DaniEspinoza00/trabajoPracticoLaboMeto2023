@@ -26,6 +26,7 @@ import { LoginGuard } from './components/guards/login-guard';
 import { NuevoAdminPageComponent } from './pages/nuevo-admin-page/nuevo-admin-page.component';
 import { ListarAdminsPageComponent } from './pages/listar-admins-page/listar-admins-page.component';
 import { MostrarAdminPageComponent } from './pages/mostrar-admin-page/mostrar-admin-page.component';
+import { AuthGuardUser } from './components/guard-usuario/auth-guard-user';
 
 const routes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -34,16 +35,16 @@ const routes: Routes = [
   {path:'producto/:id', component:ProductoPageComponent},
   {path: 'usuario-menu', component:UsuarioPageComponent},
   {path:'carrito', component:CarritoPageComponent},
-  {path:'compra', component:CompraPageComponent},
+  {path:'compra', component:CompraPageComponent, canActivate:[AuthGuardUser]},
   {path:'alerta-login', component:AlertaLoginPageComponent},
   {path: 'lista-favoritos', component: FavoritoPageComponent},
   {path: 'admin',component:AdministracionPageComponent, canActivate: [AuthGuard]},
   {path: 'libro/:id', component:MostrarLibroPageComponent, canActivate: [AuthGuard]},
   {path: 'usuario/:id', component:MostrarUsuariosPageComponent, canActivate: [AuthGuard]},
   {path: 'login-admin', component:LoginAdminPageComponent, canActivate: [LoginGuard]},
-  {path:'agregar-tarjeta', component:AgregarTarjetaPageComponent},
+  {path:'agregar-tarjeta', component:AgregarTarjetaPageComponent, canActivate:[AuthGuardUser]},
   {path:'felicidades', component:AgradecimientoPageComponent},
-  {path:'historial',component: HistorialComponent},
+  {path:'historial',component: HistorialComponent, canActivate:[AuthGuardUser]},
   {path:'autores/:authors', component: AutoresPageComponent},
   {path: 'busqueda/:search', component: BusquedaPageComponent},
   {path: 'en-construccion', component: EnConstruccionPageComponent},
