@@ -38,8 +38,14 @@ export class ModificacionComponent {
       }
 
     if(mail!=""){
-      actual.mail=mail
+      let check: Usuario=this.loginService.usuarioVacio;
+      check.mail=mail;
+      if(this.loginService.verificarMail(check)){
+        alert ("Ya existe una cuenta registrada con este correo electronico, por lo que se conservará el existente")
+      }else{
+        actual.mail=mail
       }
+    }
     
     if(contra!=""){
         actual.contra=contra
