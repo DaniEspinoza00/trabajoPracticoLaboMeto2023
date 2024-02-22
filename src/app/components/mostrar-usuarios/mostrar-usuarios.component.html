@@ -8,12 +8,12 @@
                 </div>
                 <div class="campo">
                     <label for="nombre">Nombre: </label>
-                    <input type="text" id="nombre" name="nombre" formControlName="nombre">
+                    <input type="text" id="nombre" name="nombre" formControlName="nombre" (input)="soloLetras($event)">
                 </div>
                 <div class="campo">
                     <label for="apellido">Apellido: </label>
-                    <input type="text" id="apellido" name="apellido" formControlName="apellido">
-                </div>
+                    <input type="text" id="apellido" name="apellido" formControlName="apellido" (input)="soloLetras($event)">
+                </div> 
                 <div class="campo">
                     <label for="mail">Mail: </label>
                     <input type="text" id="mail" name="mail" formControlName="mail">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="campo">
                     <label for="documento">DNI: </label>
-                    <input type="text" id="documento" name="documento" formControlName="documento">
+                    <input type="text" id="documento" name="documento" formControlName="documento" (input)="soloNumeros($event)">
                 </div>
                 <div class="campo">
                     <input type="hidden" id="tarjetaCredito" formControlName="tarjetaCredito">

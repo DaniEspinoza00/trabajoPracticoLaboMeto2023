@@ -29,9 +29,18 @@
 .seccion fieldset{
     border: .8px solid #e1e1e1;
 }
-.error{
+/* .error{
     background-color: rgb(216, 206, 206);
     color: rgb(116, 78, 32);
+} */
+.error span {
+    background-color: rgb(216, 206, 206);
+    text-align: center;
+    color: red;
+    border-radius: 8px;
+    padding: .3rem;
+    font-size: 1rem;
+    margin-left: 5rem;
 }
 
 body{

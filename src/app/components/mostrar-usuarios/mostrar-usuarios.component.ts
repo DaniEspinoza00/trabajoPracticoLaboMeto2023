@@ -10,26 +10,28 @@ import { AdminService } from 'src/app/services/admin.service';
   templateUrl: './mostrar-usuarios.component.html',
   styleUrls: ['./mostrar-usuarios.component.css']
 })
-export class MostrarUsuariosComponent implements OnInit{
-  
-  usuario:Usuario|undefined;
+export class MostrarUsuariosComponent implements OnInit {
 
-  formulario:FormGroup = this.formsBuilder.group({
-    id:[0],
-    nombre:[''],
-    apellido:[''],
-    mail:[''],
-    contra:[''],
-    documento:[0],
-    tarjetaCredito:[false],
-    favoritos:[[]],
-    historial:[[]],
-  }) 
-  constructor (private formsBuilder: FormBuilder,
+  usuario: Usuario | undefined;
+
+  formulario: FormGroup = this.formsBuilder.group({
+    id: [0],
+    nombre: ['', Validators.required],//si no, sacarle el validators
+    apellido: ['', Validators.required],
+    mail: ['', Validators.required],
+    contra: [''],
+    documento: [0, Validators.required],
+    tarjetaCredito: [false],
+    favoritos: [[]],
+    historial: [[]],
+  })
+
+
+  constructor(private formsBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private AdminService:AdminService,
-    private Router:Router){}
-  
+    private AdminService: AdminService,
+    private Router: Router) { }
+
   ngOnInit(): void {
     this.mostrarCliente()
   }
@@ -43,7 +45,7 @@ export class MostrarUsuariosComponent implements OnInit{
       })
     ).subscribe(usuario => {
       this.usuario = usuario;
-  
+
       this.formulario = this.formsBuilder.group({
         id: this.usuario?.id,
         nombre: this.usuario?.nombre,
@@ -55,49 +57,72 @@ export class MostrarUsuariosComponent implements OnInit{
         favoritos: this.usuario?.favoritos,
       });
     });
-    
+
   }
-  
-  
-  
-  
-     editarUsuario(){
-      if(this.formulario.invalid) return console.log("no se puede");
-  
-      const usuario:Usuario={
-          id:this.formulario.controls["id"].value,
-          nombre: this.formulario.controls["nombre"].value,
-          apellido: this.formulario.controls["apellido"].value,
-          mail: this.formulario.controls["mail"].value,
-          contra:this.formulario.controls["contra"].value,
-          documento:this.formulario.controls["documento"].value,
-          tarjetaCredito:this.formulario.controls["tarjetaCredito"].value,
-          favoritos:[],
-          historial:[]
-        }
-        if(this.usuario?.favoritos){
-          usuario.favoritos=this.usuario.favoritos
-        }
-        if(this.usuario?.historial){
-          usuario.historial=this.usuario.historial
-        }
-        this.AdminService.putUsuarioHttp(usuario)
-        .subscribe(
-          {
-            next:()=>{
-              this.Router.navigate(['/admin'])
-            },
-            error:(error)=>{
-              console.log(error);
-            }
-          }
-        );
-        console.log(usuario);
-    } 
-  
-  
-  
-    validar(obj: Object | null){
-      return Object.values(obj!).every(input=>input!=='')
+
+
+
+
+  editarUsuario() {
+    if (this.formulario.invalid) return;
+
+    const usuario: Usuario = {
+      id: this.formulario.controls["id"].value,
+      nombre: this.formulario.controls["nombre"].value,
+      apellido: this.formulario.controls["apellido"].value,
+      mail: this.formulario.controls["mail"].value,
+      contra: this.formulario.controls["contra"].value,
+      documento: this.formulario.controls["documento"].value,
+      tarjetaCredito: this.formulario.controls["tarjetaCredito"].value,
+      favoritos: [],
+      historial: []
     }
+    if (this.usuario?.favoritos) {
+      usuario.favoritos = this.usuario.favoritos
+    }
+    if (this.usuario?.historial) {
+      usuario.historial = this.usuario.historial
+    }
+
+    const valor = this.validar(usuario)//quizas no ande porque a algunos datos si los seteo a vacio
+
+    if (!valor) {
+      alert('Todos los campos son obligatorios...')
+      return;
+    }
+
+    this.AdminService.putUsuarioHttp(usuario)
+      .subscribe(
+        {
+          next: () => {
+            this.Router.navigate(['/admin'])
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        }
+      );
+    console.log(usuario);
+  }
+
+
+
+  validar(obj: Object | null) {
+    return Object.values(obj!).every(input => input !== '')
+  }
+
+  soloNumeros(event: any) {
+    const pattern = /^[0-9]*$/;
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^0-9]/g, "");
+    }
+  }
+
+  soloLetras(event: any) {
+    const pattern = /^[a-zA-Z ]*$/;
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^a-zA-Z ]/g, "");
+    }
+  }
+
 }
