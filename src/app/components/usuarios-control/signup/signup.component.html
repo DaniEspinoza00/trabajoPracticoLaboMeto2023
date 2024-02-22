@@ -5,7 +5,7 @@
 
         <p>Ingrese su nombre</p>
         <p>
-        <input type="text" id="nombre" formControlName="nombre">
+        <input type="text" id="nombre" formControlName="nombre" (input)="soloLetras($event)">
         </p>
         <div class="error">
           <span class="error" *ngIf="formulario.controls['nombre'].getError('required')&&formulario.touched">El campo es
@@ -14,7 +14,7 @@
 
       <p>Ingrese su apellido</p>
       <p>
-        <input type="text" id="apellido" formControlName="apellido">
+        <input type="text" id="apellido" formControlName="apellido" (input)="soloLetras($event)">
       </p>
       <div class="error">
         <span class="error" *ngIf="formulario.controls['apellido'].getError('required')&&formulario.touched">El campo es
@@ -42,7 +42,7 @@
 
       <p>Ingrese su DNI</p>
       <p>
-        <input type="text" id="dni" formControlName="dni">
+        <input type="text" id="dni" formControlName="dni" (input)="soloNumeros($event)">
       </p>
       <div class="error">
         <span class="error" *ngIf="formulario.controls['dni'].getError('required')&&formulario.touched">El campo es

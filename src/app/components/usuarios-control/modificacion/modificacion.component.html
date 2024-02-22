@@ -8,8 +8,8 @@
     </tr>
         
     <tr>
-      <td> <input type="text" id="nombre" value=""></td>
-      <td><input type="text" id="apellido" value=""></td>
+      <td> <input type="text" id="nombre" value="" (input)="soloLetras($event)"></td>
+      <td><input type="text" id="apellido" value="" (input)="soloLetras($event)"></td>
     </tr>
 
     <tr >
@@ -29,7 +29,7 @@
     </p>
 
     <p class="input3">
-       <input type="text" id="dni" value="">
+       <input type="text" id="dni" value="" (input)="soloNumeros($event)">
     </p>
       
       

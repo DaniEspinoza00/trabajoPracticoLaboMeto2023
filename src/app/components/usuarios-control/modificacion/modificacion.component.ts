@@ -69,6 +69,19 @@ export class ModificacionComponent {
   
   }
 
+  soloNumeros(event: any) {
+    const pattern = /^[0-9]*$/;
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^0-9]/g, "");
+    }
+  }
+
+  soloLetras(event: any) {
+    const pattern = /^[a-zA-Z ]*$/;
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^a-zA-Z ]/g, "");
+    }
+  }
 
 
 }
